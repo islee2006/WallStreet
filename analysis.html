@@ -1,0 +1,1351 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Equity Research Dashboard · 2026-05-30</title>
+<style>
+:root{--bg:#f6f8fa;--card:#fff;--bd:#d0d7de;--ink:#1f2328;--mut:#57606a}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:24px;margin:0 0 2px}
+h2{font-size:16px;margin:0 0 12px}
+h3{font-size:18px;font-weight:700;margin:0 0 14px;color:var(--ink)}
+.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+.cards{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.kpi{flex:1;min-width:140px;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
+.kpi .v{font-size:22px;font-weight:700}
+.kpi .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.03em}
+.panel{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px;margin-bottom:22px}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid #eaeef2;font-size:14px;vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:#f0f3f6}
+.tk{font-weight:700}
+.nm{font-weight:400;font-size:11px;color:var(--mut)}
+.comp{display:inline-block;min-width:38px;text-align:center;font-weight:700;padding:2px 7px;border-radius:6px}
+.delta{font-size:11px}
+.up{color:#1a7f37}.dn{color:#cf222e}.fl{color:#57606a}.new{color:#0969da}
+.sig{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;display:inline-block}
+.buy{background:#dafbe1;color:#1a7f37}.hold{background:#fff8c5;color:#9a6700}
+.trim{background:#fff1e5;color:#bc4c00}.exit{background:#ffebe9;color:#cf222e}
+.detail td{background:#fbfcfd}
+.dwrap{display:flex;gap:24px;flex-wrap:wrap}
+.dcol{flex:1;min-width:280px}
+.fcol{max-width:320px}
+.biz{color:#3a4149;font-size:13px}
+.badge{display:inline-block;font-size:11px;background:#eaeef2;color:#3a4149;padding:1px 8px;border-radius:20px;font-weight:600;margin-left:4px}
+table.metrics th{width:42%;color:var(--mut);font-weight:600;text-transform:none;letter-spacing:0;font-size:13px}
+table.metrics td{font-size:13px}
+.bull strong{color:#1a7f37}.bear strong{color:#cf222e}
+.conf{background:#f0f3f6;border-radius:8px;padding:8px 10px;font-size:13px}
+.src a{color:#0969da;text-decoration:none;font-size:12px}
+.fb{display:flex;align-items:center;gap:8px;margin:6px 0}
+.fbl{width:120px;font-size:12px;color:var(--mut)}
+.fbt{flex:1;height:9px;background:#eaeef2;border-radius:6px;overflow:hidden}
+.fbf{display:block;height:100%;border-radius:6px}
+.fbv{width:26px;text-align:right;font-size:12px;font-weight:600}
+.wnote{margin-top:12px;font-size:13px;color:var(--mut);line-height:1.6}
+.bench{display:flex;gap:20px;flex-wrap:wrap;align-items:baseline}
+.bench .big{font-size:28px;font-weight:700}
+.disc{font-size:12px;color:var(--mut);margin-top:6px}
+.foot{font-size:12px;color:var(--mut);margin-top:24px;text-align:center}
+.legend{font-size:12px;color:var(--mut);margin-top:10px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin:0 3px 0 10px;vertical-align:middle}
+/* Top picks cards */
+.topcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:4px}
+.topcard{background:#f6f8fa;border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
+.tc-head{display:flex;align-items:center;margin-bottom:4px}
+.tc-head .tk{font-size:18px}
+.tc-name{font-size:12px;color:var(--mut);margin-bottom:6px}
+.tc-bull{font-size:13px;color:#1f2328;line-height:1.5;margin-bottom:8px}
+.tc-meta{font-size:12px;color:var(--mut);font-weight:600}
+/* Section label */
+.section-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 10px;border-radius:20px;margin-bottom:10px}
+.tag-portfolio{background:#dbeafe;color:#1d4ed8}
+.tag-research{background:#f3e8ff;color:#7c3aed}
+.tag-picks{background:#dcfce7;color:#166534}
+</style></head><body><div class="wrap">
+
+<h1>Equity Research &amp; Portfolio Dashboard</h1>
+<div class="sub">Run 2026-05-30 · prices as of 2026-05-29 close · simulated/paper portfolio · weights: Valuation 20% · Growth 25% · Financial Health 20% · Momentum 15% · Moat 20%</div>
+
+<!-- ── KPI cards ── -->
+<div class="cards">
+  <div class="kpi"><div class="v">$121,604.81</div><div class="l">Investopedia Account Value</div></div>
+  <div class="kpi"><div class="v" style="color:#1a7f37">+17.24%</div><div class="l">Annual Return</div></div>
+  <div class="kpi"><div class="v">$28,010.31</div><div class="l">Cash &amp; Buying Power</div></div>
+  <div class="kpi"><div class="v" style="color:#cf222e">−$1,253.51 (-1.32%)</div><div class="l">Net Unrealized P/L</div></div>
+  <div class="kpi"><div class="v">+11.0%</div><div class="l">VOO YTD (context)</div></div>
+</div>
+
+<!-- ── Section 1: My Investopedia Portfolio ── -->
+<div class="panel">
+  <span class="section-tag tag-portfolio">My Portfolio</span>
+  <h3>My Current Investopedia Holdings</h3>
+  <p class="disc" style="margin-bottom:12px">As of 2026-05-31. Click any row for the full research write-up and advice.</p>
+  <table>
+    <thead><tr>
+      <th>Ticker</th><th class="num">Avg Cost</th><th class="num">Current Price</th>
+      <th class="num">Shares</th><th class="num">Market Value</th>
+      <th class="num">Unrealized P/L</th><th>Agent Score</th><th>Advice</th>
+    </tr></thead>
+    <tbody>
+    <tr onclick="tog('ip-AAPL')">
+      <td class="tk">AAPL<div class="nm">Apple Inc.</div></td>
+      <td class="num">$259.62</td>
+      <td class="num">$312.06</td>
+      <td class="num">100</td>
+      <td class="num">$31,206.00</td>
+      <td class="num" style="color:#1a7f37">+$5,244.00 (+20.20%)</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">73.9</span></td>
+      <td><span class="sig hold">HOLD</span></td>
+    </tr><tr onclick="tog('ip-DUK')">
+      <td class="tk">DUK<div class="nm">Duke Energy Corp.</div></td>
+      <td class="num">$131.73</td>
+      <td class="num">$122.73</td>
+      <td class="num">250</td>
+      <td class="num">$30,682.50</td>
+      <td class="num" style="color:#cf222e">−$2,250.01 (-6.83%)</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">56.2</span></td>
+      <td><span class="sig trim">TRIM</span></td>
+    </tr><tr onclick="tog('ip-FTS')">
+      <td class="tk">FTS<div class="nm">Fortis Inc.</div></td>
+      <td class="num">$56.61</td>
+      <td class="num">$55.33</td>
+      <td class="num">50</td>
+      <td class="num">$2,766.50</td>
+      <td class="num" style="color:#cf222e">−$64.00 (-2.26%)</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">58.0</span></td>
+      <td><span class="sig trim">TRIM</span></td>
+    </tr><tr onclick="tog('ip-NEE')">
+      <td class="tk">NEE<div class="nm">NextEra Energy Inc.</div></td>
+      <td class="num">$92.91</td>
+      <td class="num">$87.01</td>
+      <td class="num">150</td>
+      <td class="num">$13,051.50</td>
+      <td class="num" style="color:#cf222e">−$885.50 (-6.35%)</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">62.9</span></td>
+      <td><span class="sig buy">ADD MORE</span></td>
+    </tr><tr onclick="tog('ip-NRG')">
+      <td class="tk">NRG<div class="nm">NRG Energy Inc.</div></td>
+      <td class="num">$165.01</td>
+      <td class="num">$134.08</td>
+      <td class="num">100</td>
+      <td class="num">$13,408.00</td>
+      <td class="num" style="color:#cf222e">−$3,092.50 (-18.74%)</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">47.6</span></td>
+      <td><span class="sig exit">EXIT</span></td>
+    </tr><tr onclick="tog('ip-T')">
+      <td class="tk">T<div class="nm">AT&amp;T Inc.</div></td>
+      <td class="num">$26.86</td>
+      <td class="num">$24.80</td>
+      <td class="num">100</td>
+      <td class="num">$2,480.00</td>
+      <td class="num" style="color:#cf222e">−$205.50 (-7.65%)</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">51.6</span></td>
+      <td><span class="sig trim">TRIM</span></td>
+    </tr>
+    <tr id="ip-AAPL" class="detail" style="display:none"><td colspan="8">
+          <div class="dwrap">
+            <div class="dcol">
+              <h4>Apple Inc. · AAPL <span class="badge">Composite 73.9</span> <span class="badge">HOLD</span></h4>
+              <p class="biz">Designs and sells iPhone, Mac, iPad and wearables, plus a high-margin Services segment (App Store, iCloud, advertising, payments, subscriptions). Hardware builds the installed base; Services monetizes it at ~70% gross margin.</p>
+              <p class="bull"><strong>Bull case.</strong> Unmatched hardware-services ecosystem and switching costs; Services compounding at high margin; large buybacks; reaccelerating growth.</p>
+              <p class="bear"><strong>Bear case.</strong> Trades ~42% above its 10-yr median P/E; growth is good not great; AI/Siri behind peers; China and App-Store regulatory risk.</p>
+              <p class="conf"><strong>Confidence: Medium-high.</strong> Business durable; valuation is the risk. Multiple compression to ~30x, or an AI-driven upgrade cycle, would change the view.</p>
+              <p><strong>Recent news.</strong> FQ2&#x27;26 record March quarter; iPhone +22%, Services +16% to ~$31B; guided June qtr +14-17%; WWDC June 8 ahead.</p>
+            </div>
+            <div class="dcol fcol">
+              <h5>Factor scores</h5>
+              <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:35%;background:#2563eb"></span></span>
+      <span class="fbv">35</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:92%;background:#2563eb"></span></span>
+      <span class="fbv">92</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:95%;background:#2563eb"></span></span>
+      <span class="fbv">95</span></div>
+              <div class="wnote" style="margin-top:14px">
+                <strong>Position summary</strong><br>
+                100 shares · avg cost $259.62<br>
+                Market value $31,206.00<br>
+                Unrealized P/L <span style="color:#1a7f37">+$5,244.00 (+20.20%)</span>
+              </div>
+            </div>
+          </div>
+        </td></tr><tr id="ip-DUK" class="detail" style="display:none"><td colspan="8">
+          <div class="dwrap">
+            <div class="dcol">
+              <h4>Duke Energy Corp. · DUK <span class="badge">Composite 56.2</span> <span class="badge">TRIM</span></h4>
+              <p class="biz">One of the largest US regulated electric and gas utilities, serving ~8.4M customers across the Carolinas, Florida, Indiana, Ohio and Kentucky. Earnings driven by rate-base growth and a multi-billion clean-energy transition plan.</p>
+              <p class="bull"><strong>Bull case.</strong> Regulated monopoly with locked-in earnings growth; 5-7% EPS+dividend visibility through 2030; clean-energy capex builds rate base; defensive income.</p>
+              <p class="bear"><strong>Bear case.</strong> High leverage is rate-sensitive; heavy capex requires ongoing equity/debt financing; slow growth limits upside; stock down ~7% from purchase.</p>
+              <p class="conf"><strong>Confidence: Medium.</strong> Stable business but composite below hold threshold (56.3). Leverage and rate sensitivity are persistent risks. Rate cuts would be a meaningful positive catalyst.</p>
+              <p><strong>Recent news.</strong> Q1&#x27;26 (rep. May 5) beat estimates on revenue; maintained 5-7% EPS/dividend growth target through 2030; stock dipped post-earnings despite beat.</p>
+            </div>
+            <div class="dcol fcol">
+              <h5>Factor scores</h5>
+              <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:45%;background:#2563eb"></span></span>
+      <span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:62%;background:#2563eb"></span></span>
+      <span class="fbv">62</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:48%;background:#2563eb"></span></span>
+      <span class="fbv">48</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:72%;background:#2563eb"></span></span>
+      <span class="fbv">72</span></div>
+              <div class="wnote" style="margin-top:14px">
+                <strong>Position summary</strong><br>
+                250 shares · avg cost $131.73<br>
+                Market value $30,682.50<br>
+                Unrealized P/L <span style="color:#cf222e">−$2,250.01 (-6.83%)</span>
+              </div>
+            </div>
+          </div>
+        </td></tr><tr id="ip-FTS" class="detail" style="display:none"><td colspan="8">
+          <div class="dwrap">
+            <div class="dcol">
+              <h4>Fortis Inc. · FTS <span class="badge">Composite 58.0</span> <span class="badge">TRIM</span></h4>
+              <p class="biz">Canadian regulated electric and gas utility with operations in Canada, Arizona (UNS Energy) and Michigan (ITC). Earns predictable rate-regulated returns and is executing a $28.8B five-year capex plan to grow its rate base.</p>
+              <p class="bull"><strong>Bull case.</strong> Predictable 4-6% dividend growth; expanding rate base; data-center demand tailwinds in Arizona; reliable dividend history; cheaper than US peers.</p>
+              <p class="bear"><strong>Bear case.</strong> Modest EPS growth; leveraged balance sheet; CAD/USD currency exposure; limited upside; slightly below hold composite.</p>
+              <p class="conf"><strong>Confidence: Medium.</strong> Quality regulated utility slightly below the 60 hold composite (58.0). Steady but not compelling to add to at current prices. Rate cuts would be a positive catalyst.</p>
+              <p><strong>Recent news.</strong> Q1&#x27;26 (rep. May 6) steady results; Arizona rate case win (9.61% ROE); data-center load growth in Arizona; Springerville gas conversion underway.</p>
+            </div>
+            <div class="dcol fcol">
+              <h5>Factor scores</h5>
+              <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:42%;background:#2563eb"></span></span>
+      <span class="fbv">42</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:65%;background:#2563eb"></span></span>
+      <span class="fbv">65</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:50%;background:#2563eb"></span></span>
+      <span class="fbv">50</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:75%;background:#2563eb"></span></span>
+      <span class="fbv">75</span></div>
+              <div class="wnote" style="margin-top:14px">
+                <strong>Position summary</strong><br>
+                50 shares · avg cost $56.61<br>
+                Market value $2,766.50<br>
+                Unrealized P/L <span style="color:#cf222e">−$64.00 (-2.26%)</span>
+              </div>
+            </div>
+          </div>
+        </td></tr><tr id="ip-NEE" class="detail" style="display:none"><td colspan="8">
+          <div class="dwrap">
+            <div class="dcol">
+              <h4>NextEra Energy Inc. · NEE <span class="badge">Composite 62.9</span> <span class="badge">BUY</span></h4>
+              <p class="biz">Owns Florida Power &amp; Light (a large regulated utility with steady returns) and NextEra Energy Resources (the world&#x27;s largest wind/solar generator). Combines regulated earnings stability with renewables growth.</p>
+              <p class="bull"><strong>Bull case.</strong> Best-in-class renewables developer positioned for surging electricity demand; regulated base provides stability; ~10%/yr dividend growth target.</p>
+              <p class="bear"><strong>Bear case.</strong> High leverage makes it rate-sensitive; renewables subsidy/policy risk; execution risk on a huge backlog and any large M&amp;A.</p>
+              <p class="conf"><strong>Confidence: Medium.</strong> Growth-plus-yield utility. Higher-for-longer rates or adverse renewables policy would pressure the score.</p>
+              <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 23) EPS beat; record renewables/storage backlog on data-center/electrification demand; FPL stable; large proposed Dominion combination reported.</p>
+            </div>
+            <div class="dcol fcol">
+              <h5>Factor scores</h5>
+              <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:58%;background:#2563eb"></span></span>
+      <span class="fbv">58</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:62%;background:#2563eb"></span></span>
+      <span class="fbv">62</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div>
+              <div class="wnote" style="margin-top:14px">
+                <strong>Position summary</strong><br>
+                150 shares · avg cost $92.91<br>
+                Market value $13,051.50<br>
+                Unrealized P/L <span style="color:#cf222e">−$885.50 (-6.35%)</span>
+              </div>
+            </div>
+          </div>
+        </td></tr><tr id="ip-NRG" class="detail" style="display:none"><td colspan="8">
+          <div class="dwrap">
+            <div class="dcol">
+              <h4>NRG Energy Inc. · NRG <span class="badge">Composite 47.6</span> <span class="badge">EXIT</span></h4>
+              <p class="biz">Competitive power generator and retail electricity/gas provider across the US and Canada. The recent $12B LS Power acquisition dramatically expanded generation capacity but added significant financial complexity and leverage.</p>
+              <p class="bull"><strong>Bull case.</strong> Reaffirmed aggressive 14% long-term EPS growth; LS Power scale should drive efficiencies; low fwd P/E if targets met; $1B buyback.</p>
+              <p class="bear"><strong>Bear case.</strong> EPS already -44% YoY; $12B acquisition raised debt sharply; weather and commodity-price dependent; thesis relies entirely on acquisition integration execution.</p>
+              <p class="conf"><strong>Confidence: Low-medium.</strong> Below the 50 composite exit threshold (47.7). Acquisition integration uncertainty, earnings shortfall, and high leverage disqualify it. Two quarters of clean EPS delivery would be needed to reconsider.</p>
+              <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 30) revenue beat but EPS miss; reaffirmed 14%+ annual EPS/FCF growth through 2030 and $1B buyback plan; stock fell ~5% on earnings day.</p>
+            </div>
+            <div class="dcol fcol">
+              <h5>Factor scores</h5>
+              <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:42%;background:#2563eb"></span></span>
+      <span class="fbv">42</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:52%;background:#2563eb"></span></span>
+      <span class="fbv">52</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:45%;background:#2563eb"></span></span>
+      <span class="fbv">45</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:35%;background:#2563eb"></span></span>
+      <span class="fbv">35</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div>
+              <div class="wnote" style="margin-top:14px">
+                <strong>Position summary</strong><br>
+                100 shares · avg cost $165.01<br>
+                Market value $13,408.00<br>
+                Unrealized P/L <span style="color:#cf222e">−$3,092.50 (-18.74%)</span>
+              </div>
+            </div>
+          </div>
+        </td></tr><tr id="ip-T" class="detail" style="display:none"><td colspan="8">
+          <div class="dwrap">
+            <div class="dcol">
+              <h4>AT&amp;T Inc. · T <span class="badge">Composite 51.6</span> <span class="badge">TRIM</span></h4>
+              <p class="biz">Second-largest US wireless carrier (Mobility) plus a major fiber broadband provider (AT&amp;T Fiber). Divested WarnerMedia in 2022; now purely a connectivity company. Generates substantial EBITDA but carries historically high debt from past acquisitions.</p>
+              <p class="bull"><strong>Bull case.</strong> Extremely cheap at ~9x earnings; wireless/fiber are secular growth drivers; ~5.6% dividend; debt paydown path improving balance sheet.</p>
+              <p class="bear"><strong>Bear case.</strong> Chronically high debt limits flexibility; FCF miss raises dividend sustainability questions; legacy revenue -25% with no floor; limited growth story.</p>
+              <p class="conf"><strong>Confidence: Low-medium.</strong> Cheap on P/E but below 60 composite (51.6). Debt load, FCF miss, and lack of growth catalyst hold the score down. Sustained FCF improvement or debt paydown acceleration would upgrade it.</p>
+              <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 23) mixed results; wireless/fiber growing but FCF disappointed; legacy revenue collapse ongoing; net debt reduction on track.</p>
+            </div>
+            <div class="dcol fcol">
+              <h5>Factor scores</h5>
+              <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:72%;background:#2563eb"></span></span>
+      <span class="fbv">72</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:42%;background:#2563eb"></span></span>
+      <span class="fbv">42</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:50%;background:#2563eb"></span></span>
+      <span class="fbv">50</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:38%;background:#2563eb"></span></span>
+      <span class="fbv">38</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div>
+              <div class="wnote" style="margin-top:14px">
+                <strong>Position summary</strong><br>
+                100 shares · avg cost $26.86<br>
+                Market value $2,480.00<br>
+                Unrealized P/L <span style="color:#cf222e">−$205.50 (-7.65%)</span>
+              </div>
+            </div>
+          </div>
+        </td></tr>
+    </tbody>
+  </table>
+  <div class="legend">Advice: <span class="sig buy" style="margin-left:4px">ADD MORE</span> = composite ≥70 · <span class="sig hold" style="margin-left:4px">HOLD</span> = 60–69 · <span class="sig trim" style="margin-left:4px">TRIM</span> = 50–59 · <span class="sig exit" style="margin-left:4px">EXIT</span> = &lt;50</div>
+</div>
+
+<!-- ── Section 2: Research Universe ── -->
+<div class="panel">
+  <span class="section-tag tag-research">Research</span>
+  <h3>Full Research Universe — click any row for write-up</h3>
+  <table>
+    <thead><tr>
+      <th>Ticker</th><th>Sector</th><th>Composite (Δ vs last run)</th>
+      <th>Signal</th><th class="num">Target wt</th><th class="num">P/L</th><th class="num">Price</th>
+    </tr></thead>
+    <tbody>
+    <tr onclick="tog('NVDA')">
+      <td class="tk">NVDA<div class="nm">NVIDIA Corp.</div></td>
+      <td>Technology</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">82.9</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">10.7%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$211.14</td>
+    </tr><tr onclick="tog('GOOGL')">
+      <td class="tk">GOOGL<div class="nm">Alphabet Inc.</div></td>
+      <td>Communication Services</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">82.0</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">10.4%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$380.51</td>
+    </tr><tr onclick="tog('MSFT')">
+      <td class="tk">MSFT<div class="nm">Microsoft Corp.</div></td>
+      <td>Technology</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">80.0</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">9.6%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$416.03</td>
+    </tr><tr onclick="tog('META')">
+      <td class="tk">META<div class="nm">Meta Platforms Inc.</div></td>
+      <td>Communication Services</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">78.8</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">9.2%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$635.00</td>
+    </tr><tr onclick="tog('AMZN')">
+      <td class="tk">AMZN<div class="nm">Amazon.com Inc.</div></td>
+      <td>Consumer Discretionary</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">75.3</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">7.8%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$270.53</td>
+    </tr><tr onclick="tog('V')">
+      <td class="tk">V<div class="nm">Visa Inc.</div></td>
+      <td>Financials</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">75.0</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">7.7%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$330.83</td>
+    </tr><tr onclick="tog('AAPL')">
+      <td class="tk">AAPL<div class="nm">Apple Inc.</div></td>
+      <td>Technology</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">73.9</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">7.3%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$313.69</td>
+    </tr><tr onclick="tog('JPM')">
+      <td class="tk">JPM<div class="nm">JPMorgan Chase &amp; Co.</div></td>
+      <td>Financials</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">71.5</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">6.4%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$299.31</td>
+    </tr><tr onclick="tog('JNJ')">
+      <td class="tk">JNJ<div class="nm">Johnson &amp; Johnson</div></td>
+      <td>Healthcare</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">69.3</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">5.5%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$227.00</td>
+    </tr><tr onclick="tog('KO')">
+      <td class="tk">KO<div class="nm">The Coca-Cola Company</div></td>
+      <td>Consumer Staples</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">68.5</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">5.2%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$79.08</td>
+    </tr><tr onclick="tog('COST')">
+      <td class="tk">COST<div class="nm">Costco Wholesale Corp.</div></td>
+      <td>Consumer Staples</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">67.0</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">4.6%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$949.49</td>
+    </tr><tr onclick="tog('CAT')">
+      <td class="tk">CAT<div class="nm">Caterpillar Inc.</div></td>
+      <td>Industrials</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">66.2</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">4.3%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$875.87</td>
+    </tr><tr onclick="tog('UNH')">
+      <td class="tk">UNH<div class="nm">UnitedHealth Group Inc.</div></td>
+      <td>Healthcare</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">63.0</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">3.1%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$400.00</td>
+    </tr><tr onclick="tog('NEE')">
+      <td class="tk">NEE<div class="nm">NextEra Energy Inc.</div></td>
+      <td>Utilities</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">62.9</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">3.0%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$87.01</td>
+    </tr><tr onclick="tog('XOM')">
+      <td class="tk">XOM<div class="nm">Exxon Mobil Corp.</div></td>
+      <td>Energy</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">61.9</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">2.7%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$146.10</td>
+    </tr><tr onclick="tog('PG')">
+      <td class="tk">PG<div class="nm">Procter &amp; Gamble Co.</div></td>
+      <td>Consumer Staples</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">61.5</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">2.5%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$147.49</td>
+    </tr><tr onclick="tog('HD')">
+      <td class="tk">HD<div class="nm">The Home Depot Inc.</div></td>
+      <td>Consumer Discretionary</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">59.9</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig exit">EXIT</span></td>
+      <td class="num">0.0%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$320.07</td>
+    </tr><tr onclick="tog('FTS')">
+      <td class="tk">FTS<div class="nm">Fortis Inc.</div></td>
+      <td>Utilities</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">58.0</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig trim">TRIM</span></td>
+      <td class="num">0.0%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$55.33</td>
+    </tr><tr onclick="tog('DUK')">
+      <td class="tk">DUK<div class="nm">Duke Energy Corp.</div></td>
+      <td>Utilities</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">56.2</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig trim">TRIM</span></td>
+      <td class="num">0.0%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$122.73</td>
+    </tr><tr onclick="tog('T')">
+      <td class="tk">T<div class="nm">AT&amp;T Inc.</div></td>
+      <td>Communication Services</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">51.6</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig trim">TRIM</span></td>
+      <td class="num">0.0%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$24.80</td>
+    </tr><tr onclick="tog('NRG')">
+      <td class="tk">NRG<div class="nm">NRG Energy Inc.</div></td>
+      <td>Utilities</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">47.6</span> <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig exit">EXIT</span></td>
+      <td class="num">0.0%</td>
+      <td class="num" style="color:#57606a">—</td>
+      <td class="num">$134.08</td>
+    </tr>
+    <tr id="NVDA" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>NVIDIA Corp. · NVDA <span class="badge">Composite 82.9</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Designs the GPUs and networking that power AI training and inference, plus the CUDA software stack. Data-center accelerators (Blackwell) are the overwhelming majority of revenue; also gaming, pro-viz and automotive.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+85% YoY (FQ1&#x27;27 $81.6B); Data Center $75.2B +92%</td></tr>
+            <tr><th>Earnings growth</th><td>Non-GAAP EPS $1.87; GAAP $2.39; GM ~75%</td></tr>
+            <tr><th>Profit margin</th><td>Net margin ~50%; gross margin ~75%</td></tr>
+            <tr><th>Debt</th><td>Low debt, large net cash</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~32.8 / fwd ~21.6; peers AVGO ~35, AMD higher fwd</td></tr>
+            <tr><th>Valuation</th><td>Expensive on trailing multiple but reasonable on forward growth (PEG)</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> FQ1&#x27;27 (rep. May 20) rev $81.6B +85%; guided next qtr ~$91B; $80B buyback added, dividend raised 25x; stock eased from a $235 May high to ~$211.</p>
+          <p class="bull"><strong>Bull case.</strong> CUDA ecosystem lock-in and performance lead; structural AI-infrastructure demand; ~50% net margins fund continued R&amp;D; fwd P/E only ~22.</p>
+          <p class="bear"><strong>Bear case.</strong> Hyperscaler customer concentration; risk of an AI-capex digestion cycle; cyclical history; little room for a miss.</p>
+          <p class="conf"><strong>Confidence: Medium-high.</strong> Dominant today; the swing factor is whether hyperscaler AI capex sustains. A capex pause would hit hardest here.</p>
+          <p class="src">Sources: <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027" target="_blank" rel="noopener">[1]</a> <a href="https://www.macrotrends.net/stocks/charts/NVDA/nvidia/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:50%;background:#2563eb"></span></span>
+      <span class="fbv">50</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:98%;background:#2563eb"></span></span>
+      <span class="fbv">98</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:90%;background:#2563eb"></span></span>
+      <span class="fbv">90</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:92%;background:#2563eb"></span></span>
+      <span class="fbv">92</span></div>
+          <div class="wnote">Target weight <strong>10.7%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="GOOGL" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Alphabet Inc. · GOOGL <span class="badge">Composite 82.0</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Google Search and YouTube advertising generate the bulk of profit; Google Cloud is fast-growing and now profitable; plus Android, Pixel, Waymo and other bets. Monetizes the world&#x27;s largest search and video audiences.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+22% YoY (Q1&#x27;26 $109.9B); Cloud +63% to $20B</td></tr>
+            <tr><th>Earnings growth</th><td>EPS $5.11 (+82%, flattered by equity-securities gains)</td></tr>
+            <tr><th>Profit margin</th><td>Strong; Cloud operating margin ~33%</td></tr>
+            <tr><th>Debt</th><td>Minimal debt, large net cash</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~29 vs 5-yr avg ~24; below AAPL/MSFT on growth-adjusted basis</td></tr>
+            <tr><th>Valuation</th><td>Fair vs history; attractive on growth</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 29) Cloud +63%, backlog ~$462B; Search +19%, YouTube +11%; FY capex guided up to ~$190B; AI-search &amp; antitrust overhangs persist.</p>
+          <p class="bull"><strong>Bull case.</strong> Reasonably valued mega-cap; dominant search/video moat; Cloud + Gemini AI optionality; huge cash returns.</p>
+          <p class="bear"><strong>Bear case.</strong> Generative-AI search could erode core query monetization; antitrust remedies (default deals, possible breakup) unresolved.</p>
+          <p class="conf"><strong>Confidence: High.</strong> Strong fundamentals at a reasonable multiple. Evidence AI is structurally cutting search monetization would break the thesis.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/29/alphabet-googl-q1-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nasdaq-googl/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:65%;background:#2563eb"></span></span>
+      <span class="fbv">65</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:95%;background:#2563eb"></span></span>
+      <span class="fbv">95</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:90%;background:#2563eb"></span></span>
+      <span class="fbv">90</span></div>
+          <div class="wnote">Target weight <strong>10.4%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="MSFT" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Microsoft Corp. · MSFT <span class="badge">Composite 80.0</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Sells cloud (Azure), productivity software (Microsoft 365), Windows, LinkedIn, Dynamics and gaming. Azure and Copilot AI are the growth engine; recurring enterprise software is the cash base.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+18% YoY (FQ3&#x27;26 ~$82.9B); Azure +40%</td></tr>
+            <tr><th>Earnings growth</th><td>Strong double digits</td></tr>
+            <tr><th>Profit margin</th><td>Net margin ~36%</td></tr>
+            <tr><th>Debt</th><td>Low leverage, near net-cash, AAA-tier balance sheet</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E 25.4 / fwd 22.1 vs 12-mo avg 32.6; peer GOOGL ~29</td></tr>
+            <tr><th>Valuation</th><td>Fair vs its own history (below 12-mo average)</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> FQ3&#x27;26 Azure +40% (accel from 31%); Microsoft Cloud $54.5B +29%; AI run-rate &gt;$37B (+123%); FY capex guided ~$190B on memory costs.</p>
+          <p class="bull"><strong>Bull case.</strong> Best-positioned enterprise AI distribution; Azure reaccelerating; durable software moat; P/E below its own recent average.</p>
+          <p class="bear"><strong>Bear case.</strong> ~$190B capex pressures free cash flow if AI demand digests; capacity-constrained; large size caps upside.</p>
+          <p class="conf"><strong>Confidence: High.</strong> Clear AI/cloud leadership. Sustained capex overspend without revenue follow-through would lower the score.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/29/microsoft-msft-q3-earnings-report-2026.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.financecharts.com/stocks/MSFT/value/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:82%;background:#2563eb"></span></span>
+      <span class="fbv">82</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:95%;background:#2563eb"></span></span>
+      <span class="fbv">95</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:95%;background:#2563eb"></span></span>
+      <span class="fbv">95</span></div>
+          <div class="wnote">Target weight <strong>9.6%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="META" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Meta Platforms Inc. · META <span class="badge">Composite 78.8</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Sells digital advertising across Facebook, Instagram, WhatsApp and Threads (the &#x27;Family of Apps&#x27;), using AI to target and rank. Reality Labs (AR/VR) is a large loss-making long-term bet.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+33% YoY (Q1&#x27;26 $56.3B); ad rev $55.0B</td></tr>
+            <tr><th>Earnings growth</th><td>EPS $10.44 (flattered by one-time tax benefit); op margin 41%</td></tr>
+            <tr><th>Profit margin</th><td>Operating margin ~41%</td></tr>
+            <tr><th>Debt</th><td>Low leverage</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~23 vs 5-yr avg ~25; ~15x forward EPS</td></tr>
+            <tr><th>Valuation</th><td>Fair-to-cheap given growth</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 29) revenue +33% on AI ad targeting; capex guided ~$125-145B; stock fell ~9.5% over the month on spending fears.</p>
+          <p class="bull"><strong>Bull case.</strong> ~3.9B users and AI-driven ad efficiency; pricing power; buybacks; reasonable ~23x trailing / ~15x forward.</p>
+          <p class="bear"><strong>Bear case.</strong> Soaring AI/Reality Labs capex with uncertain payback; single-revenue-stream (ads) cyclicality; regulatory exposure.</p>
+          <p class="conf"><strong>Confidence: Medium-high.</strong> Ad engine excellent and valuation undemanding; the question is capex discipline. Sustained spend without ROI, or an ad recession, would lower the score.</p>
+          <p class="src">Sources: <a href="https://www.sec.gov/Archives/edgar/data/1326801/000162828026028364/meta-03312026xexhibit991.htm" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nasdaq-meta/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:85%;background:#2563eb"></span></span>
+      <span class="fbv">85</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:90%;background:#2563eb"></span></span>
+      <span class="fbv">90</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:85%;background:#2563eb"></span></span>
+      <span class="fbv">85</span></div>
+          <div class="wnote">Target weight <strong>9.2%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="AMZN" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Amazon.com Inc. · AMZN <span class="badge">Composite 75.3</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Runs the largest e-commerce marketplace, AWS cloud (the profit engine), advertising, and Prime subscriptions. Retail provides scale and cash flow; AWS and ads drive operating income.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+17% YoY (Q1&#x27;26 $181.5B); AWS +28% to $37.6B</td></tr>
+            <tr><th>Earnings growth</th><td>EPS $2.78 (strong beat); op income $23.9B</td></tr>
+            <tr><th>Profit margin</th><td>Operating margin ~13%; AWS op margin ~38%</td></tr>
+            <tr><th>Debt</th><td>Moderate; strong cash flow</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~32 / fwd ~30</td></tr>
+            <tr><th>Valuation</th><td>Fair-to-slightly-rich; justified if margins keep expanding</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 29) AWS +28%, fastest in 15 quarters, ~$150B run-rate; ads +24%; capex $44B on AI; retail margins expanding.</p>
+          <p class="bull"><strong>Bull case.</strong> Retail margin expansion + reaccelerating AWS + high-margin ads; dominant logistics and cloud moats; operating leverage building.</p>
+          <p class="bear"><strong>Bear case.</strong> Heavy AI capex; rich multiple; retail competitive and consumer-sensitive.</p>
+          <p class="conf"><strong>Confidence: Medium-high.</strong> Margin story plus AWS reacceleration. A consumer downturn or AWS stall is the key risk.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/29/amazon-amzn-q1-earnings-report-2026.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nasdaq-amzn/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:48%;background:#2563eb"></span></span>
+      <span class="fbv">48</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:78%;background:#2563eb"></span></span>
+      <span class="fbv">78</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:85%;background:#2563eb"></span></span>
+      <span class="fbv">85</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:75%;background:#2563eb"></span></span>
+      <span class="fbv">75</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:90%;background:#2563eb"></span></span>
+      <span class="fbv">90</span></div>
+          <div class="wnote">Target weight <strong>7.8%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="V" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Visa Inc. · V <span class="badge">Composite 75.0</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Operates the largest card payment network, earning fees on payment volume, transactions and cross-border activity. An asset-light toll-booth on global consumer spending with ~66% operating margins.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+17% YoY (FQ2&#x27;26 net revenue $11.2B)</td></tr>
+            <tr><th>Earnings growth</th><td>Non-GAAP EPS $3.31 (+20%)</td></tr>
+            <tr><th>Profit margin</th><td>Operating margin ~66%</td></tr>
+            <tr><th>Debt</th><td>Modest leverage</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~28.6 vs 5-yr avg ~30; peer MA higher</td></tr>
+            <tr><th>Valuation</th><td>Premium but consistent with history and quality</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> FQ2&#x27;26 (rep. Apr 28) fastest revenue growth since 2022; payments volume +9%, cross-border strong; new $20B buyback authorized.</p>
+          <p class="bull"><strong>Bull case.</strong> Wide network-effect moat; exceptional margins and cash conversion; secular cash-to-card shift; consistent buybacks.</p>
+          <p class="bear"><strong>Bear case.</strong> Regulatory scrutiny of interchange; competition from real-time rails/stablecoins; consumer-spending sensitivity.</p>
+          <p class="conf"><strong>Confidence: High.</strong> High-quality compounder. Material interchange regulation or a payments-rail shift would be the thesis risk.</p>
+          <p class="src">Sources: <a href="https://www.fool.com/earnings/call-transcripts/2026/04/29/visa-v-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-v/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:48%;background:#2563eb"></span></span>
+      <span class="fbv">48</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:92%;background:#2563eb"></span></span>
+      <span class="fbv">92</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:95%;background:#2563eb"></span></span>
+      <span class="fbv">95</span></div>
+          <div class="wnote">Target weight <strong>7.7%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="AAPL" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Apple Inc. · AAPL <span class="badge">Composite 73.9</span> <span class="badge">HOLD</span></h4>
+          <p class="biz">Designs and sells iPhone, Mac, iPad and wearables, plus a high-margin Services segment (App Store, iCloud, advertising, payments, subscriptions). Hardware builds the installed base; Services monetizes it at ~70% gross margin.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+17% YoY (FQ2&#x27;26, $111.2B, March-qtr record)</td></tr>
+            <tr><th>Earnings growth</th><td>+22% YoY (diluted EPS $2.01)</td></tr>
+            <tr><th>Profit margin</th><td>Net margin ~26.6%</td></tr>
+            <tr><th>Debt</th><td>~$85-88B total debt vs ~$147B cash/securities; net cash ~$62B (dropped &#x27;net cash neutral&#x27; policy)</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E 37.7 (EPS TTM $8.27) vs 5-yr avg 32.2; peers MSFT ~25, GOOGL ~29</td></tr>
+            <tr><th>Valuation</th><td>Expensive vs its own history and peers</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> FQ2&#x27;26 record March quarter; iPhone +22%, Services +16% to ~$31B; guided June qtr +14-17%; WWDC June 8 ahead.</p>
+          <p class="bull"><strong>Bull case.</strong> Unmatched hardware-services ecosystem and switching costs; Services compounding at high margin; large buybacks; reaccelerating growth.</p>
+          <p class="bear"><strong>Bear case.</strong> Trades ~42% above its 10-yr median P/E; growth is good not great; AI/Siri behind peers; China and App-Store regulatory risk.</p>
+          <p class="conf"><strong>Confidence: Medium-high.</strong> Business durable; valuation is the risk. Multiple compression to ~30x, or an AI-driven upgrade cycle, would change the view.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/30/apple-aapl-q2-2026-earnings-report.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.macrotrends.net/stocks/charts/AAPL/apple/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:35%;background:#2563eb"></span></span>
+      <span class="fbv">35</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:92%;background:#2563eb"></span></span>
+      <span class="fbv">92</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:95%;background:#2563eb"></span></span>
+      <span class="fbv">95</span></div>
+          <div class="wnote">Target weight <strong>7.3%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="JPM" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>JPMorgan Chase &amp; Co. · JPM <span class="badge">Composite 71.5</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Largest U.S. bank by assets, spanning consumer banking, card, commercial banking, investment banking, markets and asset/wealth management. Earns net interest income plus diversified fee income at scale.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+10% YoY (Q1&#x27;26 net revenue $50.5B)</td></tr>
+            <tr><th>Earnings growth</th><td>EPS $5.94 vs $5.07; net income $16.5B (+13%)</td></tr>
+            <tr><th>Profit margin</th><td>ROE 19%, ROTCE 23%</td></tr>
+            <tr><th>Debt</th><td>Well capitalized; bank leverage not comparable to industrials</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>P/E ~14 trailing vs historical ~12-13</td></tr>
+            <tr><th>Valuation</th><td>Fair-to-slightly-rich for a bank at record levels</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 14) beat; trimmed FY net-interest-income guide to ~$103B; CEO Dimon called markets &#x27;exuberant&#x27;.</p>
+          <p class="bull"><strong>Bull case.</strong> Best-in-class, diversified franchise with a fortress balance sheet; strong through-cycle returns; scale advantages.</p>
+          <p class="bear"><strong>Bear case.</strong> Near record price at a premium multiple; credit normalization and a slowing economy would pressure earnings; NII guide cut.</p>
+          <p class="conf"><strong>Confidence: Medium-high.</strong> Quality compounder among banks. A credit-cycle downturn or recession is the main risk.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/14/jpmorgan-chase-jpm-earnings-1q-2026.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.stocktitan.net/sec-filings/JPM/8-k-jpmorgan-chase-co-reports-material-event-224c89e08684.html" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:65%;background:#2563eb"></span></span>
+      <span class="fbv">65</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:82%;background:#2563eb"></span></span>
+      <span class="fbv">82</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:72%;background:#2563eb"></span></span>
+      <span class="fbv">72</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div>
+          <div class="wnote">Target weight <strong>6.4%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="JNJ" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Johnson &amp; Johnson · JNJ <span class="badge">Composite 69.3</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Diversified healthcare across Innovative Medicine (oncology, immunology, neuroscience) and MedTech (surgery, orthopedics, cardiovascular). Patent-protected drugs and device franchises generate durable cash flow.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+9.9% YoY (Q1&#x27;26 $24.1B)</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $2.70; FY adj-EPS guide ~$11.55 (reported EPS distorted by prior-yr talc reserve)</td></tr>
+            <tr><th>Profit margin</th><td>Strong; reported comparison distorted by base effects</td></tr>
+            <tr><th>Debt</th><td>Moderate; AAA-rated balance sheet</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~26 reported / ~20 on fwd adj EPS</td></tr>
+            <tr><th>Valuation</th><td>Fair vs history and peers</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 14) +9.9% sales, raised FY outlook; ~$0.3B talc charges this quarter; litigation overhang persists.</p>
+          <p class="bull"><strong>Bull case.</strong> Diversified, defensive cash flows; AAA balance sheet; oncology pipeline; reliable dividend (Dividend King).</p>
+          <p class="bear"><strong>Bear case.</strong> Ongoing talc litigation overhang; pharma patent-cliff exposure (e.g. Stelara biosimilars); slower top-line growth.</p>
+          <p class="conf"><strong>Confidence: Medium-high.</strong> Defensive quality. A large adverse talc ruling or pipeline setback would change the view.</p>
+          <p class="src">Sources: <a href="https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-reports-Q1-2026-results-raises-2026-outlook/default.aspx" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-jnj/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:88%;background:#2563eb"></span></span>
+      <span class="fbv">88</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:85%;background:#2563eb"></span></span>
+      <span class="fbv">85</span></div>
+          <div class="wnote">Target weight <strong>5.5%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="KO" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>The Coca-Cola Company · KO <span class="badge">Composite 68.5</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Sells concentrate and finished beverages through a global bottling network across sparkling drinks, water, juice, coffee and sports drinks. An asset-light, brand- and distribution-driven cash machine.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+12% YoY adj (Q1&#x27;26 $12.47B); organic +10%</td></tr>
+            <tr><th>Earnings growth</th><td>EPS $0.91 vs $0.77 (+18%)</td></tr>
+            <tr><th>Profit margin</th><td>Net margin ~27.8%</td></tr>
+            <tr><th>Debt</th><td>Moderate, well-covered</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~24.6 vs peer avg ~25</td></tr>
+            <tr><th>Valuation</th><td>Fair vs history and peers</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 28) beat; raised FY comparable-EPS growth guide to +8-9%; pricing-led organic growth.</p>
+          <p class="bull"><strong>Bull case.</strong> Iconic brand moat and unrivaled distribution; defensive cash flows; reliable dividend (Dividend King); pricing power.</p>
+          <p class="bear"><strong>Bear case.</strong> Low-single-digit volume growth; FX and input-cost headwinds; GLP-1/health trends a long-term demand question.</p>
+          <p class="conf"><strong>Confidence: High.</strong> Steady defensive holding. A sharp dollar move or volume decline would pressure it.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/28/coca-cola-ko-q1-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.stocktitan.net/sec-filings/KO/10-q-coca-cola-co-quarterly-earnings-report-42da275b7abd.html" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:58%;background:#2563eb"></span></span>
+      <span class="fbv">58</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:78%;background:#2563eb"></span></span>
+      <span class="fbv">78</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:85%;background:#2563eb"></span></span>
+      <span class="fbv">85</span></div>
+          <div class="wnote">Target weight <strong>5.2%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="COST" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Costco Wholesale Corp. · COST <span class="badge">Composite 67.0</span> <span class="badge">HOLD</span></h4>
+          <p class="biz">Membership warehouse retailer; most operating profit comes from high-renewal membership fees rather than thin merchandise margins. Scale and treasure-hunt assortment drive traffic and pricing power.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+11.6% YoY (FQ3&#x27;26 $70.53B)</td></tr>
+            <tr><th>Earnings growth</th><td>EPS $4.93 vs $4.28 (+15%)</td></tr>
+            <tr><th>Profit margin</th><td>Thin retail margin; profit driven by membership fees</td></tr>
+            <tr><th>Debt</th><td>Low leverage, strong cash</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~52 vs peers ~26</td></tr>
+            <tr><th>Valuation</th><td>Very expensive vs peers and its own history</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> FQ3&#x27;26 (rep. May 28) record gas volumes and digital +21% drove an adj comps +6.6% beat; stock crossed $1,000 in May.</p>
+          <p class="bull"><strong>Bull case.</strong> Exceptional membership model with ~90%+ renewals; defensive, consistent compounder; pricing power.</p>
+          <p class="bear"><strong>Bear case.</strong> ~52x earnings is one of the richest large caps - little room for error; modest EPS growth doesn&#x27;t obviously justify the multiple.</p>
+          <p class="conf"><strong>Confidence: High.</strong> Business quality very high, valuation very stretched - small weight only. A pullback toward ~35x would make it a BUY.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/05/28/costco-cost-q3-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nasdaq-cost/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:20%;background:#2563eb"></span></span>
+      <span class="fbv">20</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:68%;background:#2563eb"></span></span>
+      <span class="fbv">68</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:88%;background:#2563eb"></span></span>
+      <span class="fbv">88</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:72%;background:#2563eb"></span></span>
+      <span class="fbv">72</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:88%;background:#2563eb"></span></span>
+      <span class="fbv">88</span></div>
+          <div class="wnote">Target weight <strong>4.6%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="CAT" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Caterpillar Inc. · CAT <span class="badge">Composite 66.2</span> <span class="badge">HOLD</span></h4>
+          <p class="biz">World&#x27;s largest maker of construction and mining equipment, plus Energy &amp; Transportation (engines, turbines, power generation including data-center backup) and a captive finance arm. Cyclical, tied to global capex.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+22% YoY (Q1&#x27;26 $17.4B)</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $5.54 (+30%, big beat); backlog $63B (+79%)</td></tr>
+            <tr><th>Profit margin</th><td>Operating margin high teens</td></tr>
+            <tr><th>Debt</th><td>Moderate (plus captive finance book)</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~44 vs 5-yr avg ~17 - ~95th percentile of its own range</td></tr>
+            <tr><th>Valuation</th><td>Very expensive vs its own history for a cyclical</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 30) Power Generation +41% on data-center demand; record backlog; stock +~191% over the past year; tariff costs trimmed to $2.2-2.4B.</p>
+          <p class="bull"><strong>Bull case.</strong> Multi-year infrastructure, electrification and data-center power capex; record backlog; pricing power and strong aftermarket.</p>
+          <p class="bear"><strong>Bear case.</strong> Cyclical earnings at ~44x - extreme for the cycle; a construction/mining or data-center-capex downturn would hit a stretched multiple hard.</p>
+          <p class="conf"><strong>Confidence: Medium.</strong> Strong momentum on power demand, but the multiple prices in a lot - small weight only. A capex/construction downturn is the key risk.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/30/caterpillar-cat-q1-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.gurufocus.com/term/pettm/CAT" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:30%;background:#2563eb"></span></span>
+      <span class="fbv">30</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:65%;background:#2563eb"></span></span>
+      <span class="fbv">65</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:72%;background:#2563eb"></span></span>
+      <span class="fbv">72</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:90%;background:#2563eb"></span></span>
+      <span class="fbv">90</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div>
+          <div class="wnote">Target weight <strong>4.3%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="UNH" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>UnitedHealth Group Inc. · UNH <span class="badge">Composite 63.0</span> <span class="badge">HOLD</span></h4>
+          <p class="biz">Largest U.S. health insurer (UnitedHealthcare) combined with Optum (health services, pharmacy benefits, care delivery and data/analytics). Earns insurance premiums plus Optum service/PBM fees.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+2% YoY (Q1&#x27;26 $111.7B)</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $7.23 (beat); FY adj-EPS guide raised to &gt;$18.25</td></tr>
+            <tr><th>Profit margin</th><td>Q1 medical care ratio 83.9% (better than feared); FY guide ~88.8%</td></tr>
+            <tr><th>Debt</th><td>Debt/capital ~42.9%, manageable</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>~22x forward (price ~$400 vs &gt;$18.25 adj EPS); rebounded from sub-$300 lows</td></tr>
+            <tr><th>Valuation</th><td>Fair after the rebound (no longer deep-value)</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 beat with raised guidance; stock rallied ~37% in April off depressed levels; MA-rate and DOJ overhangs linger; exiting non-US units.</p>
+          <p class="bull"><strong>Bull case.</strong> Dominant scale and Optum integration; Q1 beat and raised guide suggest recovery ahead of plan; still below prior $500+ highs.</p>
+          <p class="bear"><strong>Bear case.</strong> Medical-cost trend, Medicare Advantage profitability and DOJ scrutiny remain unresolved; sharp rebound has removed the deep-value cushion.</p>
+          <p class="conf"><strong>Confidence: Low-medium.</strong> Wide range of outcomes; held at a small weight. Two more quarters of stabilizing medical-cost ratio would upgrade it; a renewed cost spike or adverse DOJ action would trigger EXIT.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/21/unitedhealth-group-unh-earnings-q1-2026.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-unh/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:45%;background:#2563eb"></span></span>
+      <span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:65%;background:#2563eb"></span></span>
+      <span class="fbv">65</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div>
+          <div class="wnote">Target weight <strong>3.1%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="NEE" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>NextEra Energy Inc. · NEE <span class="badge">Composite 62.9</span> <span class="badge">BUY</span></h4>
+          <p class="biz">Owns Florida Power &amp; Light (a large regulated utility with steady returns) and NextEra Energy Resources (the world&#x27;s largest wind/solar generator). Combines regulated earnings stability with renewables growth.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+7% YoY (Q1&#x27;26 $6.70B)</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $1.09 (+10%); record renewables backlog ~33 GW</td></tr>
+            <tr><th>Profit margin</th><td>Regulated-utility stable; capital intensive</td></tr>
+            <tr><th>Debt</th><td>High leverage (capital-intensive, rate-sensitive)</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~22, ~in line with 5-yr avg; ~2.7-2.9% yield</td></tr>
+            <tr><th>Valuation</th><td>Fair vs history</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 23) EPS beat; record renewables/storage backlog on data-center/electrification demand; FPL stable; large proposed Dominion combination reported.</p>
+          <p class="bull"><strong>Bull case.</strong> Best-in-class renewables developer positioned for surging electricity demand; regulated base provides stability; ~10%/yr dividend growth target.</p>
+          <p class="bear"><strong>Bear case.</strong> High leverage makes it rate-sensitive; renewables subsidy/policy risk; execution risk on a huge backlog and any large M&amp;A.</p>
+          <p class="conf"><strong>Confidence: Medium.</strong> Growth-plus-yield utility. Higher-for-longer rates or adverse renewables policy would pressure the score.</p>
+          <p class="src">Sources: <a href="https://www.fool.com/earnings/call-transcripts/2026/04/23/nextera-energy-nee-q1-2026-earnings-transcript/" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-nee/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:58%;background:#2563eb"></span></span>
+      <span class="fbv">58</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:62%;background:#2563eb"></span></span>
+      <span class="fbv">62</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div>
+          <div class="wnote">Target weight <strong>3.0%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="XOM" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Exxon Mobil Corp. · XOM <span class="badge">Composite 61.9</span> <span class="badge">HOLD</span></h4>
+          <p class="biz">Integrated oil &amp; gas major: Upstream (notably Guyana and the Permian), Energy Products (refining), Chemical and Specialty Products, plus low-carbon ventures. Earnings track commodity prices and volumes.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+4.8% YoY (Q1&#x27;26 $85.14B)</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $1.16 (beat); net income fell to $4.2B from $7.7B on derivative mark-to-market and Mideast disruptions</td></tr>
+            <tr><th>Profit margin</th><td>Cyclical; pressured this quarter</td></tr>
+            <tr><th>Debt</th><td>Total debt $47.7B; debt/capital 15.4%, net debt/capital 13.1% - conservative</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~26 (depressed earnings) / fwd ~15; ~2.7% yield</td></tr>
+            <tr><th>Valuation</th><td>Fair (cheap on forward earnings, cyclical)</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 record Guyana output &gt;900kbpd; Permian growth; Golden Pass LNG Train 1 started; earnings dented by derivatives/disruptions.</p>
+          <p class="bull"><strong>Bull case.</strong> Low-cost Guyana/Permian barrels and a strong balance sheet; durable dividend; disciplined capital returns.</p>
+          <p class="bear"><strong>Bear case.</strong> Earnings hostage to oil/gas prices and refining margins; energy-transition demand risk; volatile quarterly results.</p>
+          <p class="conf"><strong>Confidence: Medium.</strong> Best-in-class major but commodity-driven. A sustained oil-price decline would lower growth/momentum; a spike would lift them.</p>
+          <p class="src">Sources: <a href="https://investor.exxonmobil.com/company-information/press-releases/detail/1204/exxonmobil-announces-first-quarter-2026-results" target="_blank" rel="noopener">[1]</a> <a href="https://www.macrotrends.net/stocks/charts/XOM/exxon/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:62%;background:#2563eb"></span></span>
+      <span class="fbv">62</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:45%;background:#2563eb"></span></span>
+      <span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div>
+          <div class="wnote">Target weight <strong>2.7%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="PG" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Procter &amp; Gamble Co. · PG <span class="badge">Composite 61.5</span> <span class="badge">HOLD</span></h4>
+          <p class="biz">Sells branded consumer staples across fabric/home care, baby/family care, beauty, grooming and health (Tide, Pampers, Gillette, Olay). Scale brands and retail relationships drive steady cash flow.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+7% YoY (FQ3&#x27;26 $21.24B); organic +3% (volume +2%)</td></tr>
+            <tr><th>Earnings growth</th><td>Core EPS $1.59 (beat)</td></tr>
+            <tr><th>Profit margin</th><td>Strong, stable operating margins</td></tr>
+            <tr><th>Debt</th><td>Moderate, conservative</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~21 vs 5-yr median ~25.8; ~3% yield (Dividend King)</td></tr>
+            <tr><th>Valuation</th><td>Fair-to-cheap vs its own history</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> FQ3&#x27;26 (rep. Apr 24) first volume growth in a year; flagged ~$400M after-tax tariff headwind and a productivity/cost program.</p>
+          <p class="bull"><strong>Bull case.</strong> Defensive, predictable cash returns and brand strength; reliable dividend growth; valuation below its own median.</p>
+          <p class="bear"><strong>Bear case.</strong> Low-single-digit growth; FX/tariff headwinds; full-ish valuation for a slow grower.</p>
+          <p class="conf"><strong>Confidence: High.</strong> Defensive ballast. Persistent volume declines would weaken the case; sustained volume growth would strengthen it.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/24/procter-gamble-pg-q3-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-pg/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:52%;background:#2563eb"></span></span>
+      <span class="fbv">52</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:40%;background:#2563eb"></span></span>
+      <span class="fbv">40</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:80%;background:#2563eb"></span></span>
+      <span class="fbv">80</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:58%;background:#2563eb"></span></span>
+      <span class="fbv">58</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:82%;background:#2563eb"></span></span>
+      <span class="fbv">82</span></div>
+          <div class="wnote">Target weight <strong>2.5%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="HD" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>The Home Depot Inc. · HD <span class="badge">Composite 59.9</span> <span class="badge">EXIT</span></h4>
+          <p class="biz">Largest home-improvement retailer, selling to DIY consumers and pros; the SRS acquisition expands its pro/building-products reach. Earnings track housing turnover and big-ticket remodeling.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+4.8% YoY (FQ1&#x27;26 $41.8B, aided by SRS)</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $3.43 (down from $3.56); comps +0.6%</td></tr>
+            <tr><th>Profit margin</th><td>Operating margin ~11.9% (compressed)</td></tr>
+            <tr><th>Debt</th><td>Elevated leverage but serviceable</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~22.6 vs 5-yr avg ~22</td></tr>
+            <tr><th>Valuation</th><td>Fair-to-slightly-rich for sluggish growth</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> FQ1&#x27;26 (rep. May 19) modest beat; comps +0.6%; big-ticket discretionary soft on high rates; FY EPS guided ~flat to +4%.</p>
+          <p class="bull"><strong>Bull case.</strong> Category-leading franchise leveraged to an eventual housing/remodel recovery and rate cuts; strong pro strategy.</p>
+          <p class="bear"><strong>Bear case.</strong> Big-ticket demand weak while rates stay high; full multiple for flat earnings; consumer-cyclical; margin compression.</p>
+          <p class="conf"><strong>Confidence: Medium.</strong> Quality business but composite below 60 - not held this run. A clear remodel-demand inflection or rate cuts would lift growth/momentum.</p>
+          <p class="src">Sources: <a href="https://www.cnbc.com/2026/05/19/home-depot-hd-q1-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-hd/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:50%;background:#2563eb"></span></span>
+      <span class="fbv">50</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:45%;background:#2563eb"></span></span>
+      <span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:70%;background:#2563eb"></span></span>
+      <span class="fbv">70</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:82%;background:#2563eb"></span></span>
+      <span class="fbv">82</span></div>
+          <div class="wnote">Target weight <strong>0.0%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="FTS" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Fortis Inc. · FTS <span class="badge">Composite 58.0</span> <span class="badge">TRIM</span></h4>
+          <p class="biz">Canadian regulated electric and gas utility with operations in Canada, Arizona (UNS Energy) and Michigan (ITC). Earns predictable rate-regulated returns and is executing a $28.8B five-year capex plan to grow its rate base.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>Q1&#x27;26 $3.4B; Basic EPS $0.99 (essentially flat YoY from prior asset sales and share issuance)</td></tr>
+            <tr><th>Earnings growth</th><td>4-6% dividend growth target; rate base growing $42.4B → $57.9B by 2030</td></tr>
+            <tr><th>Profit margin</th><td>Regulated utility; stable, predictable margins</td></tr>
+            <tr><th>Debt</th><td>Capital-intensive; regulated leverage, well-structured</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>~14x on annualized earnings; ~3.5% dividend yield; below US utility peers</td></tr>
+            <tr><th>Valuation</th><td>Modestly cheap vs US utility peers</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. May 6) steady results; Arizona rate case win (9.61% ROE); data-center load growth in Arizona; Springerville gas conversion underway.</p>
+          <p class="bull"><strong>Bull case.</strong> Predictable 4-6% dividend growth; expanding rate base; data-center demand tailwinds in Arizona; reliable dividend history; cheaper than US peers.</p>
+          <p class="bear"><strong>Bear case.</strong> Modest EPS growth; leveraged balance sheet; CAD/USD currency exposure; limited upside; slightly below hold composite.</p>
+          <p class="conf"><strong>Confidence: Medium.</strong> Quality regulated utility slightly below the 60 hold composite (58.0). Steady but not compelling to add to at current prices. Rate cuts would be a positive catalyst.</p>
+          <p class="src">Sources: <a href="https://www.stocktitan.net/news/FTS/fortis-inc-releases-first-quarter-2026-1sq0c8sd8qf6.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.tipranks.com/news/company-announcements/fortis-posts-steady-q1-2026-earnings-as-capital-plan-u-s-regulatory-wins-advance" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:42%;background:#2563eb"></span></span>
+      <span class="fbv">42</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:65%;background:#2563eb"></span></span>
+      <span class="fbv">65</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:50%;background:#2563eb"></span></span>
+      <span class="fbv">50</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:75%;background:#2563eb"></span></span>
+      <span class="fbv">75</span></div>
+          <div class="wnote">Target weight <strong>0.0%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="DUK" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>Duke Energy Corp. · DUK <span class="badge">Composite 56.2</span> <span class="badge">TRIM</span></h4>
+          <p class="biz">One of the largest US regulated electric and gas utilities, serving ~8.4M customers across the Carolinas, Florida, Indiana, Ohio and Kentucky. Earnings driven by rate-base growth and a multi-billion clean-energy transition plan.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+8% YoY (Q1&#x27;26 $9.18B, beat expectations)</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $1.93 (+10% YoY); FY guidance $6.55-$6.80; 5-7% EPS growth through 2030</td></tr>
+            <tr><th>Profit margin</th><td>Regulated utility; stable, predictable margins</td></tr>
+            <tr><th>Debt</th><td>Debt/equity ~1.61; high leverage typical for capital-intensive regulated utilities</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~20.6; fwd ~18.7; ~3.4% dividend yield; peer range 18-22x</td></tr>
+            <tr><th>Valuation</th><td>Fair vs utility peers; fully priced for the growth rate</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. May 5) beat estimates on revenue; maintained 5-7% EPS/dividend growth target through 2030; stock dipped post-earnings despite beat.</p>
+          <p class="bull"><strong>Bull case.</strong> Regulated monopoly with locked-in earnings growth; 5-7% EPS+dividend visibility through 2030; clean-energy capex builds rate base; defensive income.</p>
+          <p class="bear"><strong>Bear case.</strong> High leverage is rate-sensitive; heavy capex requires ongoing equity/debt financing; slow growth limits upside; stock down ~7% from purchase.</p>
+          <p class="conf"><strong>Confidence: Medium.</strong> Stable business but composite below hold threshold (56.3). Leverage and rate sensitivity are persistent risks. Rate cuts would be a meaningful positive catalyst.</p>
+          <p class="src">Sources: <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-duke-energy-beats-q1-2026-forecasts-but-stock-dips-93CH-4679082" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-duk/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:45%;background:#2563eb"></span></span>
+      <span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:62%;background:#2563eb"></span></span>
+      <span class="fbv">62</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:48%;background:#2563eb"></span></span>
+      <span class="fbv">48</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:72%;background:#2563eb"></span></span>
+      <span class="fbv">72</span></div>
+          <div class="wnote">Target weight <strong>0.0%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="T" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>AT&amp;T Inc. · T <span class="badge">Composite 51.6</span> <span class="badge">TRIM</span></h4>
+          <p class="biz">Second-largest US wireless carrier (Mobility) plus a major fiber broadband provider (AT&amp;T Fiber). Divested WarnerMedia in 2022; now purely a connectivity company. Generates substantial EBITDA but carries historically high debt from past acquisitions.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+2.9% YoY (Q1&#x27;26 $31.5B); wireless and fiber growing; legacy services -25%</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $0.57 (+12% YoY); FCF $2.5B (-19%, below estimates)</td></tr>
+            <tr><th>Profit margin</th><td>Adj EBITDA $11.8B (+2.6%); margins stable but under pressure</td></tr>
+            <tr><th>Debt</th><td>~$130B+ total debt; paying down gradually but leverage remains very high</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~8.8 vs 10-yr avg ~12; ~5.6% dividend yield</td></tr>
+            <tr><th>Valuation</th><td>Cheap on earnings; cheap for a reason</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 23) mixed results; wireless/fiber growing but FCF disappointed; legacy revenue collapse ongoing; net debt reduction on track.</p>
+          <p class="bull"><strong>Bull case.</strong> Extremely cheap at ~9x earnings; wireless/fiber are secular growth drivers; ~5.6% dividend; debt paydown path improving balance sheet.</p>
+          <p class="bear"><strong>Bear case.</strong> Chronically high debt limits flexibility; FCF miss raises dividend sustainability questions; legacy revenue -25% with no floor; limited growth story.</p>
+          <p class="conf"><strong>Confidence: Low-medium.</strong> Cheap on P/E but below 60 composite (51.6). Debt load, FCF miss, and lack of growth catalyst hold the score down. Sustained FCF improvement or debt paydown acceleration would upgrade it.</p>
+          <p class="src">Sources: <a href="https://meyka.com/blog/t-stock-earnings-recap-att-inc-q1-2026-results-2004/" target="_blank" rel="noopener">[1]</a> <a href="https://www.macrotrends.net/stocks/charts/T/at-t/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:72%;background:#2563eb"></span></span>
+      <span class="fbv">72</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:42%;background:#2563eb"></span></span>
+      <span class="fbv">42</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:50%;background:#2563eb"></span></span>
+      <span class="fbv">50</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:38%;background:#2563eb"></span></span>
+      <span class="fbv">38</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:55%;background:#2563eb"></span></span>
+      <span class="fbv">55</span></div>
+          <div class="wnote">Target weight <strong>0.0%</strong></div>
+        </div>
+      </div>
+    </td></tr><tr id="NRG" class="detail" style="display:none"><td colspan="7">
+      <div class="dwrap">
+        <div class="dcol">
+          <h4>NRG Energy Inc. · NRG <span class="badge">Composite 47.6</span> <span class="badge">EXIT</span></h4>
+          <p class="biz">Competitive power generator and retail electricity/gas provider across the US and Canada. The recent $12B LS Power acquisition dramatically expanded generation capacity but added significant financial complexity and leverage.</p>
+          <table class="metrics">
+            <tr><th>Revenue growth</th><td>+19.5% YoY (Q1&#x27;26 $10.26B, beat estimates)</td></tr>
+            <tr><th>Earnings growth</th><td>Adj EPS $1.49 (-44% YoY); missed estimates due to LS Power costs, mild Texas weather, mark-to-market hedge losses</td></tr>
+            <tr><th>Profit margin</th><td>Cyclical; compressed near-term by acquisition integration costs</td></tr>
+            <tr><th>Debt</th><td>Significantly elevated post-$12B LS Power acquisition; no regulated earnings floor</td></tr>
+            <tr><th>P/E vs history &amp; peers</th><td>TTM P/E ~37.8 (cost-depressed); fwd ~17.2 if 14% long-term EPS growth targets are met</td></tr>
+            <tr><th>Valuation</th><td>Elevated on trailing; cheap on forward — binary outcome</td></tr>
+          </table>
+          <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 30) revenue beat but EPS miss; reaffirmed 14%+ annual EPS/FCF growth through 2030 and $1B buyback plan; stock fell ~5% on earnings day.</p>
+          <p class="bull"><strong>Bull case.</strong> Reaffirmed aggressive 14% long-term EPS growth; LS Power scale should drive efficiencies; low fwd P/E if targets met; $1B buyback.</p>
+          <p class="bear"><strong>Bear case.</strong> EPS already -44% YoY; $12B acquisition raised debt sharply; weather and commodity-price dependent; thesis relies entirely on acquisition integration execution.</p>
+          <p class="conf"><strong>Confidence: Low-medium.</strong> Below the 50 composite exit threshold (47.7). Acquisition integration uncertainty, earnings shortfall, and high leverage disqualify it. Two quarters of clean EPS delivery would be needed to reconsider.</p>
+          <p class="src">Sources: <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-nrg-energys-q1-2026-results-miss-eps-forecasts-stock-dips-93CH-4664273" target="_blank" rel="noopener">[1]</a> <a href="https://www.gurufocus.com/term/forward-pe-ratio/NRG" target="_blank" rel="noopener">[2]</a> </p>
+        </div>
+        <div class="dcol fcol">
+          <h5>Factor scores</h5>
+          <div class="fb"><span class="fbl">Valuation</span>
+      <span class="fbt"><span class="fbf" style="width:42%;background:#2563eb"></span></span>
+      <span class="fbv">42</span></div><div class="fb"><span class="fbl">Growth</span>
+      <span class="fbt"><span class="fbf" style="width:52%;background:#2563eb"></span></span>
+      <span class="fbv">52</span></div><div class="fb"><span class="fbl">Financial Health</span>
+      <span class="fbt"><span class="fbf" style="width:45%;background:#2563eb"></span></span>
+      <span class="fbv">45</span></div><div class="fb"><span class="fbl">Momentum</span>
+      <span class="fbt"><span class="fbf" style="width:35%;background:#2563eb"></span></span>
+      <span class="fbv">35</span></div><div class="fb"><span class="fbl">Moat</span>
+      <span class="fbt"><span class="fbf" style="width:60%;background:#2563eb"></span></span>
+      <span class="fbv">60</span></div>
+          <div class="wnote">Target weight <strong>0.0%</strong></div>
+        </div>
+      </div>
+    </td></tr>
+    </tbody>
+  </table>
+  <div class="legend">Composite: <span class="dot" style="background:#1a7f37"></span>≥70 strong · <span class="dot" style="background:#bf8700"></span>60–69 hold-grade · <span class="dot" style="background:#cf222e"></span>&lt;60 excluded</div>
+</div>
+
+<!-- ── Section 3: Top Picks Today ── -->
+<div class="panel">
+  <span class="section-tag tag-picks">Top Picks</span>
+  <h3>Best Stocks to Consider Today</h3>
+  <p class="disc" style="margin-bottom:4px">Top BUY-rated names in the universe this run, ranked by composite score. Stocks already in your portfolio are tagged.</p>
+  <div class="topcards">
+  <div class="topcard">
+      <div class="tc-head">
+        <span class="tk">NVDA</span>
+        <span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">82.9</span>
+      </div>
+      <div class="tc-name">NVIDIA Corp. · Technology</div>
+      <div class="tc-bull">CUDA ecosystem lock-in and performance lead; structural AI-infrastructure demand; ~50% net margins fund continued R&amp;D; fwd P/E only ~22.</div>
+      <div class="tc-meta">$211.14 · Confidence: Medium-high</div>
+    </div><div class="topcard">
+      <div class="tc-head">
+        <span class="tk">GOOGL</span>
+        <span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">82.0</span>
+      </div>
+      <div class="tc-name">Alphabet Inc. · Communication Services</div>
+      <div class="tc-bull">Reasonably valued mega-cap; dominant search/video moat; Cloud + Gemini AI optionality; huge cash returns.</div>
+      <div class="tc-meta">$380.51 · Confidence: High</div>
+    </div><div class="topcard">
+      <div class="tc-head">
+        <span class="tk">MSFT</span>
+        <span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">80.0</span>
+      </div>
+      <div class="tc-name">Microsoft Corp. · Technology</div>
+      <div class="tc-bull">Best-positioned enterprise AI distribution; Azure reaccelerating; durable software moat; P/E below its own recent average.</div>
+      <div class="tc-meta">$416.03 · Confidence: High</div>
+    </div><div class="topcard">
+      <div class="tc-head">
+        <span class="tk">META</span>
+        <span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">78.8</span>
+      </div>
+      <div class="tc-name">Meta Platforms Inc. · Communication Services</div>
+      <div class="tc-bull">~3.9B users and AI-driven ad efficiency; pricing power; buybacks; reasonable ~23x trailing / ~15x forward.</div>
+      <div class="tc-meta">$635.00 · Confidence: Medium-high</div>
+    </div><div class="topcard">
+      <div class="tc-head">
+        <span class="tk">AMZN</span>
+        <span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">75.3</span>
+      </div>
+      <div class="tc-name">Amazon.com Inc. · Consumer Discretionary</div>
+      <div class="tc-bull">Retail margin expansion + reaccelerating AWS + high-margin ads; dominant logistics and cloud moats; operating leverage building.</div>
+      <div class="tc-meta">$270.53 · Confidence: Medium-high</div>
+    </div><div class="topcard">
+      <div class="tc-head">
+        <span class="tk">V</span>
+        <span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">75.0</span>
+      </div>
+      <div class="tc-name">Visa Inc. · Financials</div>
+      <div class="tc-bull">Wide network-effect moat; exceptional margins and cash conversion; secular cash-to-card shift; consistent buybacks.</div>
+      <div class="tc-meta">$330.83 · Confidence: High</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Trade Plan ── -->
+<div class="panel">
+  <h2>Agent Trade Plan (paper) — execute in Investopedia</h2>
+  <p class="disc">Excluded this run (composite &lt; 60): HD (59.9), DUK (56.2), FTS (58.0), NRG (47.6), T (51.6). You log in to Investopedia yourself; the agent never stores credentials. Simulated only.</p>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Target wt</th><th class="num">Approx $</th><th class="num">Approx shares</th><th class="num">Price</th></tr></thead>
+    <tbody><tr><td class="tk">NVDA</td><td class="num">10.7%</td>
+          <td class="num">$10,700</td><td class="num">50</td><td class="num">$211.14</td></tr><tr><td class="tk">GOOGL</td><td class="num">10.4%</td>
+          <td class="num">$10,400</td><td class="num">27</td><td class="num">$380.51</td></tr><tr><td class="tk">MSFT</td><td class="num">9.6%</td>
+          <td class="num">$9,600</td><td class="num">23</td><td class="num">$416.03</td></tr><tr><td class="tk">META</td><td class="num">9.2%</td>
+          <td class="num">$9,200</td><td class="num">14</td><td class="num">$635.00</td></tr><tr><td class="tk">AMZN</td><td class="num">7.8%</td>
+          <td class="num">$7,800</td><td class="num">28</td><td class="num">$270.53</td></tr><tr><td class="tk">V</td><td class="num">7.7%</td>
+          <td class="num">$7,700</td><td class="num">23</td><td class="num">$330.83</td></tr><tr><td class="tk">AAPL</td><td class="num">7.3%</td>
+          <td class="num">$7,300</td><td class="num">23</td><td class="num">$313.69</td></tr><tr><td class="tk">JPM</td><td class="num">6.4%</td>
+          <td class="num">$6,400</td><td class="num">21</td><td class="num">$299.31</td></tr><tr><td class="tk">JNJ</td><td class="num">5.5%</td>
+          <td class="num">$5,500</td><td class="num">24</td><td class="num">$227.00</td></tr><tr><td class="tk">KO</td><td class="num">5.2%</td>
+          <td class="num">$5,200</td><td class="num">65</td><td class="num">$79.08</td></tr><tr><td class="tk">COST</td><td class="num">4.6%</td>
+          <td class="num">$4,600</td><td class="num">4</td><td class="num">$949.49</td></tr><tr><td class="tk">CAT</td><td class="num">4.3%</td>
+          <td class="num">$4,300</td><td class="num">4</td><td class="num">$875.87</td></tr><tr><td class="tk">UNH</td><td class="num">3.1%</td>
+          <td class="num">$3,100</td><td class="num">7</td><td class="num">$400.00</td></tr><tr><td class="tk">NEE</td><td class="num">3.0%</td>
+          <td class="num">$3,000</td><td class="num">34</td><td class="num">$87.01</td></tr><tr><td class="tk">XOM</td><td class="num">2.7%</td>
+          <td class="num">$2,700</td><td class="num">18</td><td class="num">$146.10</td></tr><tr><td class="tk">PG</td><td class="num">2.5%</td>
+          <td class="num">$2,500</td><td class="num">16</td><td class="num">$147.49</td></tr></tbody>
+  </table>
+</div>
+
+<div class="foot">Educational, not investment advice. Every positive is paired with its risk; scores are judgmental and uncertain. Generated 2026-05-30T06:00:00Z.</div>
+</div>
+
+<script>
+function tog(t){var d=document.getElementById(t);if(d)d.style.display=(d.style.display==='none'?'table-row':'none');}
+</script>
+</body></html>
