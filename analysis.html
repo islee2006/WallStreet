@@ -107,8 +107,10 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
 .tc-head{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:4px}
 .tc-head .tk{font-size:18px}
 .tc-name{font-size:12px;color:var(--mut);margin-bottom:6px}
-.tc-bull{font-size:13px;line-height:1.5;margin-bottom:8px}
-.tc-meta{font-size:12px;color:var(--mut);font-weight:600}
+.tc-bull{font-size:13px;line-height:1.5;margin-bottom:6px}
+.tc-bear{font-size:13px;line-height:1.5;margin-bottom:8px;color:var(--mut)}
+.tc-meta{font-size:12px;color:var(--mut);font-weight:600;margin-bottom:4px}
+.tc-val{font-size:12px;color:var(--mut);font-style:italic}
 .donut-wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:center;margin-bottom:20px}
 .donut-legend{display:flex;flex-direction:column;gap:6px}
 .dl-item{display:flex;align-items:center;gap:8px;font-size:13px}
@@ -116,6 +118,20 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
 .dl-name{flex:1;min-width:120px}
 .dl-val{font-weight:600;font-variant-numeric:tabular-nums}
 .tp-note{background:var(--chip-bg);border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:16px}
+.tp-status-cell{min-width:170px}
+.tp-btns{display:flex;gap:4px;flex-wrap:wrap}
+.tp-btn{border:none;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;cursor:pointer;opacity:.75;transition:opacity .15s,transform .1s;background:var(--chip-bg);color:var(--ink)}
+.tp-btn:hover{opacity:1}
+.tp-btn.active{opacity:1;transform:scale(1.05)}
+.tp-bought.active{background:#1a7f37;color:#fff}
+.tp-partial.active{background:#bf8700;color:#fff}
+.tp-skipped.active{background:#57606a;color:#fff}
+.tp-status-label{display:block;font-size:11px;font-weight:700;margin-top:3px;letter-spacing:.3px}
+.tp-export-btn{border:1px solid var(--bd);background:var(--card);color:var(--ink);border-radius:6px;padding:4px 12px;font-size:12px;font-weight:600;cursor:pointer}
+.tp-export-btn:hover{background:var(--chip-bg)}
+tr.tp-done-bought td{background:rgba(26,127,55,.07)}
+tr.tp-done-partial td{background:rgba(191,135,0,.07)}
+tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
 .reason{font-size:12px;color:var(--mut)}
 .foot{font-size:12px;color:var(--mut);margin-top:24px;text-align:center}
 .disc{font-size:12px;color:var(--mut);margin:0 0 12px}
@@ -176,14 +192,6 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
 <div id="section-portfolio" class="tab-section">
 
 <div class="panel">
-  <h3>Sector Target Weight Allocation</h3>
-  <div class="donut-wrap">
-    <svg width="180" height="180" viewBox="0 0 180 180"><path d="M90.00,5.00 A85.00,85.00 0 0 1 173.87,103.82 L109.73,93.25 A20.00,20.00 0 0 0 90.00,70.00 Z" fill="#2563eb"><title>Technology: 27.6%</title></path><path d="M173.87,103.82 A85.00,85.00 0 0 1 104.88,173.69 L93.50,109.69 A20.00,20.00 0 0 0 109.73,93.25 Z" fill="#7c3aed"><title>Communication Services: 19.6%</title></path><path d="M104.88,173.69 A85.00,85.00 0 0 1 34.59,154.46 L76.96,105.17 A20.00,20.00 0 0 0 93.50,109.69 Z" fill="#059669"><title>Financials: 14.1%</title></path><path d="M34.59,154.46 A85.00,85.00 0 0 1 5.33,97.47 L70.08,91.76 A20.00,20.00 0 0 0 76.96,105.17 Z" fill="#dc2626"><title>Consumer Staples: 12.3%</title></path><path d="M5.33,97.47 A85.00,85.00 0 0 1 13.55,52.85 L72.01,81.26 A20.00,20.00 0 0 0 70.08,91.76 Z" fill="#d97706"><title>Healthcare: 8.6%</title></path><path d="M13.55,52.85 A85.00,85.00 0 0 1 40.04,21.23 L78.24,73.82 A20.00,20.00 0 0 0 72.01,81.26 Z" fill="#0891b2"><title>Consumer Discretionary: 7.8%</title></path><path d="M40.04,21.23 A85.00,85.00 0 0 1 60.20,10.39 L82.99,71.27 A20.00,20.00 0 0 0 78.24,73.82 Z" fill="#ca8a04"><title>Industrials: 4.3%</title></path><path d="M60.20,10.39 A85.00,85.00 0 0 1 75.65,6.22 L86.62,70.29 A20.00,20.00 0 0 0 82.99,71.27 Z" fill="#9333ea"><title>Utilities: 3.0%</title></path><path d="M75.65,6.22 A85.00,85.00 0 0 1 90.00,5.00 L90.00,70.00 A20.00,20.00 0 0 0 86.62,70.29 Z" fill="#db2777"><title>Energy: 2.7%</title></path><text x="90.0" y="84.0" text-anchor="middle" font-size="10" fill="currentColor" font-weight="600">Target</text><text x="90.0" y="98.0" text-anchor="middle" font-size="10" fill="currentColor">Weights</text></svg>
-    <div class="donut-legend"><div class="dl-item"><span class="dl-dot" style="background:#2563eb"></span><span class="dl-name">Technology</span><span class="dl-val">27.6%</span></div><div class="dl-item"><span class="dl-dot" style="background:#7c3aed"></span><span class="dl-name">Communication Services</span><span class="dl-val">19.6%</span></div><div class="dl-item"><span class="dl-dot" style="background:#059669"></span><span class="dl-name">Financials</span><span class="dl-val">14.1%</span></div><div class="dl-item"><span class="dl-dot" style="background:#dc2626"></span><span class="dl-name">Consumer Staples</span><span class="dl-val">12.3%</span></div><div class="dl-item"><span class="dl-dot" style="background:#d97706"></span><span class="dl-name">Healthcare</span><span class="dl-val">8.6%</span></div><div class="dl-item"><span class="dl-dot" style="background:#0891b2"></span><span class="dl-name">Consumer Discretionary</span><span class="dl-val">7.8%</span></div><div class="dl-item"><span class="dl-dot" style="background:#ca8a04"></span><span class="dl-name">Industrials</span><span class="dl-val">4.3%</span></div><div class="dl-item"><span class="dl-dot" style="background:#9333ea"></span><span class="dl-name">Utilities</span><span class="dl-val">3.0%</span></div><div class="dl-item"><span class="dl-dot" style="background:#db2777"></span><span class="dl-name">Energy</span><span class="dl-val">2.7%</span></div></div>
-  </div>
-</div>
-
-<div class="panel">
   <h3>My Investopedia Holdings</h3>
   <p class="disc">As of 2026-05-31. Click any row for the full research write-up and a live chart.</p>
   <div class="table-scroll">
@@ -207,61 +215,6 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
       <td><span class="comp" style="color:#1a7f37;background:#dafbe1">73.9</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 35</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 70</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 92</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 80</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></td>
       <td><span class="sig hold">HOLD</span></td>
     </tr>
-    <tr class="data-row" data-ticker="DUK" onclick="tog('ip-DUK',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">DUK<div class="nm">Duke Energy Corp.</div></td>
-      <td class="num">$131.73</td>
-      <td class="num">$122.73</td>
-      <td class="num">250</td>
-      <td class="num">$30,682.50</td>
-      <td class="num" style="color:#cf222e">−$2,250.01 (-6.83%)</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">56.2</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 48</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 72</title></rect></svg></td>
-      <td><span class="sig trim">TRIM</span></td>
-    </tr>
-    <tr class="data-row" data-ticker="FTS" onclick="tog('ip-FTS',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">FTS<div class="nm">Fortis Inc.</div></td>
-      <td class="num">$56.61</td>
-      <td class="num">$55.33</td>
-      <td class="num">50</td>
-      <td class="num">$2,766.50</td>
-      <td class="num" style="color:#cf222e">−$64.00 (-2.26%)</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">58.0</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 42</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 65</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 50</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 75</title></rect></svg></td>
-      <td><span class="sig trim">TRIM</span></td>
-    </tr>
-    <tr class="data-row" data-ticker="NEE" onclick="tog('ip-NEE',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">NEE<div class="nm">NextEra Energy Inc.</div></td>
-      <td class="num">$92.91</td>
-      <td class="num">$87.01</td>
-      <td class="num">150</td>
-      <td class="num">$13,051.50</td>
-      <td class="num" style="color:#cf222e">−$885.50 (-6.35%)</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">62.9</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 58</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 60</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
-      <td><span class="sig buy">ADD MORE</span></td>
-    </tr>
-    <tr class="data-row" data-ticker="NRG" onclick="tog('ip-NRG',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">NRG<div class="nm">NRG Energy Inc.</div></td>
-      <td class="num">$165.01</td>
-      <td class="num">$134.08</td>
-      <td class="num">100</td>
-      <td class="num">$13,408.00</td>
-      <td class="num" style="color:#cf222e">−$3,092.50 (-18.74%)</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">47.6</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 42</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 52</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Financial Health: 45</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 35</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Moat: 60</title></rect></svg></td>
-      <td><span class="sig exit">EXIT</span></td>
-    </tr>
-    <tr class="data-row" data-ticker="T" onclick="tog('ip-T',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">T<div class="nm">AT&amp;T Inc.</div></td>
-      <td class="num">$26.86</td>
-      <td class="num">$24.80</td>
-      <td class="num">100</td>
-      <td class="num">$2,480.00</td>
-      <td class="num" style="color:#cf222e">−$205.50 (-7.65%)</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">51.6</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Valuation: 72</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 42</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 50</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 38</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Moat: 55</title></rect></svg></td>
-      <td><span class="sig trim">TRIM</span></td>
-    </tr>
     <tr id="ip-AAPL" class="detail">
       <td colspan="9"><div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -283,6 +236,17 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           </div>
         </div>
       </div></div></td>
+    </tr>
+    <tr class="data-row" data-ticker="DUK" onclick="tog('ip-DUK',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">DUK<div class="nm">Duke Energy Corp.</div></td>
+      <td class="num">$131.73</td>
+      <td class="num">$122.73</td>
+      <td class="num">250</td>
+      <td class="num">$30,682.50</td>
+      <td class="num" style="color:#cf222e">−$2,250.01 (-6.83%)</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">56.2</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 48</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 72</title></rect></svg></td>
+      <td><span class="sig trim">TRIM</span></td>
     </tr>
     <tr id="ip-DUK" class="detail">
       <td colspan="9"><div class="detail-inner"><div class="dwrap">
@@ -306,6 +270,17 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div></td>
     </tr>
+    <tr class="data-row" data-ticker="FTS" onclick="tog('ip-FTS',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">FTS<div class="nm">Fortis Inc.</div></td>
+      <td class="num">$56.61</td>
+      <td class="num">$55.33</td>
+      <td class="num">50</td>
+      <td class="num">$2,766.50</td>
+      <td class="num" style="color:#cf222e">−$64.00 (-2.26%)</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">58.0</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 42</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 65</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 50</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 75</title></rect></svg></td>
+      <td><span class="sig trim">TRIM</span></td>
+    </tr>
     <tr id="ip-FTS" class="detail">
       <td colspan="9"><div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -327,6 +302,17 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           </div>
         </div>
       </div></div></td>
+    </tr>
+    <tr class="data-row" data-ticker="NEE" onclick="tog('ip-NEE',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">NEE<div class="nm">NextEra Energy Inc.</div></td>
+      <td class="num">$92.91</td>
+      <td class="num">$87.01</td>
+      <td class="num">150</td>
+      <td class="num">$13,051.50</td>
+      <td class="num" style="color:#cf222e">−$885.50 (-6.35%)</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">62.9</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 58</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 60</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
+      <td><span class="sig buy">ADD MORE</span></td>
     </tr>
     <tr id="ip-NEE" class="detail">
       <td colspan="9"><div class="detail-inner"><div class="dwrap">
@@ -350,6 +336,17 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div></td>
     </tr>
+    <tr class="data-row" data-ticker="NRG" onclick="tog('ip-NRG',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">NRG<div class="nm">NRG Energy Inc.</div></td>
+      <td class="num">$165.01</td>
+      <td class="num">$134.08</td>
+      <td class="num">100</td>
+      <td class="num">$13,408.00</td>
+      <td class="num" style="color:#cf222e">−$3,092.50 (-18.74%)</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">47.6</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 42</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 52</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Financial Health: 45</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 35</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Moat: 60</title></rect></svg></td>
+      <td><span class="sig exit">EXIT</span></td>
+    </tr>
     <tr id="ip-NRG" class="detail">
       <td colspan="9"><div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -371,6 +368,17 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           </div>
         </div>
       </div></div></td>
+    </tr>
+    <tr class="data-row" data-ticker="T" onclick="tog('ip-T',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">T<div class="nm">AT&amp;T Inc.</div></td>
+      <td class="num">$26.86</td>
+      <td class="num">$24.80</td>
+      <td class="num">100</td>
+      <td class="num">$2,480.00</td>
+      <td class="num" style="color:#cf222e">−$205.50 (-7.65%)</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">51.6</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Valuation: 72</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 42</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 50</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 38</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Moat: 55</title></rect></svg></td>
+      <td><span class="sig trim">TRIM</span></td>
     </tr>
     <tr id="ip-T" class="detail">
       <td colspan="9"><div class="detail-inner"><div class="dwrap">
@@ -449,246 +457,6 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
       <td class="num" style="color:#57606a">--</td>
       <td class="num">$211.14</td>
     </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Communication Services" data-composite="82.0" data-price="380.51" data-ticker="GOOGL" data-weight="10.4" onclick="tog('GOOGL',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">GOOGL<div class="nm">Alphabet Inc.</div></td>
-      <td>Communication Services</td>
-      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">82.0</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">10.4%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 65</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 80</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 95</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 80</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 90</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$380.51</td>
-    </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Technology" data-composite="80.0" data-price="416.03" data-ticker="MSFT" data-weight="9.6" onclick="tog('MSFT',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">MSFT<div class="nm">Microsoft Corp.</div></td>
-      <td>Technology</td>
-      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">80.0</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">9.6%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 82</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 95</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$416.03</td>
-    </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Communication Services" data-composite="78.8" data-price="635.0" data-ticker="META" data-weight="9.2" onclick="tog('META',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">META<div class="nm">Meta Platforms Inc.</div></td>
-      <td>Communication Services</td>
-      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">78.8</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">9.2%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 85</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 90</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$635.00</td>
-    </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Consumer Discretionary" data-composite="75.3" data-price="270.53" data-ticker="AMZN" data-weight="7.8" onclick="tog('AMZN',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">AMZN<div class="nm">Amazon.com Inc.</div></td>
-      <td>Consumer Discretionary</td>
-      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">75.3</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">7.8%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 48</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 78</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 85</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 75</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 90</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$270.53</td>
-    </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Financials" data-composite="75.0" data-price="330.83" data-ticker="V" data-weight="7.7" onclick="tog('V',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">V<div class="nm">Visa Inc.</div></td>
-      <td>Financials</td>
-      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">75.0</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">7.7%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 48</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 70</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 92</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$330.83</td>
-    </tr>
-    <tr class="data-row" data-signal="HOLD" data-sector="Technology" data-composite="73.9" data-price="313.69" data-ticker="AAPL" data-weight="7.3" onclick="tog('AAPL',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">AAPL<div class="nm">Apple Inc.</div></td>
-      <td>Technology</td>
-      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">73.9</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig hold">HOLD</span></td>
-      <td class="num">7.3%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 35</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 70</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 92</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 80</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$313.69</td>
-    </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Financials" data-composite="71.5" data-price="299.31" data-ticker="JPM" data-weight="6.4" onclick="tog('JPM',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">JPM<div class="nm">JPMorgan Chase &amp; Co.</div></td>
-      <td>Financials</td>
-      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">71.5</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">6.4%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 65</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 82</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 72</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$299.31</td>
-    </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Healthcare" data-composite="69.3" data-price="227.0" data-ticker="JNJ" data-weight="5.5" onclick="tog('JNJ',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">JNJ<div class="nm">Johnson &amp; Johnson</div></td>
-      <td>Healthcare</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">69.3</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">5.5%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 55</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 88</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 60</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$227.00</td>
-    </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Consumer Staples" data-composite="68.5" data-price="79.08" data-ticker="KO" data-weight="5.2" onclick="tog('KO',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">KO<div class="nm">The Coca-Cola Company</div></td>
-      <td>Consumer Staples</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">68.5</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">5.2%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 58</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 55</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 78</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$79.08</td>
-    </tr>
-    <tr class="data-row" data-signal="HOLD" data-sector="Consumer Staples" data-composite="67.0" data-price="949.49" data-ticker="COST" data-weight="4.6" onclick="tog('COST',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">COST<div class="nm">Costco Wholesale Corp.</div></td>
-      <td>Consumer Staples</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">67.0</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig hold">HOLD</span></td>
-      <td class="num">4.6%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 20</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 68</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 88</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 72</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 88</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$949.49</td>
-    </tr>
-    <tr class="data-row" data-signal="HOLD" data-sector="Industrials" data-composite="66.2" data-price="875.87" data-ticker="CAT" data-weight="4.3" onclick="tog('CAT',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">CAT<div class="nm">Caterpillar Inc.</div></td>
-      <td>Industrials</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">66.2</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig hold">HOLD</span></td>
-      <td class="num">4.3%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 30</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 65</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 72</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 90</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$875.87</td>
-    </tr>
-    <tr class="data-row" data-signal="HOLD" data-sector="Healthcare" data-composite="63.0" data-price="400.0" data-ticker="UNH" data-weight="3.1" onclick="tog('UNH',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">UNH<div class="nm">UnitedHealth Group Inc.</div></td>
-      <td>Healthcare</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">63.0</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig hold">HOLD</span></td>
-      <td class="num">3.1%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 70</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 65</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$400.00</td>
-    </tr>
-    <tr class="data-row" data-signal="BUY" data-sector="Utilities" data-composite="62.9" data-price="87.01" data-ticker="NEE" data-weight="3.0" onclick="tog('NEE',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">NEE<div class="nm">NextEra Energy Inc.</div></td>
-      <td>Utilities</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">62.9</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig buy">BUY</span></td>
-      <td class="num">3.0%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 58</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 60</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$87.01</td>
-    </tr>
-    <tr class="data-row" data-signal="HOLD" data-sector="Energy" data-composite="61.9" data-price="146.1" data-ticker="XOM" data-weight="2.7" onclick="tog('XOM',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">XOM<div class="nm">Exxon Mobil Corp.</div></td>
-      <td>Energy</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">61.9</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig hold">HOLD</span></td>
-      <td class="num">2.7%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 62</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 80</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 55</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 70</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$146.10</td>
-    </tr>
-    <tr class="data-row" data-signal="HOLD" data-sector="Consumer Staples" data-composite="61.5" data-price="147.49" data-ticker="PG" data-weight="2.5" onclick="tog('PG',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">PG<div class="nm">Procter &amp; Gamble Co.</div></td>
-      <td>Consumer Staples</td>
-      <td><span class="comp" style="color:#bf8700;background:#fff8c5">61.5</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig hold">HOLD</span></td>
-      <td class="num">2.5%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 52</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 40</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 80</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 58</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 82</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$147.49</td>
-    </tr>
-    <tr class="data-row" data-signal="EXIT" data-sector="Consumer Discretionary" data-composite="59.9" data-price="320.07" data-ticker="HD" data-weight="0.0" onclick="tog('HD',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">HD<div class="nm">The Home Depot Inc.</div></td>
-      <td>Consumer Discretionary</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">59.9</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig exit">EXIT</span></td>
-      <td class="num">0.0%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 50</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 70</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 55</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 82</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$320.07</td>
-    </tr>
-    <tr class="data-row" data-signal="TRIM" data-sector="Utilities" data-composite="58.0" data-price="55.33" data-ticker="FTS" data-weight="0.0" onclick="tog('FTS',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">FTS<div class="nm">Fortis Inc.</div></td>
-      <td>Utilities</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">58.0</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig trim">TRIM</span></td>
-      <td class="num">0.0%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 42</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 65</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 50</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 75</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$55.33</td>
-    </tr>
-    <tr class="data-row" data-signal="TRIM" data-sector="Utilities" data-composite="56.2" data-price="122.73" data-ticker="DUK" data-weight="0.0" onclick="tog('DUK',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">DUK<div class="nm">Duke Energy Corp.</div></td>
-      <td>Utilities</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">56.2</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig trim">TRIM</span></td>
-      <td class="num">0.0%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 48</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 72</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$122.73</td>
-    </tr>
-    <tr class="data-row" data-signal="TRIM" data-sector="Communication Services" data-composite="51.6" data-price="24.8" data-ticker="T" data-weight="0.0" onclick="tog('T',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">T<div class="nm">AT&amp;T Inc.</div></td>
-      <td>Communication Services</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">51.6</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig trim">TRIM</span></td>
-      <td class="num">0.0%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Valuation: 72</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 42</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 50</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 38</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Moat: 55</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$24.80</td>
-    </tr>
-    <tr class="data-row" data-signal="EXIT" data-sector="Utilities" data-composite="47.6" data-price="134.08" data-ticker="NRG" data-weight="0.0" onclick="tog('NRG',this)">
-      <td class="exp-col"><span class="chev">&#9656;</span></td>
-      <td class="tk">NRG<div class="nm">NRG Energy Inc.</div></td>
-      <td>Utilities</td>
-      <td><span class="comp" style="color:#cf222e;background:#ffebe9">47.6</span>  <span class="delta"><span class="new">new</span></span></td>
-      <td><span class="sig exit">EXIT</span></td>
-      <td class="num">0.0%</td>
-      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
-      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 42</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 52</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Financial Health: 45</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 35</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Moat: 60</title></rect></svg></td>
-      <td class="num" style="color:#57606a">--</td>
-      <td class="num">$134.08</td>
-    </tr>
     <tr id="NVDA" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -715,6 +483,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Communication Services" data-composite="82.0" data-price="380.51" data-ticker="GOOGL" data-weight="10.4" onclick="tog('GOOGL',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">GOOGL<div class="nm">Alphabet Inc.</div></td>
+      <td>Communication Services</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">82.0</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">10.4%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 65</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 80</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 95</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 80</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 90</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$380.51</td>
+    </tr>
     <tr id="GOOGL" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -741,6 +521,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Technology" data-composite="80.0" data-price="416.03" data-ticker="MSFT" data-weight="9.6" onclick="tog('MSFT',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">MSFT<div class="nm">Microsoft Corp.</div></td>
+      <td>Technology</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">80.0</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">9.6%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 82</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 95</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$416.03</td>
+    </tr>
     <tr id="MSFT" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -767,6 +559,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Communication Services" data-composite="78.8" data-price="635.0" data-ticker="META" data-weight="9.2" onclick="tog('META',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">META<div class="nm">Meta Platforms Inc.</div></td>
+      <td>Communication Services</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">78.8</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">9.2%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 85</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 90</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$635.00</td>
+    </tr>
     <tr id="META" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -793,6 +597,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Consumer Discretionary" data-composite="75.3" data-price="270.53" data-ticker="AMZN" data-weight="7.8" onclick="tog('AMZN',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">AMZN<div class="nm">Amazon.com Inc.</div></td>
+      <td>Consumer Discretionary</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">75.3</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">7.8%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 48</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 78</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 85</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 75</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 90</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$270.53</td>
+    </tr>
     <tr id="AMZN" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -819,6 +635,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Financials" data-composite="75.0" data-price="330.83" data-ticker="V" data-weight="7.7" onclick="tog('V',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">V<div class="nm">Visa Inc.</div></td>
+      <td>Financials</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">75.0</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">7.7%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 48</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 70</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 92</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$330.83</td>
+    </tr>
     <tr id="V" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -845,6 +673,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="HOLD" data-sector="Technology" data-composite="73.9" data-price="313.69" data-ticker="AAPL" data-weight="7.3" onclick="tog('AAPL',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">AAPL<div class="nm">Apple Inc.</div></td>
+      <td>Technology</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">73.9</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">7.3%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 35</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 70</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 92</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 80</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$313.69</td>
+    </tr>
     <tr id="AAPL" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -871,6 +711,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Financials" data-composite="71.5" data-price="299.31" data-ticker="JPM" data-weight="6.4" onclick="tog('JPM',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">JPM<div class="nm">JPMorgan Chase &amp; Co.</div></td>
+      <td>Financials</td>
+      <td><span class="comp" style="color:#1a7f37;background:#dafbe1">71.5</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">6.4%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#1a7f37"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 65</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 82</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 72</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$299.31</td>
+    </tr>
     <tr id="JPM" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -897,6 +749,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Healthcare" data-composite="69.3" data-price="227.0" data-ticker="JNJ" data-weight="5.5" onclick="tog('JNJ',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">JNJ<div class="nm">Johnson &amp; Johnson</div></td>
+      <td>Healthcare</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">69.3</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">5.5%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 55</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 88</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 60</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$227.00</td>
+    </tr>
     <tr id="JNJ" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -923,6 +787,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Consumer Staples" data-composite="68.5" data-price="79.08" data-ticker="KO" data-weight="5.2" onclick="tog('KO',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">KO<div class="nm">The Coca-Cola Company</div></td>
+      <td>Consumer Staples</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">68.5</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">5.2%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 58</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 55</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 78</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$79.08</td>
+    </tr>
     <tr id="KO" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -949,6 +825,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="HOLD" data-sector="Consumer Staples" data-composite="67.0" data-price="949.49" data-ticker="COST" data-weight="4.6" onclick="tog('COST',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">COST<div class="nm">Costco Wholesale Corp.</div></td>
+      <td>Consumer Staples</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">67.0</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">4.6%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 20</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 68</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 88</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 72</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 88</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$949.49</td>
+    </tr>
     <tr id="COST" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -975,6 +863,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="HOLD" data-sector="Industrials" data-composite="66.2" data-price="875.87" data-ticker="CAT" data-weight="4.3" onclick="tog('CAT',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">CAT<div class="nm">Caterpillar Inc.</div></td>
+      <td>Industrials</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">66.2</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">4.3%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 30</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 65</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 72</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 90</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$875.87</td>
+    </tr>
     <tr id="CAT" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1001,6 +901,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="HOLD" data-sector="Healthcare" data-composite="63.0" data-price="400.0" data-ticker="UNH" data-weight="3.1" onclick="tog('UNH',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">UNH<div class="nm">UnitedHealth Group Inc.</div></td>
+      <td>Healthcare</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">63.0</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">3.1%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 70</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 65</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$400.00</td>
+    </tr>
     <tr id="UNH" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1027,6 +939,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="BUY" data-sector="Utilities" data-composite="62.9" data-price="87.01" data-ticker="NEE" data-weight="3.0" onclick="tog('NEE',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">NEE<div class="nm">NextEra Energy Inc.</div></td>
+      <td>Utilities</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">62.9</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig buy">BUY</span></td>
+      <td class="num">3.0%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 58</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 60</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$87.01</td>
+    </tr>
     <tr id="NEE" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1053,6 +977,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="HOLD" data-sector="Energy" data-composite="61.9" data-price="146.1" data-ticker="XOM" data-weight="2.7" onclick="tog('XOM',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">XOM<div class="nm">Exxon Mobil Corp.</div></td>
+      <td>Energy</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">61.9</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">2.7%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 62</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 80</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 55</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 70</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$146.10</td>
+    </tr>
     <tr id="XOM" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1079,6 +1015,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="HOLD" data-sector="Consumer Staples" data-composite="61.5" data-price="147.49" data-ticker="PG" data-weight="2.5" onclick="tog('PG',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">PG<div class="nm">Procter &amp; Gamble Co.</div></td>
+      <td>Consumer Staples</td>
+      <td><span class="comp" style="color:#bf8700;background:#fff8c5">61.5</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig hold">HOLD</span></td>
+      <td class="num">2.5%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#bf8700"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 52</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 40</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 80</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 58</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 82</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$147.49</td>
+    </tr>
     <tr id="PG" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1105,6 +1053,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="EXIT" data-sector="Consumer Discretionary" data-composite="59.9" data-price="320.07" data-ticker="HD" data-weight="0.0" onclick="tog('HD',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">HD<div class="nm">The Home Depot Inc.</div></td>
+      <td>Consumer Discretionary</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">59.9</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig exit">EXIT</span></td>
+      <td class="num">0.0%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 50</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 70</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 55</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 82</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$320.07</td>
+    </tr>
     <tr id="HD" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1131,6 +1091,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="TRIM" data-sector="Utilities" data-composite="58.0" data-price="55.33" data-ticker="FTS" data-weight="0.0" onclick="tog('FTS',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">FTS<div class="nm">Fortis Inc.</div></td>
+      <td>Utilities</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">58.0</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig trim">TRIM</span></td>
+      <td class="num">0.0%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 42</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 65</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 50</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 75</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$55.33</td>
+    </tr>
     <tr id="FTS" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1157,6 +1129,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="TRIM" data-sector="Utilities" data-composite="56.2" data-price="122.73" data-ticker="DUK" data-weight="0.0" onclick="tog('DUK',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">DUK<div class="nm">Duke Energy Corp.</div></td>
+      <td>Utilities</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">56.2</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig trim">TRIM</span></td>
+      <td class="num">0.0%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 45</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 48</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 72</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$122.73</td>
+    </tr>
     <tr id="DUK" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1183,6 +1167,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="TRIM" data-sector="Communication Services" data-composite="51.6" data-price="24.8" data-ticker="T" data-weight="0.0" onclick="tog('T',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">T<div class="nm">AT&amp;T Inc.</div></td>
+      <td>Communication Services</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">51.6</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig trim">TRIM</span></td>
+      <td class="num">0.0%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Valuation: 72</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Growth: 42</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 50</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 38</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Moat: 55</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$24.80</td>
+    </tr>
     <tr id="T" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1209,6 +1205,18 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
         </div>
       </div></div>
     </td></tr>
+    <tr class="data-row" data-signal="EXIT" data-sector="Utilities" data-composite="47.6" data-price="134.08" data-ticker="NRG" data-weight="0.0" onclick="tog('NRG',this)">
+      <td class="exp-col"><span class="chev">&#9656;</span></td>
+      <td class="tk">NRG<div class="nm">NRG Energy Inc.</div></td>
+      <td>Utilities</td>
+      <td><span class="comp" style="color:#cf222e;background:#ffebe9">47.6</span>  <span class="delta"><span class="new">new</span></span></td>
+      <td><span class="sig exit">EXIT</span></td>
+      <td class="num">0.0%</td>
+      <td><svg width="80" height="20" viewBox="0 0 80 20" style="vertical-align:middle"><circle cx="40.0" cy="10.0" r="2.5" fill="#cf222e"/></svg></td>
+      <td><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 42</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 52</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Financial Health: 45</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Momentum: 35</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Moat: 60</title></rect></svg></td>
+      <td class="num" style="color:#57606a">--</td>
+      <td class="num">$134.08</td>
+    </tr>
     <tr id="NRG" class="detail"><td colspan="10">
       <div class="detail-inner"><div class="dwrap">
         <div class="dcol">
@@ -1266,40 +1274,84 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
   <p class="disc">Top BUY-rated names this run, ranked by composite score. Already-held stocks are tagged.</p>
   <div class="topcards">
     <div class="topcard">
-      <div class="tc-head"><span class="tk">NVDA</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">82.9</span></div>
+      <div class="tc-head"><span class="tk">NVDA</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">82.9</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 50</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 98</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 90</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 80</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 92</title></rect></svg></div>
       <div class="tc-name">NVIDIA Corp. &middot; Technology</div>
-      <div class="tc-bull">CUDA ecosystem lock-in and performance lead; structural AI-infrastructure demand; ~50% net margins fund continued R&amp;D; fwd P/E only ~22.</div>
-      <div class="tc-meta">$211.14 &middot; Confidence: Medium-high</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> CUDA ecosystem lock-in and performance lead; structural AI-infrastructure demand; ~50% net margins fund continued R&amp;D; fwd P/E only ~22.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> Hyperscaler customer concentration; risk of an AI-capex digestion cycle; cyclical history; little room for a miss.</div>
+      <div class="tc-meta">$211.14 &middot; Target wt: <strong>10.7%</strong> &middot; Confidence: Medium-high</div>
+      <div class="tc-val">Expensive on trailing multiple but reasonable on forward growth (PEG)</div>
     </div>
     <div class="topcard">
-      <div class="tc-head"><span class="tk">GOOGL</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">82.0</span></div>
+      <div class="tc-head"><span class="tk">GOOGL</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">82.0</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 65</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 80</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 95</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 80</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 90</title></rect></svg></div>
       <div class="tc-name">Alphabet Inc. &middot; Communication Services</div>
-      <div class="tc-bull">Reasonably valued mega-cap; dominant search/video moat; Cloud + Gemini AI optionality; huge cash returns.</div>
-      <div class="tc-meta">$380.51 &middot; Confidence: High</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> Reasonably valued mega-cap; dominant search/video moat; Cloud + Gemini AI optionality; huge cash returns.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> Generative-AI search could erode core query monetization; antitrust remedies (default deals, possible breakup) unresolved.</div>
+      <div class="tc-meta">$380.51 &middot; Target wt: <strong>10.4%</strong> &middot; Confidence: High</div>
+      <div class="tc-val">Fair vs history; attractive on growth</div>
     </div>
     <div class="topcard">
-      <div class="tc-head"><span class="tk">MSFT</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">80.0</span></div>
+      <div class="tc-head"><span class="tk">MSFT</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">80.0</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 82</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 95</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></div>
       <div class="tc-name">Microsoft Corp. &middot; Technology</div>
-      <div class="tc-bull">Best-positioned enterprise AI distribution; Azure reaccelerating; durable software moat; P/E below its own recent average.</div>
-      <div class="tc-meta">$416.03 &middot; Confidence: High</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> Best-positioned enterprise AI distribution; Azure reaccelerating; durable software moat; P/E below its own recent average.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> ~$190B capex pressures free cash flow if AI demand digests; capacity-constrained; large size caps upside.</div>
+      <div class="tc-meta">$416.03 &middot; Target wt: <strong>9.6%</strong> &middot; Confidence: High</div>
+      <div class="tc-val">Fair vs its own history (below 12-mo average)</div>
     </div>
     <div class="topcard">
-      <div class="tc-head"><span class="tk">META</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">78.8</span></div>
+      <div class="tc-head"><span class="tk">META</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">78.8</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 85</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 90</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></div>
       <div class="tc-name">Meta Platforms Inc. &middot; Communication Services</div>
-      <div class="tc-bull">~3.9B users and AI-driven ad efficiency; pricing power; buybacks; reasonable ~23x trailing / ~15x forward.</div>
-      <div class="tc-meta">$635.00 &middot; Confidence: Medium-high</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> ~3.9B users and AI-driven ad efficiency; pricing power; buybacks; reasonable ~23x trailing / ~15x forward.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> Soaring AI/Reality Labs capex with uncertain payback; single-revenue-stream (ads) cyclicality; regulatory exposure.</div>
+      <div class="tc-meta">$635.00 &middot; Target wt: <strong>9.2%</strong> &middot; Confidence: Medium-high</div>
+      <div class="tc-val">Fair-to-cheap given growth</div>
     </div>
     <div class="topcard">
-      <div class="tc-head"><span class="tk">AMZN</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">75.3</span></div>
+      <div class="tc-head"><span class="tk">AMZN</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">75.3</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 48</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 78</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 85</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 75</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 90</title></rect></svg></div>
       <div class="tc-name">Amazon.com Inc. &middot; Consumer Discretionary</div>
-      <div class="tc-bull">Retail margin expansion + reaccelerating AWS + high-margin ads; dominant logistics and cloud moats; operating leverage building.</div>
-      <div class="tc-meta">$270.53 &middot; Confidence: Medium-high</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> Retail margin expansion + reaccelerating AWS + high-margin ads; dominant logistics and cloud moats; operating leverage building.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> Heavy AI capex; rich multiple; retail competitive and consumer-sensitive.</div>
+      <div class="tc-meta">$270.53 &middot; Target wt: <strong>7.8%</strong> &middot; Confidence: Medium-high</div>
+      <div class="tc-val">Fair-to-slightly-rich; justified if margins keep expanding</div>
     </div>
     <div class="topcard">
-      <div class="tc-head"><span class="tk">V</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">75.0</span></div>
+      <div class="tc-head"><span class="tk">V</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">75.0</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#cf222e"><title>Valuation: 48</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Growth: 70</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 92</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 95</title></rect></svg></div>
       <div class="tc-name">Visa Inc. &middot; Financials</div>
-      <div class="tc-bull">Wide network-effect moat; exceptional margins and cash conversion; secular cash-to-card shift; consistent buybacks.</div>
-      <div class="tc-meta">$330.83 &middot; Confidence: High</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> Wide network-effect moat; exceptional margins and cash conversion; secular cash-to-card shift; consistent buybacks.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> Regulatory scrutiny of interchange; competition from real-time rails/stablecoins; consumer-spending sensitivity.</div>
+      <div class="tc-meta">$330.83 &middot; Target wt: <strong>7.7%</strong> &middot; Confidence: High</div>
+      <div class="tc-val">Premium but consistent with history and quality</div>
+    </div>
+    <div class="topcard">
+      <div class="tc-head"><span class="tk">JPM</span><span class="comp" style="color:#1a7f37;background:#dafbe1;margin-left:8px">71.5</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 65</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 82</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 72</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></div>
+      <div class="tc-name">JPMorgan Chase &amp; Co. &middot; Financials</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> Best-in-class, diversified franchise with a fortress balance sheet; strong through-cycle returns; scale advantages.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> Near record price at a premium multiple; credit normalization and a slowing economy would pressure earnings; NII guide cut.</div>
+      <div class="tc-meta">$299.31 &middot; Target wt: <strong>6.4%</strong> &middot; Confidence: Medium-high</div>
+      <div class="tc-val">Fair-to-slightly-rich for a bank at record levels</div>
+    </div>
+    <div class="topcard">
+      <div class="tc-head"><span class="tk">JNJ</span><span class="comp" style="color:#bf8700;background:#fff8c5;margin-left:8px">69.3</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 60</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 55</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 88</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 60</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></div>
+      <div class="tc-name">Johnson &amp; Johnson &middot; Healthcare</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> Diversified, defensive cash flows; AAA balance sheet; oncology pipeline; reliable dividend (Dividend King).</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> Ongoing talc litigation overhang; pharma patent-cliff exposure (e.g. Stelara biosimilars); slower top-line growth.</div>
+      <div class="tc-meta">$227.00 &middot; Target wt: <strong>5.5%</strong> &middot; Confidence: Medium-high</div>
+      <div class="tc-val">Fair vs history and peers</div>
+    </div>
+    <div class="topcard">
+      <div class="tc-head"><span class="tk">KO</span><span class="comp" style="color:#bf8700;background:#fff8c5;margin-left:8px">68.5</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 58</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 55</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Financial Health: 78</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Momentum: 70</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 85</title></rect></svg></div>
+      <div class="tc-name">The Coca-Cola Company &middot; Consumer Staples</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> Iconic brand moat and unrivaled distribution; defensive cash flows; reliable dividend (Dividend King); pricing power.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> Low-single-digit volume growth; FX and input-cost headwinds; GLP-1/health trends a long-term demand question.</div>
+      <div class="tc-meta">$79.08 &middot; Target wt: <strong>5.2%</strong> &middot; Confidence: High</div>
+      <div class="tc-val">Fair vs history and peers</div>
+    </div>
+    <div class="topcard">
+      <div class="tc-head"><span class="tk">NEE</span> <span class="held-tag">already held</span><span class="comp" style="color:#bf8700;background:#fff8c5;margin-left:8px">62.9</span><svg width="58" height="10" viewBox="0 0 58 10" style="vertical-align:middle;margin-left:6px"><rect x="0" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Valuation: 55</title></rect><rect x="12" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Growth: 58</title></rect><rect x="24" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Financial Health: 62</title></rect><rect x="36" y="0" width="10" height="10" rx="2" fill="#bf8700"><title>Momentum: 60</title></rect><rect x="48" y="0" width="10" height="10" rx="2" fill="#1a7f37"><title>Moat: 80</title></rect></svg></div>
+      <div class="tc-name">NextEra Energy Inc. &middot; Utilities</div>
+      <div class="tc-bull"><strong style="color:var(--green)">Bull.</strong> Best-in-class renewables developer positioned for surging electricity demand; regulated base provides stability; ~10%/yr dividend growth target.</div>
+      <div class="tc-bear"><strong style="color:var(--red)">Bear.</strong> High leverage makes it rate-sensitive; renewables subsidy/policy risk; execution risk on a huge backlog and any large M&amp;A.</div>
+      <div class="tc-meta">$87.01 &middot; Target wt: <strong>3.0%</strong> &middot; Confidence: Medium</div>
+      <div class="tc-val">Fair vs history</div>
     </div></div>
 </div>
 </div>
@@ -1307,26 +1359,32 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
 
   <div class="panel">
     <p class="tp-note">Simulated/paper trades for Investopedia. User executes; agent never stores credentials.</p>
-    <h3>Recommended Trades</h3>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+      <h3 style="margin:0">Recommended Trades</h3>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span id="tp-progress" style="font-size:13px;color:var(--mut)"></span>
+        <button class="tp-export-btn" onclick="exportTradeStatus()">&#8615; Export status</button>
+      </div>
+    </div>
     <div class="table-scroll"><table>
-      <thead><tr><th>Action</th><th>Ticker</th><th class="num">Target wt</th><th class="num">Price</th><th class="num">Approx $</th><th class="num">Approx shares</th><th>Reason</th></tr></thead>
+      <thead><tr><th>Action</th><th>Ticker</th><th class="num">Target wt</th><th class="num">Price</th><th class="num">Approx $</th><th class="num">Approx shares</th><th>Reason</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">NVDA</td><td class="num">10.7%</td><td class="num">$211.14</td><td class="num">$10,700</td><td class="num">50</td><td class="reason">Composite 82.9 (BUY); Expensive on trailing multiple but reasonable on forward growth (PEG)</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">GOOGL</td><td class="num">10.4%</td><td class="num">$380.51</td><td class="num">$10,400</td><td class="num">27</td><td class="reason">Composite 82.0 (BUY); Fair vs history; attractive on growth</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">MSFT</td><td class="num">9.6%</td><td class="num">$416.03</td><td class="num">$9,600</td><td class="num">23</td><td class="reason">Composite 80.0 (BUY); Fair vs its own history (below 12-mo average)</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">META</td><td class="num">9.2%</td><td class="num">$635.00</td><td class="num">$9,200</td><td class="num">14</td><td class="reason">Composite 78.8 (BUY); Fair-to-cheap given growth</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">AMZN</td><td class="num">7.8%</td><td class="num">$270.53</td><td class="num">$7,800</td><td class="num">28</td><td class="reason">Composite 75.3 (BUY); Fair-to-slightly-rich; justified if margins keep expanding</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">V</td><td class="num">7.7%</td><td class="num">$330.83</td><td class="num">$7,700</td><td class="num">23</td><td class="reason">Composite 75.0 (BUY); Premium but consistent with history and quality</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">AAPL</td><td class="num">7.3%</td><td class="num">$313.69</td><td class="num">$7,300</td><td class="num">23</td><td class="reason">Composite 73.9 (HOLD); Expensive vs its own history and peers</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">JPM</td><td class="num">6.4%</td><td class="num">$299.31</td><td class="num">$6,400</td><td class="num">21</td><td class="reason">Composite 71.5 (BUY); Fair-to-slightly-rich for a bank at record levels</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">JNJ</td><td class="num">5.5%</td><td class="num">$227.00</td><td class="num">$5,500</td><td class="num">24</td><td class="reason">Composite 69.3 (BUY); Fair vs history and peers</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">KO</td><td class="num">5.2%</td><td class="num">$79.08</td><td class="num">$5,200</td><td class="num">65</td><td class="reason">Composite 68.5 (BUY); Fair vs history and peers</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">COST</td><td class="num">4.6%</td><td class="num">$949.49</td><td class="num">$4,600</td><td class="num">4</td><td class="reason">Composite 67.0 (HOLD); Very expensive vs peers and its own history</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">CAT</td><td class="num">4.3%</td><td class="num">$875.87</td><td class="num">$4,300</td><td class="num">4</td><td class="reason">Composite 66.2 (HOLD); Very expensive vs its own history for a cyclical</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">UNH</td><td class="num">3.1%</td><td class="num">$400.00</td><td class="num">$3,100</td><td class="num">7</td><td class="reason">Composite 63.0 (HOLD); Fair after the rebound (no longer deep-value)</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">NEE</td><td class="num">3.0%</td><td class="num">$87.01</td><td class="num">$3,000</td><td class="num">34</td><td class="reason">Composite 62.9 (BUY); Fair vs history</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">XOM</td><td class="num">2.7%</td><td class="num">$146.10</td><td class="num">$2,700</td><td class="num">18</td><td class="reason">Composite 61.9 (HOLD); Fair (cheap on forward earnings, cyclical)</td></tr>
-        <tr><td><span class="sig buy">BUY</span></td><td class="tk">PG</td><td class="num">2.5%</td><td class="num">$147.49</td><td class="num">$2,500</td><td class="num">16</td><td class="reason">Composite 61.5 (HOLD); Fair-to-cheap vs its own history</td></tr></tbody>
+        <tr id="tpr-NVDA" data-ticker="NVDA"><td><span class="sig buy">BUY</span></td><td class="tk">NVDA</td><td class="num">10.7%</td><td class="num">$211.14</td><td class="num">$10,700</td><td class="num">50</td><td class="reason">Composite 82.9 (BUY); Expensive on trailing multiple but reasonable on forward growth (PEG)</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('NVDA','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('NVDA','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('NVDA','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-NVDA"></span></td></tr>
+        <tr id="tpr-GOOGL" data-ticker="GOOGL"><td><span class="sig buy">BUY</span></td><td class="tk">GOOGL</td><td class="num">10.4%</td><td class="num">$380.51</td><td class="num">$10,400</td><td class="num">27</td><td class="reason">Composite 82.0 (BUY); Fair vs history; attractive on growth</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('GOOGL','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('GOOGL','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('GOOGL','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-GOOGL"></span></td></tr>
+        <tr id="tpr-MSFT" data-ticker="MSFT"><td><span class="sig buy">BUY</span></td><td class="tk">MSFT</td><td class="num">9.6%</td><td class="num">$416.03</td><td class="num">$9,600</td><td class="num">23</td><td class="reason">Composite 80.0 (BUY); Fair vs its own history (below 12-mo average)</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('MSFT','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('MSFT','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('MSFT','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-MSFT"></span></td></tr>
+        <tr id="tpr-META" data-ticker="META"><td><span class="sig buy">BUY</span></td><td class="tk">META</td><td class="num">9.2%</td><td class="num">$635.00</td><td class="num">$9,200</td><td class="num">14</td><td class="reason">Composite 78.8 (BUY); Fair-to-cheap given growth</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('META','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('META','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('META','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-META"></span></td></tr>
+        <tr id="tpr-AMZN" data-ticker="AMZN"><td><span class="sig buy">BUY</span></td><td class="tk">AMZN</td><td class="num">7.8%</td><td class="num">$270.53</td><td class="num">$7,800</td><td class="num">28</td><td class="reason">Composite 75.3 (BUY); Fair-to-slightly-rich; justified if margins keep expanding</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('AMZN','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('AMZN','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('AMZN','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-AMZN"></span></td></tr>
+        <tr id="tpr-V" data-ticker="V"><td><span class="sig buy">BUY</span></td><td class="tk">V</td><td class="num">7.7%</td><td class="num">$330.83</td><td class="num">$7,700</td><td class="num">23</td><td class="reason">Composite 75.0 (BUY); Premium but consistent with history and quality</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('V','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('V','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('V','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-V"></span></td></tr>
+        <tr id="tpr-AAPL" data-ticker="AAPL"><td><span class="sig buy">BUY</span></td><td class="tk">AAPL</td><td class="num">7.3%</td><td class="num">$313.69</td><td class="num">$7,300</td><td class="num">23</td><td class="reason">Composite 73.9 (HOLD); Expensive vs its own history and peers</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('AAPL','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('AAPL','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('AAPL','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-AAPL"></span></td></tr>
+        <tr id="tpr-JPM" data-ticker="JPM"><td><span class="sig buy">BUY</span></td><td class="tk">JPM</td><td class="num">6.4%</td><td class="num">$299.31</td><td class="num">$6,400</td><td class="num">21</td><td class="reason">Composite 71.5 (BUY); Fair-to-slightly-rich for a bank at record levels</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('JPM','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('JPM','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('JPM','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-JPM"></span></td></tr>
+        <tr id="tpr-JNJ" data-ticker="JNJ"><td><span class="sig buy">BUY</span></td><td class="tk">JNJ</td><td class="num">5.5%</td><td class="num">$227.00</td><td class="num">$5,500</td><td class="num">24</td><td class="reason">Composite 69.3 (BUY); Fair vs history and peers</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('JNJ','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('JNJ','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('JNJ','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-JNJ"></span></td></tr>
+        <tr id="tpr-KO" data-ticker="KO"><td><span class="sig buy">BUY</span></td><td class="tk">KO</td><td class="num">5.2%</td><td class="num">$79.08</td><td class="num">$5,200</td><td class="num">65</td><td class="reason">Composite 68.5 (BUY); Fair vs history and peers</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('KO','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('KO','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('KO','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-KO"></span></td></tr>
+        <tr id="tpr-COST" data-ticker="COST"><td><span class="sig buy">BUY</span></td><td class="tk">COST</td><td class="num">4.6%</td><td class="num">$949.49</td><td class="num">$4,600</td><td class="num">4</td><td class="reason">Composite 67.0 (HOLD); Very expensive vs peers and its own history</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('COST','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('COST','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('COST','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-COST"></span></td></tr>
+        <tr id="tpr-CAT" data-ticker="CAT"><td><span class="sig buy">BUY</span></td><td class="tk">CAT</td><td class="num">4.3%</td><td class="num">$875.87</td><td class="num">$4,300</td><td class="num">4</td><td class="reason">Composite 66.2 (HOLD); Very expensive vs its own history for a cyclical</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('CAT','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('CAT','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('CAT','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-CAT"></span></td></tr>
+        <tr id="tpr-UNH" data-ticker="UNH"><td><span class="sig buy">BUY</span></td><td class="tk">UNH</td><td class="num">3.1%</td><td class="num">$400.00</td><td class="num">$3,100</td><td class="num">7</td><td class="reason">Composite 63.0 (HOLD); Fair after the rebound (no longer deep-value)</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('UNH','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('UNH','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('UNH','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-UNH"></span></td></tr>
+        <tr id="tpr-NEE" data-ticker="NEE"><td><span class="sig buy">BUY</span></td><td class="tk">NEE</td><td class="num">3.0%</td><td class="num">$87.01</td><td class="num">$3,000</td><td class="num">34</td><td class="reason">Composite 62.9 (BUY); Fair vs history</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('NEE','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('NEE','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('NEE','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-NEE"></span></td></tr>
+        <tr id="tpr-XOM" data-ticker="XOM"><td><span class="sig buy">BUY</span></td><td class="tk">XOM</td><td class="num">2.7%</td><td class="num">$146.10</td><td class="num">$2,700</td><td class="num">18</td><td class="reason">Composite 61.9 (HOLD); Fair (cheap on forward earnings, cyclical)</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('XOM','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('XOM','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('XOM','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-XOM"></span></td></tr>
+        <tr id="tpr-PG" data-ticker="PG"><td><span class="sig buy">BUY</span></td><td class="tk">PG</td><td class="num">2.5%</td><td class="num">$147.49</td><td class="num">$2,500</td><td class="num">16</td><td class="reason">Composite 61.5 (HOLD); Fair-to-cheap vs its own history</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('PG','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('PG','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('PG','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-PG"></span></td></tr></tbody>
     </table></div>
     <h3 style="margin-top:24px">Excluded This Run (composite &lt; 60)</h3>
     <table><thead><tr><th>Ticker</th><th class="num">Composite</th><th>Reason</th></tr></thead><tbody><tr><td class="tk">HD</td><td class="num">59.9</td><td style="color:var(--mut);font-size:13px">composite&lt;60</td></tr><tr><td class="tk">DUK</td><td class="num">56.2</td><td style="color:var(--mut);font-size:13px">composite&lt;60</td></tr><tr><td class="tk">FTS</td><td class="num">58.0</td><td style="color:var(--mut);font-size:13px">composite&lt;60</td></tr><tr><td class="tk">NRG</td><td class="num">47.6</td><td style="color:var(--mut);font-size:13px">composite&lt;60</td></tr><tr><td class="tk">T</td><td class="num">51.6</td><td style="color:var(--mut);font-size:13px">composite&lt;60</td></tr></tbody></table>
@@ -1531,7 +1589,84 @@ function toggleTheme() {
   try{saved=localStorage.getItem('activeTab')||'portfolio';}catch(e){}
   showTab(saved);
   applyFilters();
+  loadTradeStatuses();
 })();
+
+var TP_RUN_KEY='tp_20260530T060000Z';
+
+function setTradeStatus(tk,status,btn){
+  var row=document.getElementById('tpr-'+tk);
+  var label=document.getElementById('tpsl-'+tk);
+  if(!row)return;
+  var btns=row.querySelectorAll('.tp-btn');
+  var alreadyActive=(btn&&btn.classList.contains('active'));
+  btns.forEach(function(b){b.classList.remove('active');});
+  row.classList.remove('tp-done-bought','tp-done-partial','tp-done-skipped');
+  if(alreadyActive){
+    if(label)label.textContent='';
+    try{
+      var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+      delete all[tk];
+      localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));
+    }catch(e){}
+  } else {
+    if(btn)btn.classList.add('active');
+    row.classList.add('tp-done-'+status);
+    var labels={bought:'Bought ✓',partial:'Partial fill',skipped:'Skipped'};
+    if(label)label.textContent=labels[status]||status;
+    try{
+      var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+      all[tk]=status;
+      localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));
+    }catch(e){}
+  }
+  updateTpProgress();
+}
+
+function loadTradeStatuses(){
+  try{
+    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+    Object.keys(all).forEach(function(tk){
+      var status=all[tk];
+      var row=document.getElementById('tpr-'+tk);
+      if(!row)return;
+      var btn=row.querySelector('.tp-'+status);
+      var label=document.getElementById('tpsl-'+tk);
+      if(btn)btn.classList.add('active');
+      row.classList.add('tp-done-'+status);
+      var labels={bought:'Bought ✓',partial:'Partial fill',skipped:'Skipped'};
+      if(label)label.textContent=labels[status]||status;
+    });
+  }catch(e){}
+  updateTpProgress();
+}
+
+function updateTpProgress(){
+  var el=document.getElementById('tp-progress');
+  if(!el)return;
+  try{
+    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+    var keys=Object.keys(all);
+    var total=document.querySelectorAll('[id^="tpr-"]').length;
+    var bought=keys.filter(function(k){return all[k]==='bought';}).length;
+    var partial=keys.filter(function(k){return all[k]==='partial';}).length;
+    var skipped=keys.filter(function(k){return all[k]==='skipped';}).length;
+    if(keys.length===0){el.textContent='';return;}
+    el.textContent=bought+' bought · '+partial+' partial · '+skipped+' skipped · '+(total-keys.length)+' pending';
+  }catch(e){}
+}
+
+function exportTradeStatus(){
+  try{
+    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+    var out={run_key:TP_RUN_KEY,exported:new Date().toISOString(),statuses:all};
+    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='trade_status.json';
+    a.click();
+  }catch(e){alert('Export failed: '+e);}
+}
 </script>
 </body>
 </html>
