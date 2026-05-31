@@ -72,7 +72,7 @@ body.dark .exit{background:#3a0a0a;color:#f85149}
 .held-tag{font-size:11px;background:#dbeafe;color:#1d4ed8;padding:1px 7px;border-radius:20px;font-weight:600;margin-left:6px}
 body.dark .held-tag{background:#1f3562;color:#58a6ff}
 .detail td{padding:0;border-bottom:1px solid var(--bd)}
-.detail-inner{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--detail-bg)}
+.detail-inner{max-height:0;overflow:hidden;transition:max-height .35s ease;background:var(--detail-bg)}
 .dwrap{display:flex;gap:24px;flex-wrap:wrap;padding:14px 18px}
 .dcol{flex:1;min-width:260px}
 .fcol{max-width:320px}
@@ -121,6 +121,13 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
 .disc{font-size:12px;color:var(--mut);margin:0 0 12px}
 .legend{font-size:12px;color:var(--mut);margin-top:10px}
 .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin:0 3px 0 10px;vertical-align:middle}
+/* TradingView widgets */
+.tv-mini{margin-top:14px;border-radius:8px;overflow:hidden;min-height:0}
+.tv-mini .tradingview-widget-container{height:220px!important}
+.tv-mini .tradingview-widget-container__widget{height:100%!important}
+.tv-chart-outer{border-radius:8px;overflow:hidden;border:1px solid var(--bd)}
+.chart-ticker-bar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.chart-select{font:14px/1 inherit;background:var(--card);border:1px solid var(--bd);color:var(--ink);border-radius:8px;padding:7px 12px;cursor:pointer;min-width:280px}
 @media(max-width:600px){
   .kpi{min-width:calc(50% - 5px)}
   .wrap{padding:14px 10px 50px}
@@ -132,6 +139,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
   .donut-wrap{justify-content:center}
   .filter-bar{gap:8px}
   .res-count{margin-left:0;width:100%}
+  .chart-select{min-width:100%}
 }
 @media(max-width:400px){.kpi{min-width:100%}}
 </style>
@@ -161,6 +169,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
 <div class="tab-bar">
   <button class="tab active" data-tab="portfolio" onclick="showTab('portfolio')">Portfolio</button>
   <button class="tab" data-tab="research" onclick="showTab('research')">Research</button>
+  <button class="tab" data-tab="charts" onclick="showTab('charts')">&#128200; Charts</button>
   <button class="tab" data-tab="picks" onclick="showTab('picks')">Top Picks</button>
   <button class="tab" data-tab="tradeplan" onclick="showTab('tradeplan')">Trade Plan</button>
 </div>
@@ -176,7 +185,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
 
 <div class="panel">
   <h3>My Investopedia Holdings</h3>
-  <p class="disc">As of 2026-05-31. Click any row for the full research write-up.</p>
+  <p class="disc">As of 2026-05-31. Click any row for the full research write-up and a live chart.</p>
   <div class="table-scroll">
   <table>
     <thead><tr>
@@ -262,6 +271,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Trades ~42% above its 10-yr median P/E; growth is good not great; AI/Siri behind peers; China and App-Store regulatory risk.</p>
           <p class="conf"><strong>Confidence: Medium-high.</strong> Business durable; valuation is the risk. Multiple compression to ~30x, or an AI-driven upgrade cycle, would change the view.</p>
           <p><strong>Recent news.</strong> FQ2&#x27;26 record March quarter; iPhone +22%, Services +16% to ~$31B; guided June qtr +14-17%; WWDC June 8 ahead.</p>
+          <div id="tv-mini-ip-AAPL" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:35%;background:#cf222e"></span></span><span class="fbv">35</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:92%;background:#1a7f37"></span></span><span class="fbv">92</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:95%;background:#1a7f37"></span></span><span class="fbv">95</span></div>
@@ -283,6 +293,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> High leverage is rate-sensitive; heavy capex requires ongoing equity/debt financing; slow growth limits upside; stock down ~7% from purchase.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Stable business but composite below hold threshold (56.3). Leverage and rate sensitivity are persistent risks. Rate cuts would be a meaningful positive catalyst.</p>
           <p><strong>Recent news.</strong> Q1&#x27;26 (rep. May 5) beat estimates on revenue; maintained 5-7% EPS/dividend growth target through 2030; stock dipped post-earnings despite beat.</p>
+          <div id="tv-mini-ip-DUK" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:45%;background:#cf222e"></span></span><span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:62%;background:#bf8700"></span></span><span class="fbv">62</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:48%;background:#cf222e"></span></span><span class="fbv">48</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:72%;background:#1a7f37"></span></span><span class="fbv">72</span></div>
@@ -304,6 +315,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Modest EPS growth; leveraged balance sheet; CAD/USD currency exposure; limited upside; slightly below hold composite.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Quality regulated utility slightly below the 60 hold composite (58.0). Steady but not compelling to add to at current prices. Rate cuts would be a positive catalyst.</p>
           <p><strong>Recent news.</strong> Q1&#x27;26 (rep. May 6) steady results; Arizona rate case win (9.61% ROE); data-center load growth in Arizona; Springerville gas conversion underway.</p>
+          <div id="tv-mini-ip-FTS" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:42%;background:#cf222e"></span></span><span class="fbv">42</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:65%;background:#bf8700"></span></span><span class="fbv">65</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:50%;background:#bf8700"></span></span><span class="fbv">50</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:75%;background:#1a7f37"></span></span><span class="fbv">75</span></div>
@@ -325,6 +337,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> High leverage makes it rate-sensitive; renewables subsidy/policy risk; execution risk on a huge backlog and any large M&amp;A.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Growth-plus-yield utility. Higher-for-longer rates or adverse renewables policy would pressure the score.</p>
           <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 23) EPS beat; record renewables/storage backlog on data-center/electrification demand; FPL stable; large proposed Dominion combination reported.</p>
+          <div id="tv-mini-ip-NEE" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:58%;background:#bf8700"></span></span><span class="fbv">58</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:62%;background:#bf8700"></span></span><span class="fbv">62</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div>
@@ -346,6 +359,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> EPS already -44% YoY; $12B acquisition raised debt sharply; weather and commodity-price dependent; thesis relies entirely on acquisition integration execution.</p>
           <p class="conf"><strong>Confidence: Low-medium.</strong> Below the 50 composite exit threshold (47.7). Acquisition integration uncertainty, earnings shortfall, and high leverage disqualify it. Two quarters of clean EPS delivery would be needed to reconsider.</p>
           <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 30) revenue beat but EPS miss; reaffirmed 14%+ annual EPS/FCF growth through 2030 and $1B buyback plan; stock fell ~5% on earnings day.</p>
+          <div id="tv-mini-ip-NRG" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:42%;background:#cf222e"></span></span><span class="fbv">42</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:52%;background:#bf8700"></span></span><span class="fbv">52</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:45%;background:#cf222e"></span></span><span class="fbv">45</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:35%;background:#cf222e"></span></span><span class="fbv">35</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div>
@@ -367,6 +381,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Chronically high debt limits flexibility; FCF miss raises dividend sustainability questions; legacy revenue -25% with no floor; limited growth story.</p>
           <p class="conf"><strong>Confidence: Low-medium.</strong> Cheap on P/E but below 60 composite (51.6). Debt load, FCF miss, and lack of growth catalyst hold the score down. Sustained FCF improvement or debt paydown acceleration would upgrade it.</p>
           <p><strong>Recent news.</strong> Q1&#x27;26 (rep. Apr 23) mixed results; wireless/fiber growing but FCF disappointed; legacy revenue collapse ongoing; net debt reduction on track.</p>
+          <div id="tv-mini-ip-T" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:72%;background:#1a7f37"></span></span><span class="fbv">72</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:42%;background:#cf222e"></span></span><span class="fbv">42</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:50%;background:#bf8700"></span></span><span class="fbv">50</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:38%;background:#cf222e"></span></span><span class="fbv">38</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div>
@@ -692,6 +707,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Hyperscaler customer concentration; risk of an AI-capex digestion cycle; cyclical history; little room for a miss.</p>
           <p class="conf"><strong>Confidence: Medium-high.</strong> Dominant today; the swing factor is whether hyperscaler AI capex sustains. A capex pause would hit hardest here.</p>
           <p class="src">Sources: <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027" target="_blank" rel="noopener">[1]</a> <a href="https://www.macrotrends.net/stocks/charts/NVDA/nvidia/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-NVDA" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:50%;background:#bf8700"></span></span><span class="fbv">50</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:98%;background:#1a7f37"></span></span><span class="fbv">98</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:90%;background:#1a7f37"></span></span><span class="fbv">90</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:92%;background:#1a7f37"></span></span><span class="fbv">92</span></div>
@@ -717,6 +733,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Generative-AI search could erode core query monetization; antitrust remedies (default deals, possible breakup) unresolved.</p>
           <p class="conf"><strong>Confidence: High.</strong> Strong fundamentals at a reasonable multiple. Evidence AI is structurally cutting search monetization would break the thesis.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/29/alphabet-googl-q1-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nasdaq-googl/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-GOOGL" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:65%;background:#bf8700"></span></span><span class="fbv">65</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:95%;background:#1a7f37"></span></span><span class="fbv">95</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:90%;background:#1a7f37"></span></span><span class="fbv">90</span></div>
@@ -742,6 +759,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> ~$190B capex pressures free cash flow if AI demand digests; capacity-constrained; large size caps upside.</p>
           <p class="conf"><strong>Confidence: High.</strong> Clear AI/cloud leadership. Sustained capex overspend without revenue follow-through would lower the score.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/29/microsoft-msft-q3-earnings-report-2026.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.financecharts.com/stocks/MSFT/value/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-MSFT" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:82%;background:#1a7f37"></span></span><span class="fbv">82</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:95%;background:#1a7f37"></span></span><span class="fbv">95</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:95%;background:#1a7f37"></span></span><span class="fbv">95</span></div>
@@ -767,6 +785,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Soaring AI/Reality Labs capex with uncertain payback; single-revenue-stream (ads) cyclicality; regulatory exposure.</p>
           <p class="conf"><strong>Confidence: Medium-high.</strong> Ad engine excellent and valuation undemanding; the question is capex discipline. Sustained spend without ROI, or an ad recession, would lower the score.</p>
           <p class="src">Sources: <a href="https://www.sec.gov/Archives/edgar/data/1326801/000162828026028364/meta-03312026xexhibit991.htm" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nasdaq-meta/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-META" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:85%;background:#1a7f37"></span></span><span class="fbv">85</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:90%;background:#1a7f37"></span></span><span class="fbv">90</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:85%;background:#1a7f37"></span></span><span class="fbv">85</span></div>
@@ -792,6 +811,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Heavy AI capex; rich multiple; retail competitive and consumer-sensitive.</p>
           <p class="conf"><strong>Confidence: Medium-high.</strong> Margin story plus AWS reacceleration. A consumer downturn or AWS stall is the key risk.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/29/amazon-amzn-q1-earnings-report-2026.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nasdaq-amzn/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-AMZN" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:48%;background:#cf222e"></span></span><span class="fbv">48</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:78%;background:#1a7f37"></span></span><span class="fbv">78</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:85%;background:#1a7f37"></span></span><span class="fbv">85</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:75%;background:#1a7f37"></span></span><span class="fbv">75</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:90%;background:#1a7f37"></span></span><span class="fbv">90</span></div>
@@ -817,6 +837,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Regulatory scrutiny of interchange; competition from real-time rails/stablecoins; consumer-spending sensitivity.</p>
           <p class="conf"><strong>Confidence: High.</strong> High-quality compounder. Material interchange regulation or a payments-rail shift would be the thesis risk.</p>
           <p class="src">Sources: <a href="https://www.fool.com/earnings/call-transcripts/2026/04/29/visa-v-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-v/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-V" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:48%;background:#cf222e"></span></span><span class="fbv">48</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:92%;background:#1a7f37"></span></span><span class="fbv">92</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:95%;background:#1a7f37"></span></span><span class="fbv">95</span></div>
@@ -842,6 +863,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Trades ~42% above its 10-yr median P/E; growth is good not great; AI/Siri behind peers; China and App-Store regulatory risk.</p>
           <p class="conf"><strong>Confidence: Medium-high.</strong> Business durable; valuation is the risk. Multiple compression to ~30x, or an AI-driven upgrade cycle, would change the view.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/30/apple-aapl-q2-2026-earnings-report.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.macrotrends.net/stocks/charts/AAPL/apple/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-AAPL" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:35%;background:#cf222e"></span></span><span class="fbv">35</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:92%;background:#1a7f37"></span></span><span class="fbv">92</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:95%;background:#1a7f37"></span></span><span class="fbv">95</span></div>
@@ -867,6 +889,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Near record price at a premium multiple; credit normalization and a slowing economy would pressure earnings; NII guide cut.</p>
           <p class="conf"><strong>Confidence: Medium-high.</strong> Quality compounder among banks. A credit-cycle downturn or recession is the main risk.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/14/jpmorgan-chase-jpm-earnings-1q-2026.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.stocktitan.net/sec-filings/JPM/8-k-jpmorgan-chase-co-reports-material-event-224c89e08684.html" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-JPM" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:65%;background:#bf8700"></span></span><span class="fbv">65</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:82%;background:#1a7f37"></span></span><span class="fbv">82</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:72%;background:#1a7f37"></span></span><span class="fbv">72</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div>
@@ -892,6 +915,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Ongoing talc litigation overhang; pharma patent-cliff exposure (e.g. Stelara biosimilars); slower top-line growth.</p>
           <p class="conf"><strong>Confidence: Medium-high.</strong> Defensive quality. A large adverse talc ruling or pipeline setback would change the view.</p>
           <p class="src">Sources: <a href="https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-reports-Q1-2026-results-raises-2026-outlook/default.aspx" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-jnj/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-JNJ" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:88%;background:#1a7f37"></span></span><span class="fbv">88</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:85%;background:#1a7f37"></span></span><span class="fbv">85</span></div>
@@ -917,6 +941,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Low-single-digit volume growth; FX and input-cost headwinds; GLP-1/health trends a long-term demand question.</p>
           <p class="conf"><strong>Confidence: High.</strong> Steady defensive holding. A sharp dollar move or volume decline would pressure it.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/28/coca-cola-ko-q1-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.stocktitan.net/sec-filings/KO/10-q-coca-cola-co-quarterly-earnings-report-42da275b7abd.html" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-KO" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:58%;background:#bf8700"></span></span><span class="fbv">58</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:78%;background:#1a7f37"></span></span><span class="fbv">78</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:85%;background:#1a7f37"></span></span><span class="fbv">85</span></div>
@@ -942,6 +967,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> ~52x earnings is one of the richest large caps - little room for error; modest EPS growth doesn&#x27;t obviously justify the multiple.</p>
           <p class="conf"><strong>Confidence: High.</strong> Business quality very high, valuation very stretched - small weight only. A pullback toward ~35x would make it a BUY.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/05/28/costco-cost-q3-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nasdaq-cost/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-COST" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:20%;background:#cf222e"></span></span><span class="fbv">20</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:68%;background:#bf8700"></span></span><span class="fbv">68</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:88%;background:#1a7f37"></span></span><span class="fbv">88</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:72%;background:#1a7f37"></span></span><span class="fbv">72</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:88%;background:#1a7f37"></span></span><span class="fbv">88</span></div>
@@ -967,6 +993,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Cyclical earnings at ~44x - extreme for the cycle; a construction/mining or data-center-capex downturn would hit a stretched multiple hard.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Strong momentum on power demand, but the multiple prices in a lot - small weight only. A capex/construction downturn is the key risk.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/30/caterpillar-cat-q1-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.gurufocus.com/term/pettm/CAT" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-CAT" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:30%;background:#cf222e"></span></span><span class="fbv">30</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:65%;background:#bf8700"></span></span><span class="fbv">65</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:72%;background:#1a7f37"></span></span><span class="fbv">72</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:90%;background:#1a7f37"></span></span><span class="fbv">90</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div>
@@ -992,6 +1019,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Medical-cost trend, Medicare Advantage profitability and DOJ scrutiny remain unresolved; sharp rebound has removed the deep-value cushion.</p>
           <p class="conf"><strong>Confidence: Low-medium.</strong> Wide range of outcomes; held at a small weight. Two more quarters of stabilizing medical-cost ratio would upgrade it; a renewed cost spike or adverse DOJ action would trigger EXIT.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/21/unitedhealth-group-unh-earnings-q1-2026.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-unh/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-UNH" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:45%;background:#cf222e"></span></span><span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:65%;background:#bf8700"></span></span><span class="fbv">65</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div>
@@ -1017,6 +1045,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> High leverage makes it rate-sensitive; renewables subsidy/policy risk; execution risk on a huge backlog and any large M&amp;A.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Growth-plus-yield utility. Higher-for-longer rates or adverse renewables policy would pressure the score.</p>
           <p class="src">Sources: <a href="https://www.fool.com/earnings/call-transcripts/2026/04/23/nextera-energy-nee-q1-2026-earnings-transcript/" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-nee/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-NEE" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:58%;background:#bf8700"></span></span><span class="fbv">58</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:62%;background:#bf8700"></span></span><span class="fbv">62</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div>
@@ -1042,6 +1071,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Earnings hostage to oil/gas prices and refining margins; energy-transition demand risk; volatile quarterly results.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Best-in-class major but commodity-driven. A sustained oil-price decline would lower growth/momentum; a spike would lift them.</p>
           <p class="src">Sources: <a href="https://investor.exxonmobil.com/company-information/press-releases/detail/1204/exxonmobil-announces-first-quarter-2026-results" target="_blank" rel="noopener">[1]</a> <a href="https://www.macrotrends.net/stocks/charts/XOM/exxon/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-XOM" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:62%;background:#bf8700"></span></span><span class="fbv">62</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:45%;background:#cf222e"></span></span><span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div>
@@ -1067,6 +1097,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Low-single-digit growth; FX/tariff headwinds; full-ish valuation for a slow grower.</p>
           <p class="conf"><strong>Confidence: High.</strong> Defensive ballast. Persistent volume declines would weaken the case; sustained volume growth would strengthen it.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/04/24/procter-gamble-pg-q3-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-pg/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-PG" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:52%;background:#bf8700"></span></span><span class="fbv">52</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:40%;background:#cf222e"></span></span><span class="fbv">40</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:80%;background:#1a7f37"></span></span><span class="fbv">80</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:58%;background:#bf8700"></span></span><span class="fbv">58</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:82%;background:#1a7f37"></span></span><span class="fbv">82</span></div>
@@ -1092,6 +1123,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Big-ticket demand weak while rates stay high; full multiple for flat earnings; consumer-cyclical; margin compression.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Quality business but composite below 60 - not held this run. A clear remodel-demand inflection or rate cuts would lift growth/momentum.</p>
           <p class="src">Sources: <a href="https://www.cnbc.com/2026/05/19/home-depot-hd-q1-2026-earnings.html" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-hd/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-HD" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:50%;background:#bf8700"></span></span><span class="fbv">50</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:45%;background:#cf222e"></span></span><span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:70%;background:#1a7f37"></span></span><span class="fbv">70</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:82%;background:#1a7f37"></span></span><span class="fbv">82</span></div>
@@ -1117,6 +1149,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Modest EPS growth; leveraged balance sheet; CAD/USD currency exposure; limited upside; slightly below hold composite.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Quality regulated utility slightly below the 60 hold composite (58.0). Steady but not compelling to add to at current prices. Rate cuts would be a positive catalyst.</p>
           <p class="src">Sources: <a href="https://www.stocktitan.net/news/FTS/fortis-inc-releases-first-quarter-2026-1sq0c8sd8qf6.html" target="_blank" rel="noopener">[1]</a> <a href="https://www.tipranks.com/news/company-announcements/fortis-posts-steady-q1-2026-earnings-as-capital-plan-u-s-regulatory-wins-advance" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-FTS" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:42%;background:#cf222e"></span></span><span class="fbv">42</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:65%;background:#bf8700"></span></span><span class="fbv">65</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:50%;background:#bf8700"></span></span><span class="fbv">50</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:75%;background:#1a7f37"></span></span><span class="fbv">75</span></div>
@@ -1142,6 +1175,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> High leverage is rate-sensitive; heavy capex requires ongoing equity/debt financing; slow growth limits upside; stock down ~7% from purchase.</p>
           <p class="conf"><strong>Confidence: Medium.</strong> Stable business but composite below hold threshold (56.3). Leverage and rate sensitivity are persistent risks. Rate cuts would be a meaningful positive catalyst.</p>
           <p class="src">Sources: <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-duke-energy-beats-q1-2026-forecasts-but-stock-dips-93CH-4679082" target="_blank" rel="noopener">[1]</a> <a href="https://fullratio.com/stocks/nyse-duk/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-DUK" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:45%;background:#cf222e"></span></span><span class="fbv">45</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:62%;background:#bf8700"></span></span><span class="fbv">62</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:48%;background:#cf222e"></span></span><span class="fbv">48</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:72%;background:#1a7f37"></span></span><span class="fbv">72</span></div>
@@ -1167,6 +1201,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> Chronically high debt limits flexibility; FCF miss raises dividend sustainability questions; legacy revenue -25% with no floor; limited growth story.</p>
           <p class="conf"><strong>Confidence: Low-medium.</strong> Cheap on P/E but below 60 composite (51.6). Debt load, FCF miss, and lack of growth catalyst hold the score down. Sustained FCF improvement or debt paydown acceleration would upgrade it.</p>
           <p class="src">Sources: <a href="https://meyka.com/blog/t-stock-earnings-recap-att-inc-q1-2026-results-2004/" target="_blank" rel="noopener">[1]</a> <a href="https://www.macrotrends.net/stocks/charts/T/at-t/pe-ratio" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-T" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:72%;background:#1a7f37"></span></span><span class="fbv">72</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:42%;background:#cf222e"></span></span><span class="fbv">42</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:50%;background:#bf8700"></span></span><span class="fbv">50</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:38%;background:#cf222e"></span></span><span class="fbv">38</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:55%;background:#bf8700"></span></span><span class="fbv">55</span></div>
@@ -1192,6 +1227,7 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
           <p class="bear"><strong>Bear case.</strong> EPS already -44% YoY; $12B acquisition raised debt sharply; weather and commodity-price dependent; thesis relies entirely on acquisition integration execution.</p>
           <p class="conf"><strong>Confidence: Low-medium.</strong> Below the 50 composite exit threshold (47.7). Acquisition integration uncertainty, earnings shortfall, and high leverage disqualify it. Two quarters of clean EPS delivery would be needed to reconsider.</p>
           <p class="src">Sources: <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-nrg-energys-q1-2026-results-miss-eps-forecasts-stock-dips-93CH-4664273" target="_blank" rel="noopener">[1]</a> <a href="https://www.gurufocus.com/term/forward-pe-ratio/NRG" target="_blank" rel="noopener">[2]</a> </p>
+          <div id="tv-mini-NRG" class="tv-mini"></div>
         </div>
         <div class="dcol fcol">
           <h5>Factor scores</h5><div class="fb"><span class="fbl">Valuation</span><span class="fbt"><span class="fbf" style="width:42%;background:#cf222e"></span></span><span class="fbv">42</span></div><div class="fb"><span class="fbl">Growth</span><span class="fbt"><span class="fbf" style="width:52%;background:#bf8700"></span></span><span class="fbv">52</span></div><div class="fb"><span class="fbl">Financial Health</span><span class="fbt"><span class="fbf" style="width:45%;background:#cf222e"></span></span><span class="fbv">45</span></div><div class="fb"><span class="fbl">Momentum</span><span class="fbt"><span class="fbf" style="width:35%;background:#cf222e"></span></span><span class="fbv">35</span></div><div class="fb"><span class="fbl">Moat</span><span class="fbt"><span class="fbf" style="width:60%;background:#bf8700"></span></span><span class="fbv">60</span></div>
@@ -1206,6 +1242,21 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
     <span class="dot" style="background:#bf8700"></span>60-69 hold-grade &middot;
     <span class="dot" style="background:#cf222e"></span>&lt;60 excluded
   </div>
+</div>
+</div>
+<div id="section-charts" class="tab-section" style="display:none">
+
+<div class="panel">
+  <h3>Interactive Charts</h3>
+  <p class="disc">Full TradingView chart with RSI and Volume. Expand any row in Research or Portfolio to see a 12-month mini chart for that stock.</p>
+  <div class="chart-ticker-bar">
+    <span class="filter-label">Ticker:</span>
+    <select id="chart-ticker-select" class="chart-select" onchange="loadChart(this.value)"><option value="NVDA">NVDA &ndash; NVIDIA Corp. (82.9)</option><option value="GOOGL">GOOGL &ndash; Alphabet Inc. (82.0)</option><option value="MSFT">MSFT &ndash; Microsoft Corp. (80.0)</option><option value="META">META &ndash; Meta Platforms Inc. (78.8)</option><option value="AMZN">AMZN &ndash; Amazon.com Inc. (75.3)</option><option value="V">V &ndash; Visa Inc. (75.0)</option><option value="AAPL">AAPL &ndash; Apple Inc. (73.9)</option><option value="JPM">JPM &ndash; JPMorgan Chase &amp; Co. (71.5)</option><option value="JNJ">JNJ &ndash; Johnson &amp; Johnson (69.3)</option><option value="KO">KO &ndash; The Coca-Cola Company (68.5)</option><option value="COST">COST &ndash; Costco Wholesale Corp. (67.0)</option><option value="CAT">CAT &ndash; Caterpillar Inc. (66.2)</option><option value="UNH">UNH &ndash; UnitedHealth Group Inc. (63.0)</option><option value="NEE">NEE &ndash; NextEra Energy Inc. (62.9)</option><option value="XOM">XOM &ndash; Exxon Mobil Corp. (61.9)</option><option value="PG">PG &ndash; Procter &amp; Gamble Co. (61.5)</option><option value="HD">HD &ndash; The Home Depot Inc. (59.9)</option><option value="FTS">FTS &ndash; Fortis Inc. (58.0)</option><option value="DUK">DUK &ndash; Duke Energy Corp. (56.2)</option><option value="T">T &ndash; AT&amp;T Inc. (51.6)</option><option value="NRG">NRG &ndash; NRG Energy Inc. (47.6)</option></select>
+  </div>
+  <div class="tv-chart-outer">
+    <div id="tv-advanced-chart" style="height:520px"></div>
+  </div>
+  <p class="disc" style="margin-top:10px">Chart data from TradingView. For informational purposes only &mdash; not investment advice.</p>
 </div>
 </div>
 <div id="section-picks" class="tab-section" style="display:none">
@@ -1288,6 +1339,8 @@ body.dark .sig-chip.active.exit-chip{background:#3a0a0a;color:#f85149;border-col
 </div>
 </div>
 <script>
+var chartInitialized=false;
+
 function showTab(name) {
   document.querySelectorAll('.tab-section').forEach(function(s){s.style.display='none';});
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
@@ -1296,6 +1349,11 @@ function showTab(name) {
   var b=document.querySelector('[data-tab="'+name+'"]');
   if(b)b.classList.add('active');
   try{localStorage.setItem('activeTab',name);}catch(e){}
+  if(name==='charts'&&!chartInitialized){
+    chartInitialized=true;
+    var sel=document.getElementById('chart-ticker-select');
+    if(sel)loadChart(sel.value);
+  }
 }
 
 function tog(id, row) {
@@ -1317,10 +1375,80 @@ function tog(id, row) {
   } else {
     d.style.display='table-row';
     void d.offsetHeight;
-    inner.style.maxHeight=inner.scrollHeight+'px';
+    inner.style.maxHeight='1000px';
     d.dataset.open='1';
     if(chev)chev.innerHTML='&#9662;';
+    var tk=row?row.dataset.ticker:null;
+    if(tk)initMiniChart(tk,'tv-mini-'+id);
   }
+}
+
+function initMiniChart(ticker, containerId) {
+  var container=document.getElementById(containerId);
+  if(!container||container.dataset.initialized)return;
+  container.dataset.initialized='1';
+  var isDark=document.body.classList.contains('dark');
+  var wrapper=document.createElement('div');
+  wrapper.className='tradingview-widget-container';
+  var inner=document.createElement('div');
+  inner.className='tradingview-widget-container__widget';
+  wrapper.appendChild(inner);
+  var config={
+    symbol:ticker,
+    width:'100%',
+    height:220,
+    locale:'en',
+    dateRange:'12M',
+    colorTheme:isDark?'dark':'light',
+    isTransparent:false,
+    autosize:false,
+    largeChartUrl:''
+  };
+  var s=document.createElement('script');
+  s.type='text/javascript';
+  s.src='https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
+  s.async=true;
+  s.innerHTML=JSON.stringify(config);
+  wrapper.appendChild(s);
+  container.appendChild(wrapper);
+}
+
+function loadChart(symbol) {
+  var container=document.getElementById('tv-advanced-chart');
+  if(!container)return;
+  container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:500px;color:var(--mut);font-size:13px">Loading chart…</div>';
+  if(!window.TradingView){
+    var tvScript=document.createElement('script');
+    tvScript.src='https://s3.tradingview.com/tv.js';
+    tvScript.onload=function(){buildChart(symbol);};
+    document.head.appendChild(tvScript);
+  } else {
+    buildChart(symbol);
+  }
+}
+
+function buildChart(symbol) {
+  var container=document.getElementById('tv-advanced-chart');
+  if(!container||!window.TradingView)return;
+  container.innerHTML='';
+  new TradingView.widget({
+    container_id:'tv-advanced-chart',
+    symbol:symbol,
+    interval:'D',
+    timezone:'America/New_York',
+    theme:document.body.classList.contains('dark')?'dark':'light',
+    style:'1',
+    locale:'en',
+    toolbar_bg:'transparent',
+    enable_publishing:false,
+    hide_top_toolbar:false,
+    hide_legend:false,
+    save_image:false,
+    width:'100%',
+    height:520,
+    allow_symbol_change:true,
+    studies:['RSI@tv-basicstudies','Volume@tv-basicstudies']
+  });
 }
 
 var activeSigs={BUY:true,HOLD:true,TRIM:true,EXIT:true};
