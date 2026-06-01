@@ -1485,4 +1485,72 @@ function setTradeStatus(tk,status,btn){
   var btns=row.querySelectorAll('.tp-btn');
   var alreadyActive=(btn&&btn.classList.contains('active'));
   btns.forEach(function(b){b.classList.remove('active');});
-  row.classList.remove('tp-done-bought','tp-done-partial','
+  row.classList.remove('tp-done-bought','tp-done-partial','tp-done-skipped');
+  if(alreadyActive){
+    if(label)label.textContent='';
+    try{
+      var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+      delete all[tk];
+      localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));
+    }catch(e){}
+  } else {
+    if(btn)btn.classList.add('active');
+    row.classList.add('tp-done-'+status);
+    var labels={bought:'Bought ✓',partial:'Partial fill',skipped:'Skipped'};
+    if(label)label.textContent=labels[status]||status;
+    try{
+      var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+      all[tk]=status;
+      localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));
+    }catch(e){}
+  }
+  updateTpProgress();
+}
+
+function loadTradeStatuses(){
+  try{
+    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+    Object.keys(all).forEach(function(tk){
+      var status=all[tk];
+      var row=document.getElementById('tpr-'+tk);
+      if(!row)return;
+      var btn=row.querySelector('.tp-'+status);
+      var label=document.getElementById('tpsl-'+tk);
+      if(btn)btn.classList.add('active');
+      row.classList.add('tp-done-'+status);
+      var labels={bought:'Bought ✓',partial:'Partial fill',skipped:'Skipped'};
+      if(label)label.textContent=labels[status]||status;
+    });
+  }catch(e){}
+  updateTpProgress();
+}
+
+function updateTpProgress(){
+  var el=document.getElementById('tp-progress');
+  if(!el)return;
+  try{
+    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+    var keys=Object.keys(all);
+    var total=document.querySelectorAll('[id^="tpr-"]').length;
+    var bought=keys.filter(function(k){return all[k]==='bought';}).length;
+    var partial=keys.filter(function(k){return all[k]==='partial';}).length;
+    var skipped=keys.filter(function(k){return all[k]==='skipped';}).length;
+    if(keys.length===0){el.textContent='';return;}
+    el.textContent=bought+' bought · '+partial+' partial · '+skipped+' skipped · '+(total-keys.length)+' pending';
+  }catch(e){}
+}
+
+function exportTradeStatus(){
+  try{
+    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+    var out={run_key:TP_RUN_KEY,exported:new Date().toISOString(),statuses:all};
+    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='trade_status.json';
+    a.click();
+  }catch(e){alert('Export failed: '+e);}
+}
+</script>
+</body>
+</html>
