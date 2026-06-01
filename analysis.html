@@ -170,17 +170,16 @@ tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
     <div class="sub">Run 2026-06-01 &middot; prices as of 2026-06-01 close &middot; simulated/paper &middot; Valuation 20% / Growth 25% / Financial Health 20% / Momentum 15% / Moat 20%</div>
   </div>
   <div class="hdr-right">
-    <span id="market-clock" style="font-size:12px;color:#8b949e"></span>
     <span id="freshness-badge" class="freshness stale">Loading...</span>
     <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">Dark mode</button>
   </div>
 </div>
 
 <div class="cards">
-  <div class="kpi"><div class="v">$121,604.81</div><div class="l">Account Value</div></div>
-  <div class="kpi"><div class="v" style="color:#1a7f37">+17.19%</div><div class="l">Annual Return</div></div>
-  <div class="kpi"><div class="v">$74,807.56</div><div class="l">Cash &amp; Buying Power</div></div>
-  <div class="kpi"><div class="v" style="color:#f85149">-$1,253.51 (-1.32%)</div><div class="l">Net Unrealized P/L</div></div>
+  <div class="kpi"><div class="v">$0.00</div><div class="l">Account Value</div></div>
+  <div class="kpi"><div class="v" style="color:#1a7f37">+0.00%</div><div class="l">Annual Return</div></div>
+  <div class="kpi"><div class="v">$0.00</div><div class="l">Cash &amp; Buying Power</div></div>
+  <div class="kpi"><div class="v" style="color:#1a7f37">+$0.00 (+0.00%)</div><div class="l">Net Unrealized P/L</div></div>
   <div class="kpi"><div class="v">+11.0%</div><div class="l">VOO YTD (context)</div></div>
 </div>
 
@@ -194,7 +193,7 @@ tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
 
 <div class="panel">
   <h3>My Investopedia Holdings</h3>
-  <p class="disc">As of June 1, 2026. Click any row for the full research write-up and a live chart.</p>
+  <p class="disc">As of --. Click any row for the full research write-up and a live chart.</p>
   <div class="table-scroll">
   <table>
     <thead><tr>
@@ -204,14 +203,7 @@ tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
       <th class="num">Unrealized P/L</th>
       <th>Score &middot; Factors</th><th>Advice</th>
     </tr></thead>
-    <tbody>
-      <tr class="data-row" data-ticker="AAPL"><td></td><td class="tk">AAPL</td><td class="num">$259.62</td><td class="num">$312.06</td><td class="num">100</td><td class="num">$31,206.00</td><td class="num" style="color:#3fb950">+$5,244.00 (+20.20%)</td><td class="num"><span style="color:#3fb950;font-weight:700">74.4</span></td><td><span class="sig hold">HOLD</span></td></tr>
-      <tr class="data-row" data-ticker="DUK"><td></td><td class="tk">DUK</td><td class="num">$131.73</td><td class="num">$122.73</td><td class="num">250</td><td class="num">$30,682.50</td><td class="num" style="color:#f85149">-$2,250.01 (-6.83%)</td><td class="num"><span style="color:#f85149;font-weight:700">54.1</span></td><td><span class="sig exit">SELL</span></td></tr>
-      <tr class="data-row" data-ticker="NEE"><td></td><td class="tk">NEE</td><td class="num">$92.91</td><td class="num">$87.01</td><td class="num">150</td><td class="num">$13,051.50</td><td class="num" style="color:#f85149">-$885.50 (-6.35%)</td><td class="num"><span style="color:#d29922;font-weight:700">62.0</span></td><td><span class="sig hold">HOLD</span></td></tr>
-      <tr class="data-row" data-ticker="NRG"><td></td><td class="tk">NRG</td><td class="num">$165.01</td><td class="num">$134.08</td><td class="num">100</td><td class="num">$13,408.00</td><td class="num" style="color:#f85149">-$3,092.50 (-18.74%)</td><td class="num"><span style="color:#f85149;font-weight:700">47.6</span></td><td><span class="sig exit">EXIT</span></td></tr>
-      <tr class="data-row" data-ticker="T"><td></td><td class="tk">T</td><td class="num">$26.86</td><td class="num">$24.80</td><td class="num">100</td><td class="num">$2,480.00</td><td class="num" style="color:#f85149">-$205.50 (-7.65%)</td><td class="num"><span style="color:#f85149;font-weight:700">51.6</span></td><td><span class="sig trim">TRIM</span></td></tr>
-      <tr class="data-row" data-ticker="FTS"><td></td><td class="tk">FTS</td><td class="num">$56.61</td><td class="num">$55.33</td><td class="num">50</td><td class="num">$2,766.50</td><td class="num" style="color:#f85149">-$64.00 (-2.26%)</td><td class="num"><span style="color:#ffa657;font-weight:700">57.5</span></td><td><span class="sig trim">TRIM</span></td></tr>
-    </tbody>
+    <tbody></tbody>
   </table>
   </div>
   <div class="legend">Advice:
@@ -234,21 +226,21 @@ tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
     <div class="table-scroll"><table>
       <thead><tr><th>Action</th><th>Ticker</th><th class="num">Target wt</th><th class="num">Price</th><th class="num">Approx $</th><th class="num">Approx shares</th><th>Reason</th><th>Status</th></tr></thead>
       <tbody>
-        <tr id="tpr-NRG" data-ticker="NRG"><td><span class="sig exit">SELL</span></td><td class="tk">NRG</td><td class="num">0%</td><td class="num">$134.08</td><td class="num">$0</td><td class="num">0</td><td class="reason">EXIT - composite 47.6 below 50 floor. Q1 EPS -44% YoY; high leverage post-$12B LS Power deal. Thesis broken. Cut losses.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('NRG','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('NRG','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('NRG','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-NRG"></span></td></tr>
-        <tr id="tpr-DUK" data-ticker="DUK"><td><span class="sig exit">SELL</span></td><td class="tk">DUK</td><td class="num">0%</td><td class="num">$122.73</td><td class="num">$0</td><td class="num">0</td><td class="reason">SELL - composite fell to 54.1. Morgan Stanley cut PT $141 to $132. Leverage rate-sensitive; no near-term catalyst. Below 60 hold threshold.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('DUK','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('DUK','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('DUK','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-DUK"></span></td></tr>
-        <tr id="tpr-T" data-ticker="T"><td><span class="sig exit">SELL</span></td><td class="tk">T</td><td class="num">0%</td><td class="num">$24.80</td><td class="num">$0</td><td class="num">0</td><td class="reason">SELL - composite 51.6. FCF missed; legacy revenue -25% YoY; $130B+ debt; no near-term catalyst.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('T','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('T','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('T','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-T"></span></td></tr>
-        <tr id="tpr-FTS" data-ticker="FTS"><td><span class="sig exit">SELL</span></td><td class="tk">FTS</td><td class="num">0%</td><td class="num">$55.33</td><td class="num">$0</td><td class="num">0</td><td class="reason">SELL - composite 57.5 below 60 threshold. Modest growth + CAD/USD exposure. Free capital for higher-conviction names.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('FTS','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('FTS','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('FTS','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-FTS"></span></td></tr>
-        <tr id="tpr-AAPL" data-ticker="AAPL"><td><span class="sig exit">HOLD</span></td><td class="tk">AAPL</td><td class="num">0%</td><td class="num">$312.06</td><td class="num">$0</td><td class="num">0</td><td class="reason">HOLD - composite 74.4. WWDC June 8-12 is an imminent AI/Siri catalyst. Do NOT sell ahead of it.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('AAPL','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('AAPL','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('AAPL','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-AAPL"></span></td></tr>
-        <tr id="tpr-NEE" data-ticker="NEE"><td><span class="sig exit">HOLD</span></td><td class="tk">NEE</td><td class="num">0%</td><td class="num">$87.01</td><td class="num">$0</td><td class="num">0</td><td class="reason">HOLD - composite 62.0, thesis intact. Record renewables backlog; FPL regulated base stable. Wait for rate-cut catalyst.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('NEE','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('NEE','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('NEE','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-NEE"></span></td></tr>
-        <tr id="tpr-NVDA" data-ticker="NVDA"><td><span class="sig buy">BUY</span></td><td class="tk">NVDA</td><td class="num">8.5%</td><td class="num">$213.36</td><td class="num">$6,390</td><td class="num">30</td><td class="reason">BUY - composite 83.6 (highest). Q1 FY27 +85% YoY; guided $91B next quarter; $80B buyback; fwd P/E ~22. CUDA moat near-unassailable.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('NVDA','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('NVDA','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('NVDA','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-NVDA"></span></td></tr>
-        <tr id="tpr-GOOGL" data-ticker="GOOGL"><td><span class="sig buy">BUY</span></td><td class="tk">GOOGL</td><td class="num">8.2%</td><td class="num">$380.34</td><td class="num">$6,460</td><td class="num">17</td><td class="reason">BUY - composite 82.8. Berkshire Hathaway took a major new stake. Cloud +63%, Search +19%. Cheapest mega-cap on growth-adjusted P/E.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('GOOGL','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('GOOGL','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('GOOGL','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-GOOGL"></span></td></tr>
-        <tr id="tpr-MSFT" data-ticker="MSFT"><td><span class="sig buy">BUY</span></td><td class="tk">MSFT</td><td class="num">7.8%</td><td class="num">$449.99</td><td class="num">$6,750</td><td class="num">15</td><td class="reason">BUY - composite 80.2. Azure +40%; AI run-rate &gt;$37B (+123%); fwd P/E 22.1 below its 12-month average.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('MSFT','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('MSFT','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('MSFT','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-MSFT"></span></td></tr>
-        <tr id="tpr-META" data-ticker="META"><td><span class="sig buy">BUY</span></td><td class="tk">META</td><td class="num">7.2%</td><td class="num">$632.43</td><td class="num">$6,320</td><td class="num">10</td><td class="reason">BUY - composite 79.0. Revenue +33%; op margin 41%; TTM P/E ~23 undemanding for 33% top-line growth.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('META','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('META','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('META','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-META"></span></td></tr>
-        <tr id="tpr-AMZN" data-ticker="AMZN"><td><span class="sig buy">BUY</span></td><td class="tk">AMZN</td><td class="num">6.5%</td><td class="num">$270.48</td><td class="num">$5,940</td><td class="num">22</td><td class="reason">BUY - composite 75.4. AWS +28% fastest in 15 quarters; retail margins expanding; ads +24%.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('AMZN','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('AMZN','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('AMZN','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-AMZN"></span></td></tr>
-        <tr id="tpr-V" data-ticker="V"><td><span class="sig buy">BUY</span></td><td class="tk">V</td><td class="num">6.2%</td><td class="num">$327.00</td><td class="num">$5,886</td><td class="num">18</td><td class="reason">BUY - composite 75.3. Revenue +17%; EPS +20%; $20B buyback; P/E 28.6x below its 5-yr avg 30x.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('V','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('V','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('V','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-V"></span></td></tr>
-        <tr id="tpr-JPM" data-ticker="JPM"><td><span class="sig buy">BUY</span></td><td class="tk">JPM</td><td class="num">5.8%</td><td class="num">$297.90</td><td class="num">$5,960</td><td class="num">20</td><td class="reason">BUY - composite 71.6. Best-in-class bank; Q1 EPS $5.94 (+17%); ROTCE 23%; P/E ~14x.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('JPM','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('JPM','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('JPM','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-JPM"></span></td></tr>
-        <tr id="tpr-JNJ" data-ticker="JNJ"><td><span class="sig buy">BUY</span></td><td class="tk">JNJ</td><td class="num">5.5%</td><td class="num">$228.00</td><td class="num">$5,700</td><td class="num">25</td><td class="reason">BUY - composite 69.4. Defensive; Q1 +9.9%; raised FY outlook; AAA balance sheet; fwd P/E ~20.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('JNJ','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('JNJ','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('JNJ','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-JNJ"></span></td></tr>
-        <tr id="tpr-KO" data-ticker="KO"><td><span class="sig buy">BUY</span></td><td class="tk">KO</td><td class="num">4.8%</td><td class="num">$79.01</td><td class="num">$5,925</td><td class="num">75</td><td class="reason">BUY - composite 68.5. Raised FY comparable-EPS guide to +8-9%; organic +10%; Dividend King; portfolio ballast.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('KO','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('KO','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('KO','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-KO"></span></td></tr></tbody>
+        <tr id="tpr-NRG" data-ticker="NRG"><td><span class="sig exit">SELL</span></td><td class="tk">NRG</td><td class="num">0%</td><td class="num">$0.00</td><td class="num">$0</td><td class="num">0</td><td class="reason">EXIT - composite 47.6 below 50 floor. Q1 EPS -44% YoY; high leverage post-$12B LS Power deal. Thesis broken. Cut losses.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('NRG','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('NRG','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('NRG','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-NRG"></span></td></tr>
+        <tr id="tpr-DUK" data-ticker="DUK"><td><span class="sig exit">SELL</span></td><td class="tk">DUK</td><td class="num">0%</td><td class="num">$0.00</td><td class="num">$0</td><td class="num">0</td><td class="reason">SELL - composite fell to 54.1. Morgan Stanley cut PT $141 to $132. Leverage rate-sensitive; no near-term catalyst. Below 60 hold threshold.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('DUK','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('DUK','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('DUK','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-DUK"></span></td></tr>
+        <tr id="tpr-T" data-ticker="T"><td><span class="sig exit">SELL</span></td><td class="tk">T</td><td class="num">0%</td><td class="num">$0.00</td><td class="num">$0</td><td class="num">0</td><td class="reason">SELL - composite 51.6. FCF missed; legacy revenue -25% YoY; $130B+ debt; no near-term catalyst.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('T','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('T','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('T','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-T"></span></td></tr>
+        <tr id="tpr-FTS" data-ticker="FTS"><td><span class="sig exit">SELL</span></td><td class="tk">FTS</td><td class="num">0%</td><td class="num">$0.00</td><td class="num">$0</td><td class="num">0</td><td class="reason">SELL - composite 57.5 below 60 threshold. Modest growth + CAD/USD exposure. Free capital for higher-conviction names.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('FTS','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('FTS','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('FTS','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-FTS"></span></td></tr>
+        <tr id="tpr-AAPL" data-ticker="AAPL"><td><span class="sig exit">HOLD</span></td><td class="tk">AAPL</td><td class="num">0%</td><td class="num">$0.00</td><td class="num">$0</td><td class="num">0</td><td class="reason">HOLD - composite 74.4. WWDC June 8-12 is an imminent AI/Siri catalyst. Do NOT sell ahead of it.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('AAPL','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('AAPL','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('AAPL','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-AAPL"></span></td></tr>
+        <tr id="tpr-NEE" data-ticker="NEE"><td><span class="sig exit">HOLD</span></td><td class="tk">NEE</td><td class="num">0%</td><td class="num">$0.00</td><td class="num">$0</td><td class="num">0</td><td class="reason">HOLD - composite 62.0, thesis intact. Record renewables backlog; FPL regulated base stable. Wait for rate-cut catalyst.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('NEE','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('NEE','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('NEE','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-NEE"></span></td></tr>
+        <tr id="tpr-NVDA" data-ticker="NVDA"><td><span class="sig buy">BUY</span></td><td class="tk">NVDA</td><td class="num">8.5%</td><td class="num">$0.00</td><td class="num">$6,390</td><td class="num">30</td><td class="reason">BUY - composite 83.6 (highest). Q1 FY27 +85% YoY; guided $91B next quarter; $80B buyback; fwd P/E ~22. CUDA moat near-unassailable.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('NVDA','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('NVDA','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('NVDA','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-NVDA"></span></td></tr>
+        <tr id="tpr-GOOGL" data-ticker="GOOGL"><td><span class="sig buy">BUY</span></td><td class="tk">GOOGL</td><td class="num">8.2%</td><td class="num">$0.00</td><td class="num">$6,460</td><td class="num">17</td><td class="reason">BUY - composite 82.8. Berkshire Hathaway took a major new stake. Cloud +63%, Search +19%. Cheapest mega-cap on growth-adjusted P/E.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('GOOGL','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('GOOGL','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('GOOGL','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-GOOGL"></span></td></tr>
+        <tr id="tpr-MSFT" data-ticker="MSFT"><td><span class="sig buy">BUY</span></td><td class="tk">MSFT</td><td class="num">7.8%</td><td class="num">$0.00</td><td class="num">$6,750</td><td class="num">15</td><td class="reason">BUY - composite 80.2. Azure +40%; AI run-rate &gt;$37B (+123%); fwd P/E 22.1 below its 12-month average.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('MSFT','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('MSFT','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('MSFT','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-MSFT"></span></td></tr>
+        <tr id="tpr-META" data-ticker="META"><td><span class="sig buy">BUY</span></td><td class="tk">META</td><td class="num">7.2%</td><td class="num">$0.00</td><td class="num">$6,320</td><td class="num">10</td><td class="reason">BUY - composite 79.0. Revenue +33%; op margin 41%; TTM P/E ~23 undemanding for 33% top-line growth.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('META','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('META','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('META','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-META"></span></td></tr>
+        <tr id="tpr-AMZN" data-ticker="AMZN"><td><span class="sig buy">BUY</span></td><td class="tk">AMZN</td><td class="num">6.5%</td><td class="num">$0.00</td><td class="num">$5,940</td><td class="num">22</td><td class="reason">BUY - composite 75.4. AWS +28% fastest in 15 quarters; retail margins expanding; ads +24%.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('AMZN','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('AMZN','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('AMZN','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-AMZN"></span></td></tr>
+        <tr id="tpr-V" data-ticker="V"><td><span class="sig buy">BUY</span></td><td class="tk">V</td><td class="num">6.2%</td><td class="num">$0.00</td><td class="num">$5,886</td><td class="num">18</td><td class="reason">BUY - composite 75.3. Revenue +17%; EPS +20%; $20B buyback; P/E 28.6x below its 5-yr avg 30x.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('V','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('V','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('V','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-V"></span></td></tr>
+        <tr id="tpr-JPM" data-ticker="JPM"><td><span class="sig buy">BUY</span></td><td class="tk">JPM</td><td class="num">5.8%</td><td class="num">$0.00</td><td class="num">$5,960</td><td class="num">20</td><td class="reason">BUY - composite 71.6. Best-in-class bank; Q1 EPS $5.94 (+17%); ROTCE 23%; P/E ~14x.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('JPM','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('JPM','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('JPM','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-JPM"></span></td></tr>
+        <tr id="tpr-JNJ" data-ticker="JNJ"><td><span class="sig buy">BUY</span></td><td class="tk">JNJ</td><td class="num">5.5%</td><td class="num">$0.00</td><td class="num">$5,700</td><td class="num">25</td><td class="reason">BUY - composite 69.4. Defensive; Q1 +9.9%; raised FY outlook; AAA balance sheet; fwd P/E ~20.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('JNJ','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('JNJ','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('JNJ','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-JNJ"></span></td></tr>
+        <tr id="tpr-KO" data-ticker="KO"><td><span class="sig buy">BUY</span></td><td class="tk">KO</td><td class="num">4.8%</td><td class="num">$0.00</td><td class="num">$5,925</td><td class="num">75</td><td class="reason">BUY - composite 68.5. Raised FY comparable-EPS guide to +8-9%; organic +10%; Dividend King; portfolio ballast.</td><td class="tp-status-cell"><div class="tp-btns"><button class="tp-btn tp-bought" onclick="setTradeStatus('KO','bought',this)">&#10003; Bought</button><button class="tp-btn tp-partial" onclick="setTradeStatus('KO','partial',this)">&#189; Partial</button><button class="tp-btn tp-skipped" onclick="setTradeStatus('KO','skipped',this)">&#10007; Skip</button></div><span class="tp-status-label" id="tpsl-KO"></span></td></tr></tbody>
     </table></div>
     <h3 style="margin-top:24px">Excluded This Run (composite &lt; 60)</h3>
     <table><thead><tr><th>Ticker</th><th class="num">Composite</th><th>Reason</th></tr></thead><tbody><tr><td class="tk">NRG</td><td class="num">47.6</td><td style="color:var(--mut);font-size:13px">Below 50 floor — EXIT immediately</td></tr><tr><td class="tk">DUK</td><td class="num">54.1</td><td style="color:var(--mut);font-size:13px">Below 60 — SELL</td></tr><tr><td class="tk">T</td><td class="num">51.6</td><td style="color:var(--mut);font-size:13px">Below 60 — SELL</td></tr><tr><td class="tk">FTS</td><td class="num">57.5</td><td style="color:var(--mut);font-size:13px">Below 60 — SELL</td></tr><tr><td class="tk">UNH</td><td class="num">59.7</td><td style="color:var(--mut);font-size:13px">Dropped below 60 — TRIM/avoid</td></tr><tr><td class="tk">HD</td><td class="num">59.9</td><td style="color:var(--mut);font-size:13px">Below 60 — not held</td></tr></tbody></table>
@@ -1393,6 +1385,89 @@ function buildChart(symbol) {
   });
 }
 
+var activeSigs={BUY:true,HOLD:true,TRIM:true,EXIT:true};
+
+function toggleChip(el, sig) {
+  var others=false;
+  ['BUY','HOLD','TRIM','EXIT'].forEach(function(s){if(s!==sig&&activeSigs[s])others=true;});
+  if(activeSigs[sig]&&!others)return;
+  activeSigs[sig]=!activeSigs[sig];
+  el.classList.toggle('active',activeSigs[sig]);
+  applyFilters();
+}
+
+function applyFilters() {
+  var sector=document.getElementById('sector-filter').value;
+  var sortBy=document.getElementById('sort-by').value;
+  var tbody=document.getElementById('research-tbody');
+  if(!tbody)return;
+  var rows=Array.prototype.slice.call(tbody.querySelectorAll('tr.data-row'));
+  rows.sort(function(a,b){
+    if(sortBy==='ticker')return a.dataset.ticker.localeCompare(b.dataset.ticker);
+    if(sortBy==='price')return parseFloat(b.dataset.price)-parseFloat(a.dataset.price);
+    if(sortBy==='weight')return parseFloat(b.dataset.weight)-parseFloat(a.dataset.weight);
+    return parseFloat(b.dataset.composite)-parseFloat(a.dataset.composite);
+  });
+  var visible=0;
+  rows.forEach(function(row){
+    var show=activeSigs[row.dataset.signal]&&(!sector||row.dataset.sector===sector);
+    var dr=document.getElementById(row.dataset.ticker);
+    tbody.appendChild(row);
+    if(dr)tbody.appendChild(dr);
+    row.style.display=show?'':'none';
+    if(dr){
+      if(!show){
+        if(dr.dataset.open==='1'){
+          var inner=dr.querySelector('.detail-inner');
+          if(inner)inner.style.maxHeight='0';
+          dr.dataset.open='0';
+          var chev=row.querySelector('.chev');
+          if(chev)chev.innerHTML='&#9656;';
+        }
+        dr.style.display='none';
+      }
+    }
+    if(show)visible++;
+  });
+  var el=document.getElementById('research-count');
+  if(el)el.textContent=visible+' of '+rows.length+' companies';
+}
+
+function toggleTheme() {
+  var dark=document.body.classList.toggle('dark');
+  document.getElementById('theme-btn').textContent=dark?'Light mode':'Dark mode';
+  try{localStorage.setItem('theme',dark?'dark':'light');}catch(e){}
+}
+
+(function(){
+  var runDate=new Date('2026-06-01');
+  var today=new Date();
+  today.setHours(0,0,0,0);
+  runDate.setHours(0,0,0,0);
+  var days=Math.round((today-runDate)/86400000);
+  var el=document.getElementById('freshness-badge');
+  if(!el)return;
+  if(days<=0){el.textContent='Updated today';el.className='freshness fresh';}
+  else if(days===1){el.textContent='Updated yesterday';el.className='freshness recent';}
+  else{el.textContent='Data from '+days+' days ago';el.className='freshness stale';}
+})();
+
+(function(){
+  try{if(localStorage.getItem('theme')==='dark'){
+    document.body.classList.add('dark');
+    var b=document.getElementById('theme-btn');
+    if(b)b.textContent='Light mode';
+  }}catch(e){}
+  document.querySelectorAll('tr.detail').forEach(function(d){
+    d.style.display='none'; d.dataset.open='0';
+  });
+  var saved='portfolio';
+  try{saved=localStorage.getItem('activeTab')||'portfolio';}catch(e){}
+  showTab(saved);
+  applyFilters();
+  loadTradeStatuses();
+})();
+
 var TP_RUN_KEY='tp_20260601T090000Z';
 
 function setTradeStatus(tk,status,btn){
@@ -1405,13 +1480,21 @@ function setTradeStatus(tk,status,btn){
   row.classList.remove('tp-done-bought','tp-done-partial','tp-done-skipped');
   if(alreadyActive){
     if(label)label.textContent='';
-    try{var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');delete all[tk];localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));}catch(e){}
+    try{
+      var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+      delete all[tk];
+      localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));
+    }catch(e){}
   } else {
     if(btn)btn.classList.add('active');
     row.classList.add('tp-done-'+status);
     var labels={bought:'Bought ✓',partial:'Partial fill',skipped:'Skipped'};
     if(label)label.textContent=labels[status]||status;
-    try{var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');all[tk]=status;localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));}catch(e){}
+    try{
+      var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+      all[tk]=status;
+      localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));
+    }catch(e){}
   }
   updateTpProgress();
 }
@@ -1442,4 +1525,24 @@ function updateTpProgress(){
     var keys=Object.keys(all);
     var total=document.querySelectorAll('[id^="tpr-"]').length;
     var bought=keys.filter(function(k){return all[k]==='bought';}).length;
-    var partial=keys.filter(function(k){return all[k]==='partial';}).
+    var partial=keys.filter(function(k){return all[k]==='partial';}).length;
+    var skipped=keys.filter(function(k){return all[k]==='skipped';}).length;
+    if(keys.length===0){el.textContent='';return;}
+    el.textContent=bought+' bought · '+partial+' partial · '+skipped+' skipped · '+(total-keys.length)+' pending';
+  }catch(e){}
+}
+
+function exportTradeStatus(){
+  try{
+    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
+    var out={run_key:TP_RUN_KEY,exported:new Date().toISOString(),statuses:all};
+    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='trade_status.json';
+    a.click();
+  }catch(e){alert('Export failed: '+e);}
+}
+</script>
+</body>
+</html>
