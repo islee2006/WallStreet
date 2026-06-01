@@ -31,6 +31,20 @@ body.dark .freshness.fresh{background:#1a3a1a;color:#3fb950}
 body.dark .freshness.recent{background:#3a2a00;color:#d29922}
 .theme-btn{background:var(--card);border:1px solid var(--bd);color:var(--ink);border-radius:8px;padding:5px 12px;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap}
 .theme-btn:hover{background:var(--chip-bg)}
+.market-clock{font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.market-clock.open{background:#dafbe1;color:#1a7f37}
+.market-clock.closed{background:#ffebe9;color:#cf222e}
+.market-clock.pre{background:#fff8c5;color:#9a6700}
+body.dark .market-clock.open{background:#1a3a1a;color:#3fb950}
+body.dark .market-clock.closed{background:#3a0a0a;color:#f85149}
+body.dark .market-clock.pre{background:#3a2a00;color:#d29922}
+.clock-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
+.clock-dot.open{background:#1a7f37}
+.clock-dot.closed{background:#cf222e}
+.clock-dot.pre{background:#bf8700}
+body.dark .clock-dot.open{background:#3fb950}
+body.dark .clock-dot.closed{background:#f85149}
+body.dark .clock-dot.pre{background:#d29922}
 .cards{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
 .kpi{flex:1;min-width:130px;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
 .kpi .v{font-size:20px;font-weight:700}
@@ -170,6 +184,7 @@ tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
     <div class="sub">Run 2026-06-01 &middot; prices as of 2026-06-01 close &middot; simulated/paper &middot; Valuation 20% / Growth 25% / Financial Health 20% / Momentum 15% / Moat 20%</div>
   </div>
   <div class="hdr-right">
+    <span id="market-clock" class="market-clock closed"><span class="clock-dot closed"></span>Loading...</span>
     <span id="freshness-badge" class="freshness stale">Loading...</span>
     <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">Dark mode</button>
   </div>
@@ -1551,6 +1566,55 @@ function exportTradeStatus(){
     a.click();
   }catch(e){alert('Export failed: '+e);}
 }
+
+function updateMarketClock() {
+  var el = document.getElementById('market-clock');
+  var dot = el ? el.querySelector('.clock-dot') : null;
+  if (!el) return;
+  var now = new Date();
+  // Convert to ET (UTC-4 EDT / UTC-5 EST)
+  var jan = new Date(now.getFullYear(),0,1), jul = new Date(now.getFullYear(),6,1);
+  var isDST = now.getTimezoneOffset() < Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+  var et = new Date(now.getTime() + (now.getTimezoneOffset() + (isDST ? -4 : -5)*60)*60000);
+  var h=et.getHours(), m=et.getMinutes(), s=et.getSeconds(), day=et.getDay();
+  var pad=function(n){return String(n).padStart(2,'0');};
+  var timeStr=(h%12||12)+':'+pad(m)+':'+pad(s)+(h<12?' AM':' PM')+' ET';
+  var isWeekend = day===0||day===6;
+  var isPreMkt  = !isWeekend && (h===4||(h>4&&h<9)||( h===9&&m<30));
+  var isOpen    = !isWeekend && (h>9||(h===9&&m>=30)) && h<16;
+  var isAfterHr = !isWeekend && (h>=16 && h<20);
+  function msTil(targetH, targetM) {
+    var t=new Date(et); t.setHours(targetH,targetM,0,0);
+    if(t<=et) t.setDate(t.getDate()+1);
+    var d=t-et, rh=Math.floor(d/3600000), rm=Math.floor((d%3600000)/60000), rs=Math.floor((d%60000)/1000);
+    return rh+'h '+pad(rm)+'m '+pad(rs)+'s';
+  }
+  function nextOpen() {
+    var t=new Date(et); t.setHours(9,30,0,0);
+    if(t<=et) t.setDate(t.getDate()+1);
+    while(t.getDay()===0||t.getDay()===6) t.setDate(t.getDate()+1);
+    var d=t-et, rh=Math.floor(d/3600000), rm=Math.floor((d%3600000)/60000), rs=Math.floor((d%60000)/1000);
+    return rh+'h '+pad(rm)+'m '+pad(rs)+'s';
+  }
+  var label, cls;
+  if (isOpen) {
+    label = '&#9679; Open &mdash; closes in '+msTil(16,0)+' &nbsp;|&nbsp; '+timeStr;
+    cls = 'open';
+  } else if (isPreMkt) {
+    label = '&#9679; Pre-market &mdash; opens in '+msTil(9,30)+' &nbsp;|&nbsp; '+timeStr;
+    cls = 'pre';
+  } else if (isAfterHr) {
+    label = '&#9679; After-hours &mdash; opens in '+nextOpen()+' &nbsp;|&nbsp; '+timeStr;
+    cls = 'pre';
+  } else {
+    label = '&#9679; Closed &mdash; opens in '+nextOpen()+' &nbsp;|&nbsp; '+timeStr;
+    cls = 'closed';
+  }
+  el.innerHTML = '<span class="clock-dot '+cls+'"></span>'+label;
+  el.className = 'market-clock '+cls;
+}
+updateMarketClock();
+setInterval(updateMarketClock, 1000);
 </script>
 </body>
 </html>
