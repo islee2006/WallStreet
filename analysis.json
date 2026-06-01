@@ -1322,5 +1322,81 @@
     "cash": 28010.31,
     "total_return_pct": 17.24,
     "holdings_count": 6
+<<<<<<< Updated upstream
   }
+=======
+  },
+  "account": {
+    "total_value": 121604.81,
+    "stocks_value": 93594.5,
+    "cash": 28010.31,
+    "buying_power": 74807.56,
+    "annual_return_pct": 17.19,
+    "total_gain_loss": -1253.51,
+    "total_gain_loss_pct": -1.32
+  },
+  "investopedia_holdings": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "qty": 100,
+      "purchase_price": 259.62,
+      "current_price": 312.06,
+      "total_value": 31206.0,
+      "gain_loss": 5244.0,
+      "gain_loss_pct": 20.2
+    },
+    {
+      "symbol": "DUK",
+      "name": "Duke Energy Corp.",
+      "qty": 250,
+      "purchase_price": 131.73,
+      "current_price": 122.73,
+      "total_value": 30682.5,
+      "gain_loss": -2250.01,
+      "gain_loss_pct": -6.83
+    },
+    {
+      "symbol": "FTS",
+      "name": "Fortis Inc.",
+      "qty": 50,
+      "purchase_price": 56.61,
+      "current_price": 55.33,
+      "total_value": 2766.5,
+      "gain_loss": -64.0,
+      "gain_loss_pct": -2.26
+    },
+    {
+      "symbol": "NEE",
+      "name": "NextEra Energy Inc.",
+      "qty": 150,
+      "purchase_price": 92.91,
+      "current_price": 87.01,
+      "total_value": 13051.5,
+      "gain_loss": -885.5,
+      "gain_loss_pct": -6.35
+    },
+    {
+      "symbol": "NRG",
+      "name": "NRG Energy Inc.",
+      "qty": 100,
+      "purchase_price": 165.01,
+      "current_price": 134.08,
+      "total_value": 13408.0,
+      "gain_loss": -3092.5,
+      "gain_loss_pct": -18.74
+    },
+    {
+      "symbol": "T",
+      "name": "AT&T Inc.",
+      "qty": 100,
+      "purchase_price": 26.86,
+      "current_price": 24.8,
+      "total_value": 2480.0,
+      "gain_loss": -205.5,
+      "gain_loss_pct": -7.65
+    }
+  ],
+  "portfolio_updated": "2026-06-01"
+>>>>>>> Stashed changes
 }

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equity Research Dashboard — June 1, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117; --surface: #161b22; --border: #30363d;
+    --text: #e6edf3; --muted: #8b949e; --green: #3fb950; --red: #f85149;
+    --yellow: #d29922; --blue: #58a6ff; --purple: #bc8cff; --orange: #ffa657;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; font-size: 13px; line-height: 1.5; }
+  .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .header h1 { font-size: 18px; font-weight: 600; }
+  .header .meta { color: var(--muted); font-size: 12px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .badge-bullish { background: #1a3f24; color: var(--green); }
+  .badge-buy { background: #1a3f24; color: var(--green); }
+  .badge-hold { background: #2d2a14; color: var(--yellow); }
+  .badge-sell { background: #3f1a1a; color: var(--red); }
+  .badge-exit { background: #5c1a1a; color: #ff7b7b; }
+  .badge-trim { background: #3d2a0a; color: var(--orange); }
+  .badge-high { background: #1a2a3f; color: var(--blue); }
+  .section { padding: 20px 24px; border-bottom: 1px solid var(--border); }
+  .section h2 { font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+  .card .label { color: var(--muted); font-size: 11px; margin-bottom: 4px; }
+  .card .value { font-size: 20px; font-weight: 700; }
+  .card .sub { color: var(--muted); font-size: 11px; margin-top: 3px; }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  .yellow { color: var(--yellow); }
+  .blue { color: var(--blue); }
+  .orange { color: var(--orange); }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 10px; border-bottom: 1px solid #1c2128; font-size: 12px; }
+  tr:hover td { background: #1c2128; }
+  .alert-box { background: var(--surface); border: 1px solid; border-radius: 8px; padding: 12px 16px; margin-bottom: 10px; }
+  .alert-sell { border-color: var(--red); }
+  .alert-buy { border-color: var(--green); }
+  .alert-watch { border-color: var(--yellow); }
+  .alert-box .title { font-weight: 600; margin-bottom: 4px; }
+  .alert-box .body { color: var(--muted); font-size: 12px; }
+  .ticker-tag { font-weight: 700; color: var(--text); }
+  .catalyst-box { background: #1a2536; border: 1px solid var(--blue); border-radius: 8px; padding: 12px 16px; margin-bottom: 10px; }
+  .footer { padding: 16px 24px; color: var(--muted); font-size: 11px; text-align: center; }
+  .score-num { font-size: 16px; font-weight: 700; }
+  .rank { color: var(--muted); font-size: 11px; width: 24px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>&#128202; Equity Research Dashboard</h1>
+    <div class="meta">Run: June 1, 2026 &middot; 9:00 AM ET &middot; Data as of May 31, 2026 close</div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span class="badge badge-bullish">BULLISH</span>
+    <span style="color:var(--muted);font-size:12px;">S&amp;P 500: 7,580.06</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Portfolio Summary (Investopedia &middot; as of May 31)</h2>
+  <div class="grid-4">
+    <div class="card">
+      <div class="label">Total Value</div>
+      <div class="value">$121,605</div>
+      <div class="sub">Started $100,000 &middot; May 30</div>
+    </div>
+    <div class="card">
+      <div class="label">Cash Available</div>
+      <div class="value">$28,010</div>
+      <div class="sub">+$49,336 after today's sells</div>
+    </div>
+    <div class="card">
+      <div class="label">Annualized Return</div>
+      <div class="value green">+17.24%</div>
+      <div class="sub">vs VOO YTD +11.0%</div>
+    </div>
+    <div class="card">
+      <div class="label">Outperformance</div>
+      <div class="value green">+6.2 pp</div>
+      <div class="sub">vs S&amp;P 500 benchmark</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Today's Market Context</h2>
+  <div class="grid-3">
+    <div class="alert-box alert-buy">
+      <div class="title green">Markets at All-Time Highs</div>
+      <div class="body">S&amp;P 500 +5% in May, Nasdaq +8%, Dow +3%. AI/semis leading. S&amp;P 500 at 7,580. 2026 earnings growth expectations at ~25% — strongest since 2021.</div>
+    </div>
+    <div class="alert-box alert-watch">
+      <div class="title yellow">Earnings Catalysts TODAY</div>
+      <div class="body"><strong>HPE</strong> reports Q2 FY26 after close (est. $9.78B, +28.7% YoY). <strong>CRDO</strong> reports Q4 FY26 after close (est. $429M, +154% YoY). WWDC June 8-12 ahead for AAPL.</div>
+    </div>
+    <div class="alert-box alert-buy">
+      <div class="title green">Berkshire Buys GOOGL</div>
+      <div class="body">Berkshire Hathaway took a major new stake in Alphabet in 2026 — strong AI/Cloud thesis validation. GOOGL momentum score upgraded to 85. Cloud +63%, Search +19%. Q1 beat.</div>
+    </div>
+  </div>
+  <div class="grid-3" style="margin-top:10px;">
+    <div class="alert-box alert-sell">
+      <div class="title red">Berkshire SOLD UNH</div>
+      <div class="body">Berkshire completely exited UnitedHealth (revealed May 15). New $100M MassHealth lawsuit (May 29). UNH composite fell to 59.7 — below 60 threshold. TRIM/avoid.</div>
+    </div>
+    <div class="alert-box alert-sell">
+      <div class="title red">DUK Price Target Cut</div>
+      <div class="body">Morgan Stanley cut Duke Energy PT $141 to $132, keeps Equal Weight. Stock at $122.73 vs avg cost $131.73. Composite fell to 54.1. SELL confirmed.</div>
+    </div>
+    <div class="alert-box alert-watch">
+      <div class="title yellow">Fed + Macro</div>
+      <div class="body">Fed on hold through 2026; 2 cuts possible H1 2027. US-Iran 60-day ceasefire stabilizing Strait of Hormuz and oil. Yields elevated but market resilient at records.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>SELL / EXIT &mdash; Execute Today</h2>
+  <table>
+    <thead><tr><th>Ticker</th><th>Signal</th><th>Shares</th><th>Avg Cost</th><th>Price</th><th>P&amp;L</th><th>Score</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td class="ticker-tag">NRG</td><td><span class="badge badge-exit">EXIT</span></td><td>100</td><td>$165.01</td><td>$134.08</td><td class="red">-$3,093 (-18.7%)</td><td><span class="red score-num">47.6</span></td><td>Below 50 floor. Q1 EPS -44% YoY. $12B acquisition broke the thesis. Stop loss.</td></tr>
+      <tr><td class="ticker-tag">DUK</td><td><span class="badge badge-sell">SELL</span></td><td>250</td><td>$131.73</td><td>$122.73</td><td class="red">-$2,250 (-6.8%)</td><td><span class="red score-num">54.1</span></td><td>MS cut PT $141 to $132. Composite fell 2.1 pts. Leverage + rate sensitivity. No catalyst.</td></tr>
+      <tr><td class="ticker-tag">T</td><td><span class="badge badge-sell">SELL</span></td><td>100</td><td>$26.86</td><td>$24.80</td><td class="red">-$206 (-7.7%)</td><td><span class="red score-num">51.6</span></td><td>FCF missed; legacy revenue -25% YoY; $130B+ debt; below 60 threshold.</td></tr>
+      <tr><td class="ticker-tag">FTS</td><td><span class="badge badge-sell">SELL</span></td><td>50</td><td>$56.61</td><td>$55.33</td><td class="red">-$64 (-2.3%)</td><td><span class="orange score-num">57.5</span></td><td>Below 60 threshold. Modest growth + CAD/USD exposure. Free capital for higher-conviction names.</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:10px;color:var(--muted);font-size:12px;">Estimated proceeds: <strong style="color:var(--text)">~$49,336</strong> &middot; Total cash after sells: <strong style="color:var(--green)">~$77,346</strong></div>
+</div>
+
+<div class="section">
+  <h2>BUY &mdash; Execute Today (Priority Order)</h2>
+  <table>
+    <thead><tr><th>#</th><th>Ticker</th><th>Sector</th><th>Score</th><th>Conv.</th><th>Price</th><th>Shares</th><th>Dollars</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td class="rank">1</td><td class="ticker-tag">NVDA</td><td>Technology</td><td><span class="green score-num">83.6</span></td><td><span class="badge badge-high">HIGH</span></td><td>$213.36</td><td>30</td><td>$6,390</td><td>FQ1'27 +85% YoY; $91B guidance; $80B buyback; fwd P/E ~22.</td></tr>
+      <tr><td class="rank">2</td><td class="ticker-tag">GOOGL</td><td>Comm Svcs</td><td><span class="green score-num">82.8</span></td><td><span class="badge badge-high">HIGH</span></td><td>$380.34</td><td>17</td><td>$6,460</td><td>Berkshire took new stake. Cloud +63%. Cheapest mega-cap on growth-adj P/E.</td></tr>
+      <tr><td class="rank">3</td><td class="ticker-tag">MSFT</td><td>Technology</td><td><span class="green score-num">80.2</span></td><td><span class="badge badge-high">HIGH</span></td><td>$449.99</td><td>15</td><td>$6,750</td><td>Azure +40%; AI run-rate &gt;$37B; fwd P/E 22.1 below its 12-mo avg.</td></tr>
+      <tr><td class="rank">4</td><td class="ticker-tag">META</td><td>Comm Svcs</td><td><span class="green score-num">79.0</span></td><td><span class="badge badge-high">HIGH</span></td><td>$632.43</td><td>10</td><td>$6,320</td><td>Revenue +33%; op margin 41%; TTM P/E ~23; AI ad efficiency compounding.</td></tr>
+      <tr><td class="rank">5</td><td class="ticker-tag">AMZN</td><td>Consumer Disc</td><td><span class="green score-num">75.4</span></td><td><span class="badge badge-high">HIGH</span></td><td>$270.48</td><td>22</td><td>$5,940</td><td>AWS +28% (fastest in 15 qtrs); retail margins expanding; ads +24%.</td></tr>
+      <tr><td class="rank">6</td><td class="ticker-tag">V</td><td>Financials</td><td><span class="green score-num">75.3</span></td><td><span class="badge badge-high">HIGH</span></td><td>$327.00</td><td>18</td><td>$5,886</td><td>Revenue +17%; EPS +20%; $20B buyback; P/E 28.6x below 5-yr avg 30x.</td></tr>
+      <tr><td class="rank">7</td><td class="ticker-tag">JPM</td><td>Financials</td><td><span class="green score-num">71.6</span></td><td><span class="badge badge-high">HIGH</span></td><td>$297.90</td><td>20</td><td>$5,960</td><td>Best-in-class bank; Q1 EPS +17%; ROTCE 23%; P/E ~14x.</td></tr>
+      <tr><td class="rank">8</td><td class="ticker-tag">JNJ</td><td>Healthcare</td><td><span class="green score-num">69.4</span></td><td><span class="badge badge-high">HIGH</span></td><td>$228.00</td><td>25</td><td>$5,700</td><td>Defensive; Q1 +9.9%; raised FY outlook; AAA balance sheet; fwd P/E ~20.</td></tr>
+      <tr><td class="rank">9</td><td class="ticker-tag">KO</td><td>Consumer Staples</td><td><span class="green score-num">68.5</span></td><td><span class="badge badge-high">HIGH</span></td><td>$79.01</td><td>75</td><td>$5,925</td><td>Raised FY guide to +8-9%; organic +10%; Dividend King; portfolio ballast.</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:10px;color:var(--muted);font-size:12px;">Total deployed: <strong style="color:var(--text)">~$55,331</strong> &middot; Residual cash: <strong style="color:var(--yellow)">~$22,015</strong> (reserve for CRDO post-earnings + COST/CAT/XOM/PG this week)</div>
+</div>
+
+<div class="section">
+  <h2>HOLD &mdash; No Action Required</h2>
+  <table>
+    <thead><tr><th>Ticker</th><th>Signal</th><th>Position</th><th>P&amp;L</th><th>Score</th><th>Watch For</th></tr></thead>
+    <tbody>
+      <tr><td class="ticker-tag">AAPL</td><td><span class="badge badge-hold">HOLD</span></td><td>100 sh @ $259.62</td><td class="green">+$5,173 (+19.9%)</td><td><span class="green score-num">74.4</span></td><td>WWDC June 8-12 &mdash; do NOT sell ahead of AI/Siri reveal.</td></tr>
+      <tr><td class="ticker-tag">NEE</td><td><span class="badge badge-hold">HOLD</span></td><td>150 sh @ $92.91</td><td class="red">-$885 (-6.35%)</td><td><span class="yellow score-num">62.0</span></td><td>Fed rate-cut signal would be strong catalyst. Dominion deal speculation to watch.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Full Universe Scorecard</h2>
+  <table>
+    <thead><tr><th>Ticker</th><th>Name</th><th>Sector</th><th>Price</th><th>Growth</th><th>Val.</th><th>Fin.Health</th><th>Mom.</th><th>Moat</th><th>Score</th><th>Signal</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td class="ticker-tag">NVDA</td><td>NVIDIA</td><td>Technology</td><td>$213.36</td><td>98</td><td>52</td><td>90</td><td>82</td><td>92</td><td class="green score-num">83.6</td><td><span class="badge badge-buy">BUY</span></td><td class="green">+0.7</td></tr>
+      <tr><td class="ticker-tag">GOOGL</td><td>Alphabet</td><td>Comm Svcs</td><td>$380.34</td><td>80</td><td>65</td><td>95</td><td>85</td><td>90</td><td class="green score-num">82.8</td><td><span class="badge badge-buy">BUY</span></td><td class="green">+0.8</td></tr>
+      <tr><td class="ticker-tag">MSFT</td><td>Microsoft</td><td>Technology</td><td>$449.99</td><td>82</td><td>52</td><td>95</td><td>75</td><td>95</td><td class="green score-num">80.2</td><td><span class="badge badge-buy">BUY</span></td><td class="green">+0.2</td></tr>
+      <tr><td class="ticker-tag">META</td><td>Meta Platforms</td><td>Comm Svcs</td><td>$632.43</td><td>85</td><td>60</td><td>90</td><td>72</td><td>85</td><td class="green score-num">79.0</td><td><span class="badge badge-buy">BUY</span></td><td class="green">+0.2</td></tr>
+      <tr><td class="ticker-tag">AMZN</td><td>Amazon</td><td>Cons. Disc.</td><td>$270.48</td><td>78</td><td>48</td><td>85</td><td>75</td><td>90</td><td class="green score-num">75.4</td><td><span class="badge badge-buy">BUY</span></td><td class="green">+0.1</td></tr>
+      <tr><td class="ticker-tag">V</td><td>Visa</td><td>Financials</td><td>$327.00</td><td>70</td><td>48</td><td>92</td><td>72</td><td>95</td><td class="green score-num">75.3</td><td><span class="badge badge-buy">BUY</span></td><td class="green">+0.3</td></tr>
+      <tr><td class="ticker-tag">AAPL</td><td>Apple</td><td>Technology</td><td>$311.35</td><td>70</td><td>35</td><td>92</td><td>83</td><td>95</td><td class="green score-num">74.4</td><td><span class="badge badge-hold">HOLD</span></td><td class="green">+0.5</td></tr>
+      <tr style="background:#131d2b;"><td class="ticker-tag blue">CRDO</td><td>Credo Tech</td><td>Tech (candidate)</td><td>$225.10</td><td>95</td><td>42</td><td>75</td><td>90</td><td>68</td><td class="blue score-num">74.3</td><td><span class="badge badge-buy">CANDIDATE</span></td><td>&mdash;</td></tr>
+      <tr><td class="ticker-tag">JPM</td><td>JPMorgan</td><td>Financials</td><td>$297.90</td><td>65</td><td>60</td><td>82</td><td>73</td><td>80</td><td class="green score-num">71.6</td><td><span class="badge badge-buy">BUY</span></td><td class="green">+0.1</td></tr>
+      <tr style="background:#131d2b;"><td class="ticker-tag blue">MRVL</td><td>Marvell Tech</td><td>Tech (candidate)</td><td>$204.83</td><td>75</td><td>40</td><td>78</td><td>88</td><td>78</td><td class="blue score-num">71.2</td><td><span class="badge badge-buy">CANDIDATE</span></td><td>&mdash;</td></tr>
+      <tr><td class="ticker-tag">JNJ</td><td>Johnson &amp; Johnson</td><td>Healthcare</td><td>$228.00</td><td>55</td><td>60</td><td>88</td><td>60</td><td>85</td><td class="green score-num">69.4</td><td><span class="badge badge-buy">BUY</span></td><td class="green">+0.1</td></tr>
+      <tr><td class="ticker-tag">KO</td><td>Coca-Cola</td><td>Cons. Staples</td><td>$79.01</td><td>55</td><td>58</td><td>78</td><td>70</td><td>85</td><td class="green score-num">68.5</td><td><span class="badge badge-buy">BUY</span></td><td>0.0</td></tr>
+      <tr><td class="ticker-tag">COST</td><td>Costco</td><td>Cons. Staples</td><td>$956.32</td><td>68</td><td>20</td><td>88</td><td>73</td><td>88</td><td class="green score-num">67.2</td><td><span class="badge badge-hold">HOLD</span></td><td class="green">+0.2</td></tr>
+      <tr><td class="ticker-tag">CAT</td><td>Caterpillar</td><td>Industrials</td><td>$873.10</td><td>65</td><td>30</td><td>72</td><td>88</td><td>80</td><td class="green score-num">65.9</td><td><span class="badge badge-hold">HOLD</span></td><td class="red">-0.3</td></tr>
+      <tr><td class="ticker-tag">PG</td><td>Procter &amp; Gamble</td><td>Cons. Staples</td><td>$143.63</td><td>42</td><td>52</td><td>80</td><td>60</td><td>82</td><td class="yellow score-num">62.3</td><td><span class="badge badge-hold">HOLD</span></td><td class="green">+0.8</td></tr>
+      <tr><td class="ticker-tag">NEE</td><td>NextEra Energy</td><td>Utilities</td><td>$87.01</td><td>58</td><td>55</td><td>62</td><td>54</td><td>80</td><td class="yellow score-num">62.0</td><td><span class="badge badge-hold">HOLD</span></td><td class="red">-0.9</td></tr>
+      <tr><td class="ticker-tag">XOM</td><td>Exxon Mobil</td><td>Energy</td><td>$145.48</td><td>45</td><td>62</td><td>80</td><td>55</td><td>70</td><td class="yellow score-num">61.9</td><td><span class="badge badge-hold">HOLD</span></td><td>0.0</td></tr>
+      <tr><td class="ticker-tag">UNH</td><td>UnitedHealth</td><td>Healthcare</td><td>$380.00</td><td>45</td><td>55</td><td>70</td><td>52</td><td>78</td><td class="orange score-num">59.7</td><td><span class="badge badge-trim">TRIM</span></td><td class="red">-3.3</td></tr>
+      <tr><td class="ticker-tag">HD</td><td>Home Depot</td><td>Cons. Disc.</td><td>$318.00</td><td>45</td><td>50</td><td>70</td><td>55</td><td>82</td><td class="orange score-num">59.9</td><td><span class="badge badge-exit">EXIT</span></td><td>0.0</td></tr>
+      <tr><td class="ticker-tag">FTS</td><td>Fortis</td><td>Utilities</td><td>$55.33</td><td>42</td><td>60</td><td>65</td><td>50</td><td>75</td><td class="red score-num">57.5</td><td><span class="badge badge-sell">SELL</span></td><td class="red">-0.5</td></tr>
+      <tr><td class="ticker-tag">DUK</td><td>Duke Energy</td><td>Utilities</td><td>$122.73</td><td>45</td><td>50</td><td>60</td><td>43</td><td>72</td><td class="red score-num">54.1</td><td><span class="badge badge-sell">SELL</span></td><td class="red">-2.1</td></tr>
+      <tr><td class="ticker-tag">T</td><td>AT&amp;T</td><td>Comm Svcs</td><td>$24.80</td><td>42</td><td>72</td><td>50</td><td>38</td><td>55</td><td class="red score-num">51.6</td><td><span class="badge badge-sell">SELL</span></td><td>0.0</td></tr>
+      <tr><td class="ticker-tag">NRG</td><td>NRG Energy</td><td>Utilities</td><td>$134.08</td><td>50</td><td>42</td><td>45</td><td>38</td><td>60</td><td class="red score-num">47.6</td><td><span class="badge badge-exit">EXIT</span></td><td>0.0</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:8px;color:var(--muted);font-size:11px;">CRDO &amp; MRVL highlighted in blue are watchlist candidates — tech sector at 3-position cap (AAPL/MSFT/NVDA). Add on next rotation.</div>
+</div>
+
+<div class="section">
+  <h2>Catalyst Watch</h2>
+  <div class="grid-2">
+    <div class="catalyst-box">
+      <div style="font-weight:600;color:var(--blue);margin-bottom:6px;">CRDO &mdash; Earnings Tonight After Close</div>
+      <div style="color:var(--muted);font-size:12px;">Q4 FY2026: $429M revenue (+154% YoY), EPS $1.03 (+194% YoY). 4-qtr avg beat: 31.6%. If CRDO beats and guides up &rarr; buy ~20 shares (~$4,500) tomorrow. AI active electrical cables for data-center clusters. Risk: binary event; miss would hit hard.</div>
+    </div>
+    <div class="catalyst-box">
+      <div style="font-weight:600;color:var(--blue);margin-bottom:6px;">AAPL &mdash; WWDC June 8-12</div>
+      <div style="color:var(--muted);font-size:12px;">Apple expected to unveil overhauled Siri and Apple Intelligence. A meaningful AI upgrade cycle could justify the premium and drive another leg up. Do NOT sell ahead of this event. Weak showing would trim momentum score and reassess HOLD signal.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>This Week &mdash; Secondary Buys (After Primary Deploys)</h2>
+  <table>
+    <thead><tr><th>Ticker</th><th>Shares</th><th>~Dollars</th><th>Score</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td class="ticker-tag">COST</td><td>4</td><td>$3,824</td><td class="green">67.2</td><td>Best membership compounder. Wait for any pullback toward $940.</td></tr>
+      <tr><td class="ticker-tag">CAT</td><td>4</td><td>$3,492</td><td class="green">65.9</td><td>Data-center power theme + record $63B backlog. Small position only.</td></tr>
+      <tr><td class="ticker-tag">XOM</td><td>18</td><td>$2,610</td><td class="yellow">61.9</td><td>Energy diversification; cheap on fwd P/E; Guyana record output.</td></tr>
+      <tr><td class="ticker-tag">PG</td><td>16</td><td>$2,288</td><td class="yellow">62.3</td><td>Defensive ballast; first volume growth in a year; below 5-yr P/E median.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  Agent run: 2026-06-01 09:00 ET &middot; Mode: Trade Plan Only &middot; Isaac executes in Investopedia &middot; Weights: Growth 25% / Moat 20% / Financial Health 20% / Valuation 20% / Momentum 15%
+</div>
+
+</body>
+</html>
