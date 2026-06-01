@@ -1,8 +1,10 @@
 {
-  "run_date": "2026-05-30",
-  "data_as_of": "2026-05-29",
-  "timestamp": "2026-05-30T06:00:00Z",
+  "run_date": "2026-06-01",
+  "data_as_of": "2026-06-01",
+  "timestamp": "2026-06-01T09:00:00Z",
   "mode": "trade_plan_only",
+  "market_sentiment": "BULLISH",
+  "market_context": "S&P 500 at 7,580 (near ATH). May: S&P +5%, Nasdaq +8%, Dow +3%. AI/semis leading. Fed on hold through 2026; 2 cuts possible H1 2027. US-Iran ceasefire stabilizing oil. HPE and CRDO reporting earnings today after close. WWDC June 8-12 ahead.",
   "weights_methodology": {
     "valuation": 0.2,
     "growth": 0.25,
@@ -11,1003 +13,486 @@
     "moat": 0.2
   },
   "decision_rules": {
-    "hold_threshold": "composite>60 to hold",
-    "exit_threshold": "composite<50 or broken thesis",
+    "hold_threshold": "composite > 60",
+    "exit_threshold": "composite < 50 or broken thesis",
     "position_cap_pct": 20,
     "benchmark": "VOO/SPY (S&P 500)"
   },
   "companies": [
     {
-      "ticker": "AAPL",
-      "name": "Apple Inc.",
-      "sector": "Technology",
-      "price": 313.69,
-      "business": "Designs and sells iPhone, Mac, iPad and wearables, plus a high-margin Services segment (App Store, iCloud, advertising, payments, subscriptions). Hardware builds the installed base; Services monetizes it at ~70% gross margin.",
-      "metrics": {
-        "revenue_growth": "+17% YoY (FQ2'26, $111.2B, March-qtr record)",
-        "earnings_growth": "+22% YoY (diluted EPS $2.01)",
-        "profit_margin": "Net margin ~26.6%",
-        "debt": "~$85-88B total debt vs ~$147B cash/securities; net cash ~$62B (dropped 'net cash neutral' policy)",
-        "pe_vs_history_peers": "TTM P/E 37.7 (EPS TTM $8.27) vs 5-yr avg 32.2; peers MSFT ~25, GOOGL ~29"
-      },
-      "news": "FQ2'26 record March quarter; iPhone +22%, Services +16% to ~$31B; guided June qtr +14-17%; WWDC June 8 ahead.",
-      "bull_case": "Unmatched hardware-services ecosystem and switching costs; Services compounding at high margin; large buybacks; reaccelerating growth.",
-      "bear_case": "Trades ~42% above its 10-yr median P/E; growth is good not great; AI/Siri behind peers; China and App-Store regulatory risk.",
-      "valuation": "Expensive vs its own history and peers",
-      "factor_scores": {
-        "valuation": 35,
-        "growth": 70,
-        "financial_health": 92,
-        "momentum": 80,
-        "moat": 95
-      },
-      "composite_score": 73.9,
-      "signal": "HOLD",
-      "target_weight_pct": 7.3,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium-high",
-      "confidence_note": "Business durable; valuation is the risk. Multiple compression to ~30x, or an AI-driven upgrade cycle, would change the view.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/30/apple-aapl-q2-2026-earnings-report.html",
-        "https://www.macrotrends.net/stocks/charts/AAPL/apple/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
-    },
-    {
-      "ticker": "MSFT",
-      "name": "Microsoft Corp.",
-      "sector": "Technology",
-      "price": 416.03,
-      "business": "Sells cloud (Azure), productivity software (Microsoft 365), Windows, LinkedIn, Dynamics and gaming. Azure and Copilot AI are the growth engine; recurring enterprise software is the cash base.",
-      "metrics": {
-        "revenue_growth": "+18% YoY (FQ3'26 ~$82.9B); Azure +40%",
-        "earnings_growth": "Strong double digits",
-        "profit_margin": "Net margin ~36%",
-        "debt": "Low leverage, near net-cash, AAA-tier balance sheet",
-        "pe_vs_history_peers": "TTM P/E 25.4 / fwd 22.1 vs 12-mo avg 32.6; peer GOOGL ~29"
-      },
-      "news": "FQ3'26 Azure +40% (accel from 31%); Microsoft Cloud $54.5B +29%; AI run-rate >$37B (+123%); FY capex guided ~$190B on memory costs.",
-      "bull_case": "Best-positioned enterprise AI distribution; Azure reaccelerating; durable software moat; P/E below its own recent average.",
-      "bear_case": "~$190B capex pressures free cash flow if AI demand digests; capacity-constrained; large size caps upside.",
-      "valuation": "Fair vs its own history (below 12-mo average)",
-      "factor_scores": {
-        "valuation": 55,
-        "growth": 82,
-        "financial_health": 95,
-        "momentum": 70,
-        "moat": 95
-      },
-      "composite_score": 80.0,
-      "signal": "BUY",
-      "target_weight_pct": 9.6,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "High",
-      "confidence_note": "Clear AI/cloud leadership. Sustained capex overspend without revenue follow-through would lower the score.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/29/microsoft-msft-q3-earnings-report-2026.html",
-        "https://www.financecharts.com/stocks/MSFT/value/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
-    },
-    {
       "ticker": "NVDA",
       "name": "NVIDIA Corp.",
       "sector": "Technology",
-      "price": 211.14,
-      "business": "Designs the GPUs and networking that power AI training and inference, plus the CUDA software stack. Data-center accelerators (Blackwell) are the overwhelming majority of revenue; also gaming, pro-viz and automotive.",
-      "metrics": {
-        "revenue_growth": "+85% YoY (FQ1'27 $81.6B); Data Center $75.2B +92%",
-        "earnings_growth": "Non-GAAP EPS $1.87; GAAP $2.39; GM ~75%",
-        "profit_margin": "Net margin ~50%; gross margin ~75%",
-        "debt": "Low debt, large net cash",
-        "pe_vs_history_peers": "TTM P/E ~32.8 / fwd ~21.6; peers AVGO ~35, AMD higher fwd"
-      },
-      "news": "FQ1'27 (rep. May 20) rev $81.6B +85%; guided next qtr ~$91B; $80B buyback added, dividend raised 25x; stock eased from a $235 May high to ~$211.",
-      "bull_case": "CUDA ecosystem lock-in and performance lead; structural AI-infrastructure demand; ~50% net margins fund continued R&D; fwd P/E only ~22.",
-      "bear_case": "Hyperscaler customer concentration; risk of an AI-capex digestion cycle; cyclical history; little room for a miss.",
-      "valuation": "Expensive on trailing multiple but reasonable on forward growth (PEG)",
-      "factor_scores": {
-        "valuation": 50,
-        "growth": 98,
-        "financial_health": 90,
-        "momentum": 80,
-        "moat": 92
-      },
-      "composite_score": 82.9,
+      "price": 213.36,
       "signal": "BUY",
-      "target_weight_pct": 10.7,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium-high",
-      "confidence_note": "Dominant today; the swing factor is whether hyperscaler AI capex sustains. A capex pause would hit hardest here.",
-      "sources": [
-        "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027",
-        "https://www.macrotrends.net/stocks/charts/NVDA/nvidia/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "signal_change": "UNCHANGED",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 98, "valuation": 52, "financial_health": 90, "momentum": 82, "moat": 92 },
+      "composite_score": 83.6,
+      "score_change_vs_prior": "+0.7",
+      "one_line_reason": "FQ1'27 +85% YoY, guided $91B next qtr; $80B buyback; CUDA moat intact; fwd P/E ~22.",
+      "bull_case": "Dominant AI accelerator with CUDA lock-in; structural hyperscaler demand; 50% net margins compound R&D; fwd P/E reasonable on growth.",
+      "bear_case": "Hyperscaler capex pause risk; customer concentration; AMD/custom-silicon competition building.",
+      "target_weight_pct": 8.5,
+      "investopedia_position": { "held": false, "note": "Recommend buying 30 shares @ ~$213 today." }
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet Inc.",
       "sector": "Communication Services",
-      "price": 380.51,
-      "business": "Google Search and YouTube advertising generate the bulk of profit; Google Cloud is fast-growing and now profitable; plus Android, Pixel, Waymo and other bets. Monetizes the world's largest search and video audiences.",
-      "metrics": {
-        "revenue_growth": "+22% YoY (Q1'26 $109.9B); Cloud +63% to $20B",
-        "earnings_growth": "EPS $5.11 (+82%, flattered by equity-securities gains)",
-        "profit_margin": "Strong; Cloud operating margin ~33%",
-        "debt": "Minimal debt, large net cash",
-        "pe_vs_history_peers": "TTM P/E ~29 vs 5-yr avg ~24; below AAPL/MSFT on growth-adjusted basis"
-      },
-      "news": "Q1'26 (rep. Apr 29) Cloud +63%, backlog ~$462B; Search +19%, YouTube +11%; FY capex guided up to ~$190B; AI-search & antitrust overhangs persist.",
-      "bull_case": "Reasonably valued mega-cap; dominant search/video moat; Cloud + Gemini AI optionality; huge cash returns.",
-      "bear_case": "Generative-AI search could erode core query monetization; antitrust remedies (default deals, possible breakup) unresolved.",
-      "valuation": "Fair vs history; attractive on growth",
-      "factor_scores": {
-        "valuation": 65,
-        "growth": 80,
-        "financial_health": 95,
-        "momentum": 80,
-        "moat": 90
-      },
-      "composite_score": 82.0,
+      "price": 380.34,
       "signal": "BUY",
-      "target_weight_pct": 10.4,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "High",
-      "confidence_note": "Strong fundamentals at a reasonable multiple. Evidence AI is structurally cutting search monetization would break the thesis.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/29/alphabet-googl-q1-2026-earnings.html",
-        "https://fullratio.com/stocks/nasdaq-googl/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "signal_change": "UPGRADED (momentum +5)",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 80, "valuation": 65, "financial_health": 95, "momentum": 85, "moat": 90 },
+      "composite_score": 82.8,
+      "score_change_vs_prior": "+0.8",
+      "one_line_reason": "Berkshire Hathaway took a major new stake — strong AI/Cloud thesis validation; Q1 Cloud +63%, Search +19%.",
+      "bull_case": "Reasonably valued mega-cap with Berkshire endorsement; Gemini AI monetizing; Cloud backlog $462B; massive buybacks.",
+      "bear_case": "DOJ antitrust overhangs; AI search eroding query monetization long-term.",
+      "target_weight_pct": 8.2,
+      "investopedia_position": { "held": false, "note": "Recommend buying 17 shares @ ~$380 today." }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft Corp.",
+      "sector": "Technology",
+      "price": 449.99,
+      "signal": "BUY",
+      "signal_change": "UNCHANGED",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 82, "valuation": 52, "financial_health": 95, "momentum": 75, "moat": 95 },
+      "composite_score": 80.2,
+      "score_change_vs_prior": "+0.2",
+      "one_line_reason": "Azure +40%, AI run-rate >$37B (+123%); fwd P/E 22.1 is below its 12-month average.",
+      "bull_case": "Best enterprise AI distribution; Azure reaccelerating; software moat durable; below its own historical P/E.",
+      "bear_case": "$190B capex pressures FCF if AI demand pauses; capacity-constrained.",
+      "target_weight_pct": 7.8,
+      "investopedia_position": { "held": false, "note": "Recommend buying 15 shares @ ~$450 today." }
     },
     {
       "ticker": "META",
       "name": "Meta Platforms Inc.",
       "sector": "Communication Services",
-      "price": 635.0,
-      "business": "Sells digital advertising across Facebook, Instagram, WhatsApp and Threads (the 'Family of Apps'), using AI to target and rank. Reality Labs (AR/VR) is a large loss-making long-term bet.",
-      "metrics": {
-        "revenue_growth": "+33% YoY (Q1'26 $56.3B); ad rev $55.0B",
-        "earnings_growth": "EPS $10.44 (flattered by one-time tax benefit); op margin 41%",
-        "profit_margin": "Operating margin ~41%",
-        "debt": "Low leverage",
-        "pe_vs_history_peers": "TTM P/E ~23 vs 5-yr avg ~25; ~15x forward EPS"
-      },
-      "news": "Q1'26 (rep. Apr 29) revenue +33% on AI ad targeting; capex guided ~$125-145B; stock fell ~9.5% over the month on spending fears.",
-      "bull_case": "~3.9B users and AI-driven ad efficiency; pricing power; buybacks; reasonable ~23x trailing / ~15x forward.",
-      "bear_case": "Soaring AI/Reality Labs capex with uncertain payback; single-revenue-stream (ads) cyclicality; regulatory exposure.",
-      "valuation": "Fair-to-cheap given growth",
-      "factor_scores": {
-        "valuation": 60,
-        "growth": 85,
-        "financial_health": 90,
-        "momentum": 70,
-        "moat": 85
-      },
-      "composite_score": 78.8,
+      "price": 632.43,
       "signal": "BUY",
-      "target_weight_pct": 9.2,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium-high",
-      "confidence_note": "Ad engine excellent and valuation undemanding; the question is capex discipline. Sustained spend without ROI, or an ad recession, would lower the score.",
-      "sources": [
-        "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028364/meta-03312026xexhibit991.htm",
-        "https://fullratio.com/stocks/nasdaq-meta/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "signal_change": "UNCHANGED",
+      "conviction": "MEDIUM-HIGH",
+      "factor_scores": { "growth": 85, "valuation": 60, "financial_health": 90, "momentum": 72, "moat": 85 },
+      "composite_score": 79.0,
+      "score_change_vs_prior": "+0.2",
+      "one_line_reason": "Revenue +33%, op margin 41%; AI-driven ad targeting compounding; TTM P/E ~23 undemanding for the growth.",
+      "bull_case": "3.9B users + AI efficiency = pricing power; ~15x fwd EPS; buybacks; strong ad cycle.",
+      "bear_case": "$125-145B capex; Reality Labs burning cash; single revenue stream cyclicality.",
+      "target_weight_pct": 7.2,
+      "investopedia_position": { "held": false, "note": "Recommend buying 10 shares @ ~$632 today." }
     },
     {
       "ticker": "AMZN",
       "name": "Amazon.com Inc.",
       "sector": "Consumer Discretionary",
-      "price": 270.53,
-      "business": "Runs the largest e-commerce marketplace, AWS cloud (the profit engine), advertising, and Prime subscriptions. Retail provides scale and cash flow; AWS and ads drive operating income.",
-      "metrics": {
-        "revenue_growth": "+17% YoY (Q1'26 $181.5B); AWS +28% to $37.6B",
-        "earnings_growth": "EPS $2.78 (strong beat); op income $23.9B",
-        "profit_margin": "Operating margin ~13%; AWS op margin ~38%",
-        "debt": "Moderate; strong cash flow",
-        "pe_vs_history_peers": "TTM P/E ~32 / fwd ~30"
-      },
-      "news": "Q1'26 (rep. Apr 29) AWS +28%, fastest in 15 quarters, ~$150B run-rate; ads +24%; capex $44B on AI; retail margins expanding.",
-      "bull_case": "Retail margin expansion + reaccelerating AWS + high-margin ads; dominant logistics and cloud moats; operating leverage building.",
-      "bear_case": "Heavy AI capex; rich multiple; retail competitive and consumer-sensitive.",
-      "valuation": "Fair-to-slightly-rich; justified if margins keep expanding",
-      "factor_scores": {
-        "valuation": 48,
-        "growth": 78,
-        "financial_health": 85,
-        "momentum": 75,
-        "moat": 90
-      },
-      "composite_score": 75.3,
+      "price": 270.48,
       "signal": "BUY",
-      "target_weight_pct": 7.8,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium-high",
-      "confidence_note": "Margin story plus AWS reacceleration. A consumer downturn or AWS stall is the key risk.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/29/amazon-amzn-q1-earnings-report-2026.html",
-        "https://fullratio.com/stocks/nasdaq-amzn/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
-    },
-    {
-      "ticker": "HD",
-      "name": "The Home Depot Inc.",
-      "sector": "Consumer Discretionary",
-      "price": 320.07,
-      "business": "Largest home-improvement retailer, selling to DIY consumers and pros; the SRS acquisition expands its pro/building-products reach. Earnings track housing turnover and big-ticket remodeling.",
-      "metrics": {
-        "revenue_growth": "+4.8% YoY (FQ1'26 $41.8B, aided by SRS)",
-        "earnings_growth": "Adj EPS $3.43 (down from $3.56); comps +0.6%",
-        "profit_margin": "Operating margin ~11.9% (compressed)",
-        "debt": "Elevated leverage but serviceable",
-        "pe_vs_history_peers": "TTM P/E ~22.6 vs 5-yr avg ~22"
-      },
-      "news": "FQ1'26 (rep. May 19) modest beat; comps +0.6%; big-ticket discretionary soft on high rates; FY EPS guided ~flat to +4%.",
-      "bull_case": "Category-leading franchise leveraged to an eventual housing/remodel recovery and rate cuts; strong pro strategy.",
-      "bear_case": "Big-ticket demand weak while rates stay high; full multiple for flat earnings; consumer-cyclical; margin compression.",
-      "valuation": "Fair-to-slightly-rich for sluggish growth",
-      "factor_scores": {
-        "valuation": 50,
-        "growth": 45,
-        "financial_health": 70,
-        "momentum": 55,
-        "moat": 82
-      },
-      "composite_score": 59.9,
-      "signal": "EXIT",
-      "target_weight_pct": 0.0,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium",
-      "confidence_note": "Quality business but composite below 60 - not held this run. A clear remodel-demand inflection or rate cuts would lift growth/momentum.",
-      "sources": [
-        "https://www.cnbc.com/2026/05/19/home-depot-hd-q1-2026-earnings.html",
-        "https://fullratio.com/stocks/nyse-hd/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
-    },
-    {
-      "ticker": "COST",
-      "name": "Costco Wholesale Corp.",
-      "sector": "Consumer Staples",
-      "price": 949.49,
-      "business": "Membership warehouse retailer; most operating profit comes from high-renewal membership fees rather than thin merchandise margins. Scale and treasure-hunt assortment drive traffic and pricing power.",
-      "metrics": {
-        "revenue_growth": "+11.6% YoY (FQ3'26 $70.53B)",
-        "earnings_growth": "EPS $4.93 vs $4.28 (+15%)",
-        "profit_margin": "Thin retail margin; profit driven by membership fees",
-        "debt": "Low leverage, strong cash",
-        "pe_vs_history_peers": "TTM P/E ~52 vs peers ~26"
-      },
-      "news": "FQ3'26 (rep. May 28) record gas volumes and digital +21% drove an adj comps +6.6% beat; stock crossed $1,000 in May.",
-      "bull_case": "Exceptional membership model with ~90%+ renewals; defensive, consistent compounder; pricing power.",
-      "bear_case": "~52x earnings is one of the richest large caps - little room for error; modest EPS growth doesn't obviously justify the multiple.",
-      "valuation": "Very expensive vs peers and its own history",
-      "factor_scores": {
-        "valuation": 20,
-        "growth": 68,
-        "financial_health": 88,
-        "momentum": 72,
-        "moat": 88
-      },
-      "composite_score": 67.0,
-      "signal": "HOLD",
-      "target_weight_pct": 4.6,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "High",
-      "confidence_note": "Business quality very high, valuation very stretched - small weight only. A pullback toward ~35x would make it a BUY.",
-      "sources": [
-        "https://www.cnbc.com/2026/05/28/costco-cost-q3-2026-earnings.html",
-        "https://fullratio.com/stocks/nasdaq-cost/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
-    },
-    {
-      "ticker": "KO",
-      "name": "The Coca-Cola Company",
-      "sector": "Consumer Staples",
-      "price": 79.08,
-      "business": "Sells concentrate and finished beverages through a global bottling network across sparkling drinks, water, juice, coffee and sports drinks. An asset-light, brand- and distribution-driven cash machine.",
-      "metrics": {
-        "revenue_growth": "+12% YoY adj (Q1'26 $12.47B); organic +10%",
-        "earnings_growth": "EPS $0.91 vs $0.77 (+18%)",
-        "profit_margin": "Net margin ~27.8%",
-        "debt": "Moderate, well-covered",
-        "pe_vs_history_peers": "TTM P/E ~24.6 vs peer avg ~25"
-      },
-      "news": "Q1'26 (rep. Apr 28) beat; raised FY comparable-EPS growth guide to +8-9%; pricing-led organic growth.",
-      "bull_case": "Iconic brand moat and unrivaled distribution; defensive cash flows; reliable dividend (Dividend King); pricing power.",
-      "bear_case": "Low-single-digit volume growth; FX and input-cost headwinds; GLP-1/health trends a long-term demand question.",
-      "valuation": "Fair vs history and peers",
-      "factor_scores": {
-        "valuation": 58,
-        "growth": 55,
-        "financial_health": 78,
-        "momentum": 70,
-        "moat": 85
-      },
-      "composite_score": 68.5,
-      "signal": "BUY",
-      "target_weight_pct": 5.2,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "High",
-      "confidence_note": "Steady defensive holding. A sharp dollar move or volume decline would pressure it.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/28/coca-cola-ko-q1-2026-earnings.html",
-        "https://www.stocktitan.net/sec-filings/KO/10-q-coca-cola-co-quarterly-earnings-report-42da275b7abd.html"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
-    },
-    {
-      "ticker": "PG",
-      "name": "Procter & Gamble Co.",
-      "sector": "Consumer Staples",
-      "price": 147.49,
-      "business": "Sells branded consumer staples across fabric/home care, baby/family care, beauty, grooming and health (Tide, Pampers, Gillette, Olay). Scale brands and retail relationships drive steady cash flow.",
-      "metrics": {
-        "revenue_growth": "+7% YoY (FQ3'26 $21.24B); organic +3% (volume +2%)",
-        "earnings_growth": "Core EPS $1.59 (beat)",
-        "profit_margin": "Strong, stable operating margins",
-        "debt": "Moderate, conservative",
-        "pe_vs_history_peers": "TTM P/E ~21 vs 5-yr median ~25.8; ~3% yield (Dividend King)"
-      },
-      "news": "FQ3'26 (rep. Apr 24) first volume growth in a year; flagged ~$400M after-tax tariff headwind and a productivity/cost program.",
-      "bull_case": "Defensive, predictable cash returns and brand strength; reliable dividend growth; valuation below its own median.",
-      "bear_case": "Low-single-digit growth; FX/tariff headwinds; full-ish valuation for a slow grower.",
-      "valuation": "Fair-to-cheap vs its own history",
-      "factor_scores": {
-        "valuation": 52,
-        "growth": 40,
-        "financial_health": 80,
-        "momentum": 58,
-        "moat": 82
-      },
-      "composite_score": 61.5,
-      "signal": "HOLD",
-      "target_weight_pct": 2.5,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "High",
-      "confidence_note": "Defensive ballast. Persistent volume declines would weaken the case; sustained volume growth would strengthen it.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/24/procter-gamble-pg-q3-2026-earnings.html",
-        "https://fullratio.com/stocks/nyse-pg/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
-    },
-    {
-      "ticker": "JPM",
-      "name": "JPMorgan Chase & Co.",
-      "sector": "Financials",
-      "price": 299.31,
-      "business": "Largest U.S. bank by assets, spanning consumer banking, card, commercial banking, investment banking, markets and asset/wealth management. Earns net interest income plus diversified fee income at scale.",
-      "metrics": {
-        "revenue_growth": "+10% YoY (Q1'26 net revenue $50.5B)",
-        "earnings_growth": "EPS $5.94 vs $5.07; net income $16.5B (+13%)",
-        "profit_margin": "ROE 19%, ROTCE 23%",
-        "debt": "Well capitalized; bank leverage not comparable to industrials",
-        "pe_vs_history_peers": "P/E ~14 trailing vs historical ~12-13"
-      },
-      "news": "Q1'26 (rep. Apr 14) beat; trimmed FY net-interest-income guide to ~$103B; CEO Dimon called markets 'exuberant'.",
-      "bull_case": "Best-in-class, diversified franchise with a fortress balance sheet; strong through-cycle returns; scale advantages.",
-      "bear_case": "Near record price at a premium multiple; credit normalization and a slowing economy would pressure earnings; NII guide cut.",
-      "valuation": "Fair-to-slightly-rich for a bank at record levels",
-      "factor_scores": {
-        "valuation": 60,
-        "growth": 65,
-        "financial_health": 82,
-        "momentum": 72,
-        "moat": 80
-      },
-      "composite_score": 71.5,
-      "signal": "BUY",
-      "target_weight_pct": 6.4,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium-high",
-      "confidence_note": "Quality compounder among banks. A credit-cycle downturn or recession is the main risk.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/14/jpmorgan-chase-jpm-earnings-1q-2026.html",
-        "https://www.stocktitan.net/sec-filings/JPM/8-k-jpmorgan-chase-co-reports-material-event-224c89e08684.html"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "signal_change": "UNCHANGED",
+      "conviction": "MEDIUM-HIGH",
+      "factor_scores": { "growth": 78, "valuation": 48, "financial_health": 85, "momentum": 75, "moat": 90 },
+      "composite_score": 75.4,
+      "score_change_vs_prior": "+0.1",
+      "one_line_reason": "AWS +28% (fastest in 15 quarters, $150B run-rate); retail margins expanding; ads +24%.",
+      "bull_case": "Operating leverage building; AWS + ads are high-margin engines; dominant logistics and cloud moats.",
+      "bear_case": "Consumer-sensitive retail; AI capex $44B/qtr; rich TTM P/E ~32.",
+      "target_weight_pct": 6.5,
+      "investopedia_position": { "held": false, "note": "Recommend buying 22 shares @ ~$270 today." }
     },
     {
       "ticker": "V",
       "name": "Visa Inc.",
       "sector": "Financials",
-      "price": 330.83,
-      "business": "Operates the largest card payment network, earning fees on payment volume, transactions and cross-border activity. An asset-light toll-booth on global consumer spending with ~66% operating margins.",
-      "metrics": {
-        "revenue_growth": "+17% YoY (FQ2'26 net revenue $11.2B)",
-        "earnings_growth": "Non-GAAP EPS $3.31 (+20%)",
-        "profit_margin": "Operating margin ~66%",
-        "debt": "Modest leverage",
-        "pe_vs_history_peers": "TTM P/E ~28.6 vs 5-yr avg ~30; peer MA higher"
-      },
-      "news": "FQ2'26 (rep. Apr 28) fastest revenue growth since 2022; payments volume +9%, cross-border strong; new $20B buyback authorized.",
-      "bull_case": "Wide network-effect moat; exceptional margins and cash conversion; secular cash-to-card shift; consistent buybacks.",
-      "bear_case": "Regulatory scrutiny of interchange; competition from real-time rails/stablecoins; consumer-spending sensitivity.",
-      "valuation": "Premium but consistent with history and quality",
-      "factor_scores": {
-        "valuation": 48,
-        "growth": 70,
-        "financial_health": 92,
-        "momentum": 70,
-        "moat": 95
-      },
-      "composite_score": 75.0,
+      "price": 327.0,
       "signal": "BUY",
-      "target_weight_pct": 7.7,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "High",
-      "confidence_note": "High-quality compounder. Material interchange regulation or a payments-rail shift would be the thesis risk.",
-      "sources": [
-        "https://www.fool.com/earnings/call-transcripts/2026/04/29/visa-v-q2-2026-earnings-call-transcript/",
-        "https://fullratio.com/stocks/nyse-v/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "signal_change": "UNCHANGED",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 70, "valuation": 48, "financial_health": 92, "momentum": 72, "moat": 95 },
+      "composite_score": 75.3,
+      "score_change_vs_prior": "+0.3",
+      "one_line_reason": "Revenue +17%, EPS +20%; $20B buyback authorized; P/E 28.6x below its 5-yr avg 30x.",
+      "bull_case": "Network-effect moat; 66% op margins; secular cash-to-card; consistent buybacks.",
+      "bear_case": "Interchange regulation; real-time payment rails/stablecoins; consumer spending exposure.",
+      "target_weight_pct": 6.2,
+      "investopedia_position": { "held": false, "note": "Recommend buying 18 shares @ ~$327 today." }
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "sector": "Technology",
+      "price": 311.35,
+      "signal": "HOLD",
+      "signal_change": "UNCHANGED",
+      "conviction": "MEDIUM-HIGH",
+      "factor_scores": { "growth": 70, "valuation": 35, "financial_health": 92, "momentum": 83, "moat": 95 },
+      "composite_score": 74.4,
+      "score_change_vs_prior": "+0.5",
+      "one_line_reason": "HOLD into WWDC June 8-12 — momentum upgraded for Siri/AI catalyst; still expensive vs peers but business durable.",
+      "bull_case": "Hardware-services ecosystem; WWDC AI/Siri catalyst imminent; record FQ2 margins; large buybacks.",
+      "bear_case": "P/E 37.7 is ~42% above 5-yr median; AI/Siri behind peers; China + App Store regulatory risks.",
+      "target_weight_pct": 7.3,
+      "investopedia_position": {
+        "held": true,
+        "shares": 100,
+        "avg_cost": 259.62,
+        "current_price": 311.35,
+        "market_value": 31135.0,
+        "unrealized_pl": 5173.0,
+        "unrealized_pl_pct": 19.9
+      }
+    },
+    {
+      "ticker": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "sector": "Financials",
+      "price": 297.90,
+      "signal": "BUY",
+      "signal_change": "UNCHANGED",
+      "conviction": "MEDIUM-HIGH",
+      "factor_scores": { "growth": 65, "valuation": 60, "financial_health": 82, "momentum": 73, "moat": 80 },
+      "composite_score": 71.6,
+      "score_change_vs_prior": "+0.1",
+      "one_line_reason": "Best-in-class diversified bank; Q1 EPS $5.94 (+17%); ROTCE 23%; P/E ~14x is reasonable.",
+      "bull_case": "Fortress balance sheet; diversified IB + consumer + wealth management; scale advantages.",
+      "bear_case": "Near-record price at premium multiple; credit normalization; Dimon cautious ('exuberant').",
+      "target_weight_pct": 5.8,
+      "investopedia_position": { "held": false, "note": "Recommend buying 20 shares @ ~$298 today." }
     },
     {
       "ticker": "JNJ",
       "name": "Johnson & Johnson",
       "sector": "Healthcare",
-      "price": 227.0,
-      "business": "Diversified healthcare across Innovative Medicine (oncology, immunology, neuroscience) and MedTech (surgery, orthopedics, cardiovascular). Patent-protected drugs and device franchises generate durable cash flow.",
-      "metrics": {
-        "revenue_growth": "+9.9% YoY (Q1'26 $24.1B)",
-        "earnings_growth": "Adj EPS $2.70; FY adj-EPS guide ~$11.55 (reported EPS distorted by prior-yr talc reserve)",
-        "profit_margin": "Strong; reported comparison distorted by base effects",
-        "debt": "Moderate; AAA-rated balance sheet",
-        "pe_vs_history_peers": "TTM P/E ~26 reported / ~20 on fwd adj EPS"
-      },
-      "news": "Q1'26 (rep. Apr 14) +9.9% sales, raised FY outlook; ~$0.3B talc charges this quarter; litigation overhang persists.",
-      "bull_case": "Diversified, defensive cash flows; AAA balance sheet; oncology pipeline; reliable dividend (Dividend King).",
-      "bear_case": "Ongoing talc litigation overhang; pharma patent-cliff exposure (e.g. Stelara biosimilars); slower top-line growth.",
-      "valuation": "Fair vs history and peers",
-      "factor_scores": {
-        "valuation": 60,
-        "growth": 55,
-        "financial_health": 88,
-        "momentum": 60,
-        "moat": 85
-      },
-      "composite_score": 69.3,
+      "price": 228.0,
       "signal": "BUY",
+      "signal_change": "UNCHANGED",
+      "conviction": "MEDIUM-HIGH",
+      "factor_scores": { "growth": 55, "valuation": 60, "financial_health": 88, "momentum": 60, "moat": 85 },
+      "composite_score": 69.4,
+      "score_change_vs_prior": "+0.1",
+      "one_line_reason": "Q1 +9.9%, raised FY outlook; AAA balance sheet; fwd P/E ~20; defensive Dividend King.",
+      "bull_case": "Oncology pipeline; reliable cash flows; diversified healthcare moat.",
+      "bear_case": "Talc litigation overhang; Stelara biosimilar patent cliff; slow top-line growth.",
       "target_weight_pct": 5.5,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium-high",
-      "confidence_note": "Defensive quality. A large adverse talc ruling or pipeline setback would change the view.",
-      "sources": [
-        "https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-reports-Q1-2026-results-raises-2026-outlook/default.aspx",
-        "https://fullratio.com/stocks/nyse-jnj/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "investopedia_position": { "held": false, "note": "Recommend buying 25 shares @ ~$228 today." }
     },
     {
-      "ticker": "UNH",
-      "name": "UnitedHealth Group Inc.",
-      "sector": "Healthcare",
-      "price": 400.0,
-      "business": "Largest U.S. health insurer (UnitedHealthcare) combined with Optum (health services, pharmacy benefits, care delivery and data/analytics). Earns insurance premiums plus Optum service/PBM fees.",
-      "metrics": {
-        "revenue_growth": "+2% YoY (Q1'26 $111.7B)",
-        "earnings_growth": "Adj EPS $7.23 (beat); FY adj-EPS guide raised to >$18.25",
-        "profit_margin": "Q1 medical care ratio 83.9% (better than feared); FY guide ~88.8%",
-        "debt": "Debt/capital ~42.9%, manageable",
-        "pe_vs_history_peers": "~22x forward (price ~$400 vs >$18.25 adj EPS); rebounded from sub-$300 lows"
-      },
-      "news": "Q1'26 beat with raised guidance; stock rallied ~37% in April off depressed levels; MA-rate and DOJ overhangs linger; exiting non-US units.",
-      "bull_case": "Dominant scale and Optum integration; Q1 beat and raised guide suggest recovery ahead of plan; still below prior $500+ highs.",
-      "bear_case": "Medical-cost trend, Medicare Advantage profitability and DOJ scrutiny remain unresolved; sharp rebound has removed the deep-value cushion.",
-      "valuation": "Fair after the rebound (no longer deep-value)",
-      "factor_scores": {
-        "valuation": 60,
-        "growth": 45,
-        "financial_health": 70,
-        "momentum": 65,
-        "moat": 80
-      },
-      "composite_score": 63.0,
-      "signal": "HOLD",
-      "target_weight_pct": 3.1,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Low-medium",
-      "confidence_note": "Wide range of outcomes; held at a small weight. Two more quarters of stabilizing medical-cost ratio would upgrade it; a renewed cost spike or adverse DOJ action would trigger EXIT.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/21/unitedhealth-group-unh-earnings-q1-2026.html",
-        "https://fullratio.com/stocks/nyse-unh/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "ticker": "KO",
+      "name": "The Coca-Cola Company",
+      "sector": "Consumer Staples",
+      "price": 79.01,
+      "signal": "BUY",
+      "signal_change": "UNCHANGED",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 55, "valuation": 58, "financial_health": 78, "momentum": 70, "moat": 85 },
+      "composite_score": 68.5,
+      "score_change_vs_prior": "0.0",
+      "one_line_reason": "Raised FY comparable-EPS guide to +8-9%; organic +10%; iconic brand moat; fair valuation.",
+      "bull_case": "Unrivaled global distribution; pricing power; reliable dividend (Dividend King); defensive.",
+      "bear_case": "FX headwinds; GLP-1/health trends; low volume growth.",
+      "target_weight_pct": 4.8,
+      "investopedia_position": { "held": false, "note": "Recommend buying 75 shares @ ~$79 today." }
     },
     {
-      "ticker": "XOM",
-      "name": "Exxon Mobil Corp.",
-      "sector": "Energy",
-      "price": 146.1,
-      "business": "Integrated oil & gas major: Upstream (notably Guyana and the Permian), Energy Products (refining), Chemical and Specialty Products, plus low-carbon ventures. Earnings track commodity prices and volumes.",
-      "metrics": {
-        "revenue_growth": "+4.8% YoY (Q1'26 $85.14B)",
-        "earnings_growth": "Adj EPS $1.16 (beat); net income fell to $4.2B from $7.7B on derivative mark-to-market and Mideast disruptions",
-        "profit_margin": "Cyclical; pressured this quarter",
-        "debt": "Total debt $47.7B; debt/capital 15.4%, net debt/capital 13.1% - conservative",
-        "pe_vs_history_peers": "TTM P/E ~26 (depressed earnings) / fwd ~15; ~2.7% yield"
-      },
-      "news": "Q1'26 record Guyana output >900kbpd; Permian growth; Golden Pass LNG Train 1 started; earnings dented by derivatives/disruptions.",
-      "bull_case": "Low-cost Guyana/Permian barrels and a strong balance sheet; durable dividend; disciplined capital returns.",
-      "bear_case": "Earnings hostage to oil/gas prices and refining margins; energy-transition demand risk; volatile quarterly results.",
-      "valuation": "Fair (cheap on forward earnings, cyclical)",
-      "factor_scores": {
-        "valuation": 62,
-        "growth": 45,
-        "financial_health": 80,
-        "momentum": 55,
-        "moat": 70
-      },
-      "composite_score": 61.9,
+      "ticker": "COST",
+      "name": "Costco Wholesale Corp.",
+      "sector": "Consumer Staples",
+      "price": 956.32,
       "signal": "HOLD",
-      "target_weight_pct": 2.7,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium",
-      "confidence_note": "Best-in-class major but commodity-driven. A sustained oil-price decline would lower growth/momentum; a spike would lift them.",
-      "sources": [
-        "https://investor.exxonmobil.com/company-information/press-releases/detail/1204/exxonmobil-announces-first-quarter-2026-results",
-        "https://www.macrotrends.net/stocks/charts/XOM/exxon/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "signal_change": "UNCHANGED",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 68, "valuation": 20, "financial_health": 88, "momentum": 73, "moat": 88 },
+      "composite_score": 67.2,
+      "score_change_vs_prior": "+0.2",
+      "one_line_reason": "FQ3 beat with digital +21% and comps +6.6%; exceptional membership model; valuation remains stretched at ~52x.",
+      "bull_case": "~90%+ renewal rates; pricing power; defensive compounder.",
+      "bear_case": "~52x P/E is extreme; limited EPS growth doesn't obviously justify the multiple.",
+      "target_weight_pct": 3.8,
+      "investopedia_position": { "held": false, "note": "Buy this week on any pullback toward $940." }
     },
     {
       "ticker": "CAT",
       "name": "Caterpillar Inc.",
       "sector": "Industrials",
-      "price": 875.87,
-      "business": "World's largest maker of construction and mining equipment, plus Energy & Transportation (engines, turbines, power generation including data-center backup) and a captive finance arm. Cyclical, tied to global capex.",
-      "metrics": {
-        "revenue_growth": "+22% YoY (Q1'26 $17.4B)",
-        "earnings_growth": "Adj EPS $5.54 (+30%, big beat); backlog $63B (+79%)",
-        "profit_margin": "Operating margin high teens",
-        "debt": "Moderate (plus captive finance book)",
-        "pe_vs_history_peers": "TTM P/E ~44 vs 5-yr avg ~17 - ~95th percentile of its own range"
-      },
-      "news": "Q1'26 (rep. Apr 30) Power Generation +41% on data-center demand; record backlog; stock +~191% over the past year; tariff costs trimmed to $2.2-2.4B.",
-      "bull_case": "Multi-year infrastructure, electrification and data-center power capex; record backlog; pricing power and strong aftermarket.",
-      "bear_case": "Cyclical earnings at ~44x - extreme for the cycle; a construction/mining or data-center-capex downturn would hit a stretched multiple hard.",
-      "valuation": "Very expensive vs its own history for a cyclical",
-      "factor_scores": {
-        "valuation": 30,
-        "growth": 65,
-        "financial_health": 72,
-        "momentum": 90,
-        "moat": 80
-      },
-      "composite_score": 66.2,
+      "price": 873.10,
       "signal": "HOLD",
-      "target_weight_pct": 4.3,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium",
-      "confidence_note": "Strong momentum on power demand, but the multiple prices in a lot - small weight only. A capex/construction downturn is the key risk.",
-      "sources": [
-        "https://www.cnbc.com/2026/04/30/caterpillar-cat-q1-2026-earnings.html",
-        "https://www.gurufocus.com/term/pettm/CAT"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "signal_change": "UNCHANGED",
+      "conviction": "MEDIUM",
+      "factor_scores": { "growth": 65, "valuation": 30, "financial_health": 72, "momentum": 88, "moat": 80 },
+      "composite_score": 65.9,
+      "score_change_vs_prior": "-0.3",
+      "one_line_reason": "Record $63B backlog; Power Generation +41% on data-center demand; multiple at ~44x is extreme for a cyclical.",
+      "bull_case": "Multi-year infrastructure and electrification capex; aftermarket revenue; pricing power.",
+      "bear_case": "~44x P/E near 95th percentile of its own history; a construction/mining downturn would hit hard.",
+      "target_weight_pct": 3.5,
+      "investopedia_position": { "held": false, "note": "Buy this week — small position only given valuation risk." }
+    },
+    {
+      "ticker": "PG",
+      "name": "Procter & Gamble Co.",
+      "sector": "Consumer Staples",
+      "price": 143.63,
+      "signal": "HOLD",
+      "signal_change": "UNCHANGED",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 42, "valuation": 52, "financial_health": 80, "momentum": 60, "moat": 82 },
+      "composite_score": 62.3,
+      "score_change_vs_prior": "+0.8",
+      "one_line_reason": "First volume growth in a year; tariff headwind manageable (~$400M); P/E below 5-yr median; Dividend King.",
+      "bull_case": "Defensive cash returns; volume inflection positive; below its own median P/E; reliable dividend.",
+      "bear_case": "FX and tariff headwinds; slow organic growth; full valuation for a slow compounder.",
+      "target_weight_pct": 2.5,
+      "investopedia_position": { "held": false, "note": "Buy this week — defensive ballast." }
     },
     {
       "ticker": "NEE",
       "name": "NextEra Energy Inc.",
       "sector": "Utilities",
       "price": 87.01,
-      "business": "Owns Florida Power & Light (a large regulated utility with steady returns) and NextEra Energy Resources (the world's largest wind/solar generator). Combines regulated earnings stability with renewables growth.",
-      "metrics": {
-        "revenue_growth": "+7% YoY (Q1'26 $6.70B)",
-        "earnings_growth": "Adj EPS $1.09 (+10%); record renewables backlog ~33 GW",
-        "profit_margin": "Regulated-utility stable; capital intensive",
-        "debt": "High leverage (capital-intensive, rate-sensitive)",
-        "pe_vs_history_peers": "TTM P/E ~22, ~in line with 5-yr avg; ~2.7-2.9% yield"
-      },
-      "news": "Q1'26 (rep. Apr 23) EPS beat; record renewables/storage backlog on data-center/electrification demand; FPL stable; large proposed Dominion combination reported.",
-      "bull_case": "Best-in-class renewables developer positioned for surging electricity demand; regulated base provides stability; ~10%/yr dividend growth target.",
-      "bear_case": "High leverage makes it rate-sensitive; renewables subsidy/policy risk; execution risk on a huge backlog and any large M&A.",
-      "valuation": "Fair vs history",
-      "factor_scores": {
-        "valuation": 55,
-        "growth": 58,
-        "financial_health": 62,
-        "momentum": 60,
-        "moat": 80
-      },
-      "composite_score": 62.9,
-      "signal": "BUY",
+      "signal": "HOLD",
+      "signal_change": "DOWNGRADED from BUY (momentum -6)",
+      "conviction": "MEDIUM",
+      "factor_scores": { "growth": 58, "valuation": 55, "financial_health": 62, "momentum": 54, "moat": 80 },
+      "composite_score": 62.0,
+      "score_change_vs_prior": "-0.9",
+      "one_line_reason": "HOLD — thesis intact (renewables + FPL), but stock pullback below avg cost reduces urgency to add; HOLD existing position.",
+      "bull_case": "World's largest wind/solar developer; data-center electrification tailwind; 10%/yr dividend growth target.",
+      "bear_case": "High leverage rate-sensitive; large Dominion deal speculation adds execution risk.",
       "target_weight_pct": 3.0,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium",
-      "confidence_note": "Growth-plus-yield utility. Higher-for-longer rates or adverse renewables policy would pressure the score.",
-      "sources": [
-        "https://www.fool.com/earnings/call-transcripts/2026/04/23/nextera-energy-nee-q1-2026-earnings-transcript/",
-        "https://fullratio.com/stocks/nyse-nee/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "investopedia_position": {
+        "held": true,
+        "shares": 150,
+        "avg_cost": 92.91,
+        "current_price": 87.01,
+        "market_value": 13051.50,
+        "unrealized_pl": -885.0,
+        "unrealized_pl_pct": -6.35
+      }
+    },
+    {
+      "ticker": "XOM",
+      "name": "Exxon Mobil Corp.",
+      "sector": "Energy",
+      "price": 145.48,
+      "signal": "HOLD",
+      "signal_change": "UNCHANGED",
+      "conviction": "MEDIUM",
+      "factor_scores": { "growth": 45, "valuation": 62, "financial_health": 80, "momentum": 55, "moat": 70 },
+      "composite_score": 61.9,
+      "score_change_vs_prior": "0.0",
+      "one_line_reason": "Record Guyana +900kbpd, Golden Pass LNG started; conservative balance sheet; cyclical but cheap on fwd P/E.",
+      "bull_case": "Low-cost barrels; durable dividend; disciplined capital returns.",
+      "bear_case": "Earnings hostage to oil/gas prices; refining margin cyclicality.",
+      "target_weight_pct": 2.7,
+      "investopedia_position": { "held": false, "note": "Buy this week — energy diversification at small weight." }
+    },
+    {
+      "ticker": "UNH",
+      "name": "UnitedHealth Group Inc.",
+      "sector": "Healthcare",
+      "price": 380.0,
+      "signal": "TRIM",
+      "signal_change": "DOWNGRADED from HOLD (dropped below 60)",
+      "conviction": "LOW-MEDIUM",
+      "factor_scores": { "growth": 45, "valuation": 55, "financial_health": 70, "momentum": 52, "moat": 78 },
+      "composite_score": 59.7,
+      "score_change_vs_prior": "-3.3",
+      "one_line_reason": "TRIM — composite fell to 59.7: Berkshire Hathaway sold entire stake; $100M MassHealth lawsuit filed; pediatric prior auth changes add cost uncertainty.",
+      "bull_case": "Dominant scale; Optum integration; raised FY guide; still recovering from prior lows.",
+      "bear_case": "Berkshire exit is a major sentiment negative; new lawsuit; MA profitability still uncertain; DOJ scrutiny.",
+      "target_weight_pct": 0.0,
+      "investopedia_position": { "held": false, "note": "Do not open new position. If previously held, trim on any bounce." }
     },
     {
       "ticker": "DUK",
       "name": "Duke Energy Corp.",
       "sector": "Utilities",
       "price": 122.73,
-      "business": "One of the largest US regulated electric and gas utilities, serving ~8.4M customers across the Carolinas, Florida, Indiana, Ohio and Kentucky. Earnings driven by rate-base growth and a multi-billion clean-energy transition plan.",
-      "metrics": {
-        "revenue_growth": "+8% YoY (Q1'26 $9.18B, beat expectations)",
-        "earnings_growth": "Adj EPS $1.93 (+10% YoY); FY guidance $6.55-$6.80; 5-7% EPS growth through 2030",
-        "profit_margin": "Regulated utility; stable, predictable margins",
-        "debt": "Debt/equity ~1.61; high leverage typical for capital-intensive regulated utilities",
-        "pe_vs_history_peers": "TTM P/E ~20.6; fwd ~18.7; ~3.4% dividend yield; peer range 18-22x"
-      },
-      "news": "Q1'26 (rep. May 5) beat estimates on revenue; maintained 5-7% EPS/dividend growth target through 2030; stock dipped post-earnings despite beat.",
-      "bull_case": "Regulated monopoly with locked-in earnings growth; 5-7% EPS+dividend visibility through 2030; clean-energy capex builds rate base; defensive income.",
-      "bear_case": "High leverage is rate-sensitive; heavy capex requires ongoing equity/debt financing; slow growth limits upside; stock down ~7% from purchase.",
-      "valuation": "Fair vs utility peers; fully priced for the growth rate",
-      "factor_scores": {
-        "valuation": 55,
-        "growth": 45,
-        "financial_health": 62,
-        "momentum": 48,
-        "moat": 72
-      },
-      "composite_score": 56.2,
-      "signal": "TRIM",
+      "signal": "SELL",
+      "signal_change": "DOWNGRADED from TRIM",
+      "conviction": "MEDIUM",
+      "factor_scores": { "growth": 45, "valuation": 50, "financial_health": 60, "momentum": 43, "moat": 72 },
+      "composite_score": 54.1,
+      "score_change_vs_prior": "-2.1",
+      "one_line_reason": "SELL — composite 54.1: Morgan Stanley cut PT $141→$132; thesis stalling; leverage rate-sensitive; redeploy into higher-scoring names.",
+      "bull_case": "Regulated monopoly; 5-7% EPS growth; clean-energy transition builds rate base.",
+      "bear_case": "High leverage + rate-sensitive; no near-term catalyst; PT cut; heavy capex needs equity/debt financing.",
       "target_weight_pct": 0.0,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium",
-      "confidence_note": "Stable business but composite below hold threshold (56.3). Leverage and rate sensitivity are persistent risks. Rate cuts would be a meaningful positive catalyst.",
-      "sources": [
-        "https://www.investing.com/news/transcripts/earnings-call-transcript-duke-energy-beats-q1-2026-forecasts-but-stock-dips-93CH-4679082",
-        "https://fullratio.com/stocks/nyse-duk/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "investopedia_position": {
+        "held": true,
+        "shares": 250,
+        "avg_cost": 131.73,
+        "current_price": 122.73,
+        "market_value": 30682.50,
+        "unrealized_pl": -2250.0,
+        "unrealized_pl_pct": -6.83,
+        "action": "SELL ALL 250 SHARES TODAY"
+      }
     },
     {
       "ticker": "FTS",
       "name": "Fortis Inc.",
       "sector": "Utilities",
       "price": 55.33,
-      "business": "Canadian regulated electric and gas utility with operations in Canada, Arizona (UNS Energy) and Michigan (ITC). Earns predictable rate-regulated returns and is executing a $28.8B five-year capex plan to grow its rate base.",
-      "metrics": {
-        "revenue_growth": "Q1'26 $3.4B; Basic EPS $0.99 (essentially flat YoY from prior asset sales and share issuance)",
-        "earnings_growth": "4-6% dividend growth target; rate base growing $42.4B \u2192 $57.9B by 2030",
-        "profit_margin": "Regulated utility; stable, predictable margins",
-        "debt": "Capital-intensive; regulated leverage, well-structured",
-        "pe_vs_history_peers": "~14x on annualized earnings; ~3.5% dividend yield; below US utility peers"
-      },
-      "news": "Q1'26 (rep. May 6) steady results; Arizona rate case win (9.61% ROE); data-center load growth in Arizona; Springerville gas conversion underway.",
-      "bull_case": "Predictable 4-6% dividend growth; expanding rate base; data-center demand tailwinds in Arizona; reliable dividend history; cheaper than US peers.",
-      "bear_case": "Modest EPS growth; leveraged balance sheet; CAD/USD currency exposure; limited upside; slightly below hold composite.",
-      "valuation": "Modestly cheap vs US utility peers",
-      "factor_scores": {
-        "valuation": 60,
-        "growth": 42,
-        "financial_health": 65,
-        "momentum": 50,
-        "moat": 75
-      },
-      "composite_score": 58.0,
-      "signal": "TRIM",
+      "signal": "SELL",
+      "signal_change": "DOWNGRADED from TRIM",
+      "conviction": "MEDIUM",
+      "factor_scores": { "growth": 42, "valuation": 60, "financial_health": 65, "momentum": 50, "moat": 75 },
+      "composite_score": 57.5,
+      "score_change_vs_prior": "-0.5",
+      "one_line_reason": "SELL — composite 57.5, below 60 threshold; modest EPS growth + CAD/USD exposure; free capital for higher-conviction names.",
+      "bull_case": "4-6% dividend growth; data-center load in Arizona; regulated earnings predictable.",
+      "bear_case": "Modest growth; leveraged balance sheet; below hold threshold.",
       "target_weight_pct": 0.0,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Medium",
-      "confidence_note": "Quality regulated utility slightly below the 60 hold composite (58.0). Steady but not compelling to add to at current prices. Rate cuts would be a positive catalyst.",
-      "sources": [
-        "https://www.stocktitan.net/news/FTS/fortis-inc-releases-first-quarter-2026-1sq0c8sd8qf6.html",
-        "https://www.tipranks.com/news/company-announcements/fortis-posts-steady-q1-2026-earnings-as-capital-plan-u-s-regulatory-wins-advance"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "investopedia_position": {
+        "held": true,
+        "shares": 50,
+        "avg_cost": 56.61,
+        "current_price": 55.33,
+        "market_value": 2766.50,
+        "unrealized_pl": -64.0,
+        "unrealized_pl_pct": -2.26,
+        "action": "SELL ALL 50 SHARES TODAY"
+      }
     },
     {
       "ticker": "NRG",
       "name": "NRG Energy Inc.",
       "sector": "Utilities",
       "price": 134.08,
-      "business": "Competitive power generator and retail electricity/gas provider across the US and Canada. The recent $12B LS Power acquisition dramatically expanded generation capacity but added significant financial complexity and leverage.",
-      "metrics": {
-        "revenue_growth": "+19.5% YoY (Q1'26 $10.26B, beat estimates)",
-        "earnings_growth": "Adj EPS $1.49 (-44% YoY); missed estimates due to LS Power costs, mild Texas weather, mark-to-market hedge losses",
-        "profit_margin": "Cyclical; compressed near-term by acquisition integration costs",
-        "debt": "Significantly elevated post-$12B LS Power acquisition; no regulated earnings floor",
-        "pe_vs_history_peers": "TTM P/E ~37.8 (cost-depressed); fwd ~17.2 if 14% long-term EPS growth targets are met"
-      },
-      "news": "Q1'26 (rep. Apr 30) revenue beat but EPS miss; reaffirmed 14%+ annual EPS/FCF growth through 2030 and $1B buyback plan; stock fell ~5% on earnings day.",
-      "bull_case": "Reaffirmed aggressive 14% long-term EPS growth; LS Power scale should drive efficiencies; low fwd P/E if targets met; $1B buyback.",
-      "bear_case": "EPS already -44% YoY; $12B acquisition raised debt sharply; weather and commodity-price dependent; thesis relies entirely on acquisition integration execution.",
-      "valuation": "Elevated on trailing; cheap on forward \u2014 binary outcome",
-      "factor_scores": {
-        "valuation": 42,
-        "growth": 52,
-        "financial_health": 45,
-        "momentum": 35,
-        "moat": 60
-      },
-      "composite_score": 47.6,
       "signal": "EXIT",
+      "signal_change": "UNCHANGED (confirmed EXIT)",
+      "conviction": "LOW",
+      "factor_scores": { "growth": 50, "valuation": 42, "financial_health": 45, "momentum": 38, "moat": 60 },
+      "composite_score": 47.6,
+      "score_change_vs_prior": "0.0",
+      "one_line_reason": "EXIT — composite 47.6 (<50 floor): Q1 EPS -44% YoY, missed by 46%; $12B acquisition loaded leverage; thesis requires flawless execution with no margin for error.",
+      "bull_case": "14% EPS growth target 2030 if LS Power integration succeeds; $1B buyback; low fwd P/E if targets met.",
+      "bear_case": "EPS already -44% YoY; acquisition elevated debt sharply; weather/commodity dependent; binary outcome.",
       "target_weight_pct": 0.0,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Low-medium",
-      "confidence_note": "Below the 50 composite exit threshold (47.7). Acquisition integration uncertainty, earnings shortfall, and high leverage disqualify it. Two quarters of clean EPS delivery would be needed to reconsider.",
-      "sources": [
-        "https://www.investing.com/news/transcripts/earnings-call-transcript-nrg-energys-q1-2026-results-miss-eps-forecasts-stock-dips-93CH-4664273",
-        "https://www.gurufocus.com/term/forward-pe-ratio/NRG"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "investopedia_position": {
+        "held": true,
+        "shares": 100,
+        "avg_cost": 165.01,
+        "current_price": 134.08,
+        "market_value": 13408.0,
+        "unrealized_pl": -3093.0,
+        "unrealized_pl_pct": -18.74,
+        "action": "SELL ALL 100 SHARES TODAY — stop loss, cut losses"
+      }
     },
     {
       "ticker": "T",
       "name": "AT&T Inc.",
       "sector": "Communication Services",
-      "price": 24.8,
-      "business": "Second-largest US wireless carrier (Mobility) plus a major fiber broadband provider (AT&T Fiber). Divested WarnerMedia in 2022; now purely a connectivity company. Generates substantial EBITDA but carries historically high debt from past acquisitions.",
-      "metrics": {
-        "revenue_growth": "+2.9% YoY (Q1'26 $31.5B); wireless and fiber growing; legacy services -25%",
-        "earnings_growth": "Adj EPS $0.57 (+12% YoY); FCF $2.5B (-19%, below estimates)",
-        "profit_margin": "Adj EBITDA $11.8B (+2.6%); margins stable but under pressure",
-        "debt": "~$130B+ total debt; paying down gradually but leverage remains very high",
-        "pe_vs_history_peers": "TTM P/E ~8.8 vs 10-yr avg ~12; ~5.6% dividend yield"
-      },
-      "news": "Q1'26 (rep. Apr 23) mixed results; wireless/fiber growing but FCF disappointed; legacy revenue collapse ongoing; net debt reduction on track.",
-      "bull_case": "Extremely cheap at ~9x earnings; wireless/fiber are secular growth drivers; ~5.6% dividend; debt paydown path improving balance sheet.",
-      "bear_case": "Chronically high debt limits flexibility; FCF miss raises dividend sustainability questions; legacy revenue -25% with no floor; limited growth story.",
-      "valuation": "Cheap on earnings; cheap for a reason",
-      "factor_scores": {
-        "valuation": 72,
-        "growth": 42,
-        "financial_health": 50,
-        "momentum": 38,
-        "moat": 55
-      },
+      "price": 24.80,
+      "signal": "SELL",
+      "signal_change": "DOWNGRADED from TRIM",
+      "conviction": "LOW-MEDIUM",
+      "factor_scores": { "growth": 42, "valuation": 72, "financial_health": 50, "momentum": 38, "moat": 55 },
       "composite_score": 51.6,
-      "signal": "TRIM",
+      "score_change_vs_prior": "0.0",
+      "one_line_reason": "SELL — composite 51.6: FCF miss; legacy revenue -25%; $130B+ debt; no near-term growth catalyst.",
+      "bull_case": "~9x earnings; wireless/fiber secular growth; 5.6% dividend; debt paydown path.",
+      "bear_case": "FCF disappointed; legacy collapse has no floor; debt load limits flexibility.",
       "target_weight_pct": 0.0,
-      "current_position": {
-        "shares": 0,
-        "avg_cost": 0.0,
-        "market_value": 0.0,
-        "unrealized_pl": 0.0,
-        "unrealized_pl_pct": 0.0
-      },
-      "confidence": "Low-medium",
-      "confidence_note": "Cheap on P/E but below 60 composite (51.6). Debt load, FCF miss, and lack of growth catalyst hold the score down. Sustained FCF improvement or debt paydown acceleration would upgrade it.",
-      "sources": [
-        "https://meyka.com/blog/t-stock-earnings-recap-att-inc-q1-2026-results-2004/",
-        "https://www.macrotrends.net/stocks/charts/T/at-t/pe-ratio"
-      ],
-      "timestamp": "2026-05-30T06:00:00Z"
+      "investopedia_position": {
+        "held": true,
+        "shares": 100,
+        "avg_cost": 26.86,
+        "current_price": 24.80,
+        "market_value": 2480.0,
+        "unrealized_pl": -206.0,
+        "unrealized_pl_pct": -7.65,
+        "action": "SELL ALL 100 SHARES TODAY"
+      }
+    },
+    {
+      "ticker": "CRDO",
+      "name": "Credo Technology Group Holding",
+      "sector": "Technology",
+      "price": 225.10,
+      "signal": "BUY (pending earnings)",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 95, "valuation": 42, "financial_health": 75, "momentum": 90, "moat": 68 },
+      "composite_score": 74.3,
+      "one_line_reason": "AI active electrical cables for data-center clusters; Q3 rev +201% YoY; Q4 estimate +154% YoY; earnings tonight after close — wait for confirmation.",
+      "bull_case": "Explosive revenue ramp driven by AI cluster interconnect demand; 4-qtr avg beat of 31.6%; inside Rebellion AI factories.",
+      "bear_case": "Binary earnings event tonight; customer concentration; tech sector at 3-position cap.",
+      "target_weight_pct": 0.0,
+      "investopedia_position": { "held": false, "note": "CANDIDATE: If Q4 beats and guides up tonight, consider adding ~20 shares (~$4,500) tomorrow. Tech sector rotation required." }
+    },
+    {
+      "ticker": "MRVL",
+      "name": "Marvell Technology Inc.",
+      "sector": "Technology",
+      "price": 204.83,
+      "signal": "BUY (pending rotation)",
+      "conviction": "HIGH",
+      "factor_scores": { "growth": 75, "valuation": 40, "financial_health": 78, "momentum": 88, "moat": 78 },
+      "composite_score": 71.2,
+      "one_line_reason": "Custom AI silicon for Amazon/Google; record Q1 FY27 +28% YoY; UBS raised PT to $230.",
+      "bull_case": "Sticky custom-silicon partnerships; networking + optical DSP growing; below UBS PT.",
+      "bear_case": "Rich valuation; customer concentration; tech sector at cap.",
+      "target_weight_pct": 0.0,
+      "investopedia_position": { "held": false, "note": "CANDIDATE: Add on next tech rotation (if AAPL weakens post-WWDC or another tech name drops below 70)." }
+    },
+    {
+      "ticker": "HD",
+      "name": "The Home Depot Inc.",
+      "sector": "Consumer Discretionary",
+      "price": 318.0,
+      "signal": "EXIT",
+      "conviction": "MEDIUM",
+      "factor_scores": { "growth": 45, "valuation": 50, "financial_health": 70, "momentum": 55, "moat": 82 },
+      "composite_score": 59.9,
+      "score_change_vs_prior": "0.0",
+      "one_line_reason": "Not held — composite 59.9; big-ticket demand soft while rates stay high; flat EPS at full multiple.",
+      "target_weight_pct": 0.0,
+      "investopedia_position": { "held": false }
     }
   ],
   "portfolio": {
-    "status": "initialized (first run)",
+    "status": "day_2_rebalance",
     "mode": "trade plan only (user executes in Investopedia)",
     "simulated_starting_capital": 100000.0,
     "inception_date": "2026-05-30",
-    "total_market_value": 0.0,
-    "cash": 100000.0,
-    "total_return_pct": 0.0,
-    "holdings_count": 16,
+    "investopedia_total_value_as_of_may31": 121604.81,
+    "investopedia_cash": 28010.31,
+    "investopedia_annual_return_pct": 17.24,
     "benchmark": {
       "name": "S&P 500 (VOO/SPY)",
       "sp500_level_asof": 7580.06,
-      "voo_ytd_total_return_pct": 11.0,
-      "portfolio_return_pct": 0.0,
-      "portfolio_vs_benchmark_pct": 0.0,
-      "note": "Portfolio initialized today at 0%; benchmark comparison accrues from inception (2026-05-30). VOO YTD +11.0% shown for market context only. Each later run will compute portfolio return since inception minus SPY return over the same window."
+      "portfolio_annual_return_pct": 17.24,
+      "note": "Portfolio +17.24% annualized vs S&P 500 YTD +11% (VOO). Outperforming on AAPL strength (+19.9%). Losers (NRG -18.7%, DUK -6.8%, NEE -6.4%, T -7.7%) are dragging. Today's rebalance is designed to exit losers and align with high-conviction names."
     },
+    "current_investopedia_holdings": [
+      { "ticker": "AAPL", "shares": 100, "avg_cost": 259.62, "current_price": 311.35, "market_value": 31135.0, "unrealized_pl": 5173.0, "pct": 19.9, "signal": "HOLD" },
+      { "ticker": "DUK", "shares": 250, "avg_cost": 131.73, "current_price": 122.73, "market_value": 30682.5, "unrealized_pl": -2250.0, "pct": -6.83, "signal": "SELL TODAY" },
+      { "ticker": "NEE", "shares": 150, "avg_cost": 92.91, "current_price": 87.01, "market_value": 13051.5, "unrealized_pl": -885.0, "pct": -6.35, "signal": "HOLD" },
+      { "ticker": "NRG", "shares": 100, "avg_cost": 165.01, "current_price": 134.08, "market_value": 13408.0, "unrealized_pl": -3093.0, "pct": -18.74, "signal": "SELL TODAY" },
+      { "ticker": "FTS", "shares": 50, "avg_cost": 56.61, "current_price": 55.33, "market_value": 2766.5, "unrealized_pl": -64.0, "pct": -2.26, "signal": "SELL TODAY" },
+      { "ticker": "T", "shares": 100, "avg_cost": 26.86, "current_price": 24.80, "market_value": 2480.0, "unrealized_pl": -206.0, "pct": -7.65, "signal": "SELL TODAY" }
+    ],
+    "top_5_new_picks_today": [
+      { "rank": 1, "ticker": "NVDA", "composite": 83.6, "thesis": "AI accelerator monopoly. $91B guidance next quarter. Fwd P/E ~22 reasonable for 71% earnings growth. CUDA moat near-unassailable." },
+      { "rank": 2, "ticker": "GOOGL", "composite": 82.8, "thesis": "Berkshire Hathaway just took a major new stake. Cloud +63%, Search growing. Cheapest mega-cap on growth-adjusted P/E." },
+      { "rank": 3, "ticker": "MSFT", "composite": 80.2, "thesis": "Best enterprise AI distribution. Azure +40% accelerating. AI run-rate >$37B. P/E below its own 12-month average." },
+      { "rank": 4, "ticker": "META", "composite": 79.0, "thesis": "AI-driven ad efficiency compounding revenue +33%. TTM P/E ~23 is undemanding. ~15x fwd EPS. ~3.9B user base monetizing." },
+      { "rank": 5, "ticker": "CRDO", "composite": 74.3, "thesis": "AI interconnect leader — Q3 revenue +201% YoY. Q4 estimates +154%. Earnings tonight after close; best AI connectivity pure-play below NVDA scale." }
+    ],
     "excluded_below_60": [
-      {
-        "ticker": "HD",
-        "composite": 59.9,
-        "reason": "composite<60"
-      },
-      {
-        "ticker": "DUK",
-        "composite": 56.2,
-        "reason": "composite<60"
-      },
-      {
-        "ticker": "FTS",
-        "composite": 58.0,
-        "reason": "composite<60"
-      },
-      {
-        "ticker": "NRG",
-        "composite": 47.6,
-        "reason": "composite<60"
-      },
-      {
-        "ticker": "T",
-        "composite": 51.6,
-        "reason": "composite<60"
-      }
-    ]
-  },
-  "investopedia_portfolio": {
-    "as_of": "2026-05-31",
-    "account": {
-      "total_value": 121604.81,
-      "cash": 28010.31,
-      "annual_return_pct": 17.24,
-      "as_of": "2026-05-31"
-    },
-    "holdings": [
-      {
-        "ticker": "AAPL",
-        "shares": 100,
-        "avg_cost": 259.62,
-        "current_price": 312.06,
-        "market_value": 31206.0,
-        "unrealized_pl": 5244.0,
-        "unrealized_pl_pct": 20.2
-      },
-      {
-        "ticker": "DUK",
-        "shares": 250,
-        "avg_cost": 131.73,
-        "current_price": 122.73,
-        "market_value": 30682.5,
-        "unrealized_pl": -2250.01,
-        "unrealized_pl_pct": -6.83
-      },
-      {
-        "ticker": "FTS",
-        "shares": 50,
-        "avg_cost": 56.61,
-        "current_price": 55.33,
-        "market_value": 2766.5,
-        "unrealized_pl": -64.0,
-        "unrealized_pl_pct": -2.26
-      },
-      {
-        "ticker": "NEE",
-        "shares": 150,
-        "avg_cost": 92.91,
-        "current_price": 87.01,
-        "market_value": 13051.5,
-        "unrealized_pl": -885.5,
-        "unrealized_pl_pct": -6.35
-      },
-      {
-        "ticker": "NRG",
-        "shares": 100,
-        "avg_cost": 165.01,
-        "current_price": 134.08,
-        "market_value": 13408.0,
-        "unrealized_pl": -3092.5,
-        "unrealized_pl_pct": -18.74
-      },
-      {
-        "ticker": "T",
-        "shares": 100,
-        "avg_cost": 26.86,
-        "current_price": 24.8,
-        "market_value": 2480.0,
-        "unrealized_pl": -205.5,
-        "unrealized_pl_pct": -7.65
-      }
+      { "ticker": "NRG", "composite": 47.6, "reason": "Below 50 floor — EXIT immediately" },
+      { "ticker": "DUK", "composite": 54.1, "reason": "Below 60 — SELL" },
+      { "ticker": "T", "composite": 51.6, "reason": "Below 60 — SELL" },
+      { "ticker": "FTS", "composite": 57.5, "reason": "Below 60 — SELL" },
+      { "ticker": "UNH", "composite": 59.7, "reason": "Dropped below 60 — TRIM/avoid" },
+      { "ticker": "HD", "composite": 59.9, "reason": "Below 60 — not held" }
     ]
   }
 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
