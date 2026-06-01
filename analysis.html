@@ -176,10 +176,11 @@ tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
 </div>
 
 <div class="cards">
-  <div class="kpi"><div class="v">$0.00</div><div class="l">Account Value</div></div>
-  <div class="kpi"><div class="v" style="color:#1a7f37">+0.00%</div><div class="l">Annual Return</div></div>
-  <div class="kpi"><div class="v">$0.00</div><div class="l">Cash &amp; Buying Power</div></div>
-  <div class="kpi"><div class="v" style="color:#1a7f37">+$0.00 (+0.00%)</div><div class="l">Net Unrealized P/L</div></div>
+  <div class="kpi"><div class="v">$121,604.81</div><div class="l">Account Value</div></div>
+  <div class="kpi"><div class="v" style="color:#1a7f37">+17.19%</div><div class="l">Annual Return</div></div>
+  <div class="kpi"><div class="v">$74,807.56</div><div class="l">Buying Power</div></div>
+  <div class="kpi"><div class="v">$28,010.31</div><div class="l">Cash</div></div>
+  <div class="kpi"><div class="v" style="color:#cf222e">-$1,253.51 (-1.32%)</div><div class="l">Net Unrealized P&amp;L</div></div>
   <div class="kpi"><div class="v">+11.0%</div><div class="l">VOO YTD (context)</div></div>
 </div>
 
@@ -193,7 +194,7 @@ tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
 
 <div class="panel">
   <h3>My Investopedia Holdings</h3>
-  <p class="disc">As of --. Click any row for the full research write-up and a live chart.</p>
+  <p class="disc">As of June 1, 2026. Click any row for the full research write-up and a live chart.</p>
   <div class="table-scroll">
   <table>
     <thead><tr>
@@ -203,7 +204,14 @@ tr.tp-done-skipped td{background:rgba(87,96,106,.07);opacity:.65}
       <th class="num">Unrealized P/L</th>
       <th>Score &middot; Factors</th><th>Advice</th>
     </tr></thead>
-    <tbody></tbody>
+    <tbody>
+      <tr class="data-row" data-ticker="AAPL"><td><span class="chev">&#9656;</span></td><td class="tk">AAPL</td><td class="num">$259.62</td><td class="num">$312.06</td><td class="num">100</td><td class="num">$31,206.00</td><td class="num up">+$5,244.00 (+20.20%)</td><td class="num"><span style="color:#1a7f37;font-weight:700">74.4</span></td><td><span class="sig hold">HOLD</span></td></tr>
+      <tr class="data-row" data-ticker="DUK"><td><span class="chev">&#9656;</span></td><td class="tk">DUK</td><td class="num">$131.73</td><td class="num">$122.73</td><td class="num">250</td><td class="num">$30,682.50</td><td class="num dn">-$2,250.01 (-6.83%)</td><td class="num"><span style="color:#cf222e;font-weight:700">54.1</span></td><td><span class="sig exit">SELL</span></td></tr>
+      <tr class="data-row" data-ticker="NEE"><td><span class="chev">&#9656;</span></td><td class="tk">NEE</td><td class="num">$92.91</td><td class="num">$87.01</td><td class="num">150</td><td class="num">$13,051.50</td><td class="num dn">-$885.50 (-6.35%)</td><td class="num"><span style="color:#bf8700;font-weight:700">62.0</span></td><td><span class="sig hold">HOLD</span></td></tr>
+      <tr class="data-row" data-ticker="NRG"><td><span class="chev">&#9656;</span></td><td class="tk">NRG</td><td class="num">$165.01</td><td class="num">$134.08</td><td class="num">100</td><td class="num">$13,408.00</td><td class="num dn">-$3,092.50 (-18.74%)</td><td class="num"><span style="color:#cf222e;font-weight:700">47.6</span></td><td><span class="sig exit">EXIT</span></td></tr>
+      <tr class="data-row" data-ticker="FTS"><td><span class="chev">&#9656;</span></td><td class="tk">FTS</td><td class="num">$56.61</td><td class="num">$55.33</td><td class="num">50</td><td class="num">$2,766.50</td><td class="num dn">-$64.00 (-2.26%)</td><td class="num"><span style="color:#bf8700;font-weight:700">57.5</span></td><td><span class="sig trim">TRIM</span></td></tr>
+      <tr class="data-row" data-ticker="T"><td><span class="chev">&#9656;</span></td><td class="tk">T</td><td class="num">$26.86</td><td class="num">$24.80</td><td class="num">100</td><td class="num">$2,480.00</td><td class="num dn">-$205.50 (-7.65%)</td><td class="num"><span style="color:#cf222e;font-weight:700">51.6</span></td><td><span class="sig trim">TRIM</span></td></tr>
+    </tbody>
   </table>
   </div>
   <div class="legend">Advice:
@@ -1477,72 +1485,4 @@ function setTradeStatus(tk,status,btn){
   var btns=row.querySelectorAll('.tp-btn');
   var alreadyActive=(btn&&btn.classList.contains('active'));
   btns.forEach(function(b){b.classList.remove('active');});
-  row.classList.remove('tp-done-bought','tp-done-partial','tp-done-skipped');
-  if(alreadyActive){
-    if(label)label.textContent='';
-    try{
-      var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
-      delete all[tk];
-      localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));
-    }catch(e){}
-  } else {
-    if(btn)btn.classList.add('active');
-    row.classList.add('tp-done-'+status);
-    var labels={bought:'Bought ✓',partial:'Partial fill',skipped:'Skipped'};
-    if(label)label.textContent=labels[status]||status;
-    try{
-      var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
-      all[tk]=status;
-      localStorage.setItem(TP_RUN_KEY,JSON.stringify(all));
-    }catch(e){}
-  }
-  updateTpProgress();
-}
-
-function loadTradeStatuses(){
-  try{
-    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
-    Object.keys(all).forEach(function(tk){
-      var status=all[tk];
-      var row=document.getElementById('tpr-'+tk);
-      if(!row)return;
-      var btn=row.querySelector('.tp-'+status);
-      var label=document.getElementById('tpsl-'+tk);
-      if(btn)btn.classList.add('active');
-      row.classList.add('tp-done-'+status);
-      var labels={bought:'Bought ✓',partial:'Partial fill',skipped:'Skipped'};
-      if(label)label.textContent=labels[status]||status;
-    });
-  }catch(e){}
-  updateTpProgress();
-}
-
-function updateTpProgress(){
-  var el=document.getElementById('tp-progress');
-  if(!el)return;
-  try{
-    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
-    var keys=Object.keys(all);
-    var total=document.querySelectorAll('[id^="tpr-"]').length;
-    var bought=keys.filter(function(k){return all[k]==='bought';}).length;
-    var partial=keys.filter(function(k){return all[k]==='partial';}).length;
-    var skipped=keys.filter(function(k){return all[k]==='skipped';}).length;
-    if(keys.length===0){el.textContent='';return;}
-    el.textContent=bought+' bought · '+partial+' partial · '+skipped+' skipped · '+(total-keys.length)+' pending';
-  }catch(e){}
-}
-
-function exportTradeStatus(){
-  try{
-    var all=JSON.parse(localStorage.getItem(TP_RUN_KEY)||'{}');
-    var out={run_key:TP_RUN_KEY,exported:new Date().toISOString(),statuses:all};
-    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
-    var a=document.createElement('a');
-    a.href=URL.createObjectURL(blob);
-    a.download='trade_status.json';
-    a.click();
-  }catch(e){alert('Export failed: '+e);}
-}
-</script>
-</body>
-</html>
+  row.classList.remove('tp-done-bought','tp-done-partial','
